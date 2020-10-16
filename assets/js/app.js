@@ -8,7 +8,7 @@ $(".btn").on('click', function (e) {
     chamaPagina(url);
 });
 
-//chama página
+// chama página
 function chamaPagina(url) {
     $.ajax(
         {
@@ -19,4 +19,11 @@ function chamaPagina(url) {
                 $(".conteudo").html(url);
             }
         });
+}
+
+// modal
+function modal() {
+    $(".modal").modal({ show: true });
+    $(".modal-title").empty().append('<i class="fa fa-user fa-fw" aria-hidden="true" title="Dados Pessoais"></i>&nbsp;Dados Pessoais');
+    $(".modal-body").empty().append('<iframe src="../../../dashboard/dados-pessoais.php" scrolling="yes"></iframe>');
 }
