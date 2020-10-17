@@ -1,0 +1,84 @@
+<!-- to do list -->
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <!-- card -->
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- título -->
+                    <h2 class="card-title">To do list</h2>
+
+                    <!-- tabela -->
+                    <table class="table" id="tbTodolist">
+                        <span></span>
+                    </table>
+
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary abreModal">Novo</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- título -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <!-- conteúdo -->
+            <div class="modal-body">
+
+                <!-- formulário -->
+                <form>
+                    <div id="groupID" class="form-group">
+                        <label for="inputID">ID</label>
+                        <input type="text" class="form-control" id="inputID" placeholder="id" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputTitulo">Título</label>
+                        <input type="text" class="form-control" id="inputTitulo" placeholder="título">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescricao">Descrição</label>
+                        <input type="text" class="form-control" id="inputDescricao" placeholder="título">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputData">Data</label>
+                        <input type="date" class="form-control" id="inputData" placeholder="data">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputStatus">Status</label>
+                        <select class="form-control" id="inputStatus">
+                            <option value="0">backlog</option>
+                            <option value="1">andamento</option>
+                            <option value="2">finalizado</option>
+                        </select>
+                    </div>
+                </form>
+
+            </div>
+
+            <!-- botões -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary">Cancelar</button>
+                <button id="btnExcluir" type="button" class="btn btn-danger">Excluir</button>
+                <button id="btnSalvar" type="button" class="btn btn-success">Salvar</button>
+                <button id="btnAdicionar" type="button" class="btn btn-success">Adicionar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
