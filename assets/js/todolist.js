@@ -1,33 +1,30 @@
 $(document).ready(function () {
 
-    operacao = "C"; // C= Create, R= Read, U= Update, D=Delete
     indice = -1; // seta índice do item selecionado na tabela
+    qtde = tbTarefas.length;
     listarTarefa();
 });
 
 // Aciona exclusão
 $("#btnExcluir").on('click', function () {
-    //indice = ($(this).text());
     excluirTarefa(indice);
 });
 
 // Aciona edição
 $("#btnSalvar").on('click', function () {
-    //indice = ($(this).text());
     editarTarefa(indice);
-    $('.abreModal').modal('toggle');
 });
 
 // Aciona adição
 $("#btnAdicionar").on('click', function () {
     adicionarTarefa();
-    $('.abreModal').modal('toggle');
 });
 
 // Aciona modal
 $('.abreModal').on('click', function (e) {
     e.preventDefault();
     id = ($(this).text());
+
 
     if (id == "Novo") {
         id = -1;
@@ -37,11 +34,8 @@ $('.abreModal').on('click', function (e) {
 
 // Adicionar tarefa
 function adicionarTarefa() {
-    alert('adição');
     tarefa = JSON.stringify({
-        //id: $("#inputEmail").val(),
-        id: '100',
-        //userid: $("#inputEmail").val(),
+        id: qtde++,
         titulo: $("#inputTitulo").val(),
         descricao: $("#inputDescricao").val(),
         data: $("#inputData").val(),
@@ -49,30 +43,27 @@ function adicionarTarefa() {
     });
     tbTarefas.push(tarefa);
     localStorage.setItem("tbTarefas", JSON.stringify(tbTarefas));
-    alert("Registro adicionado.");
+    mensagem(7);
 }
 
 // Editar tarefa
 function editarTarefa(indice) {
-    alert('edição');
     tbTarefas[indice] = JSON.stringify({
-        //id: $("#inputEmail").val(),
-        id: '100',
-        //userid: $("#inputEmail").val(),
+        id: indice,
         titulo: $("#inputTitulo").val(),
         descricao: $("#inputDescricao").val(),
         data: $("#inputData").val(),
         status: $("#inputStatus").val()
     });
     localStorage.setItem("tbTarefas", JSON.stringify(tbTarefas));
-    alert("Informações editadas.")
+    mensagem(8);
 }
 
 // Excluir tarefa
 function excluirTarefa(indice) {
     tbTarefas.splice(indice, 1);
     localStorage.setItem("tbTarefas", JSON.stringify(tbTarefas));
-    alert("Registro excluído.");
+    mensagem(9);
 }
 
 // Listar tarefa
@@ -139,7 +130,7 @@ function modal(id) {
     }
     else {
 
-        // edição    
+        // edição
 
         for (var i in tbTarefas) {
             tarefa = JSON.parse(tbTarefas[i]);

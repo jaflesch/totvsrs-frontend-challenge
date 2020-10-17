@@ -8,7 +8,7 @@ $(document).ready(function () {
     tbUsuarios = JSON.parse(tbUsuarios);
     tbTarefas = JSON.parse(tbTarefas);
 
-    // Caso não haja conteúdo, iniciamos vetores vazios
+    // Caso não haja conteúdo, inicia vetores
     if (tbUsuarios == null)
         tbUsuarios = [];
     if (tbTarefas == null)
@@ -119,73 +119,4 @@ function buscaUsuario(email, senha, funcao) {
         }
     }
     return aux;
-}
-
-// Exibe mensagem para o usuário
-function mensagem(status) {
-    switch (status) {
-        case 1:
-            Swal.fire(
-                {
-                    icon: 'warning',
-                    title: "Preencha todos os campos",
-                    text: "Tente novamente",
-                    confirmButtonText: "Ok",
-                    allowOutsideClick: false
-                });
-            break;
-        case 2:
-            Swal.fire(
-                {
-                    icon: 'error',
-                    title: "Login e/ou senha inválidos",
-                    text: "Tente novamente",
-                    confirmButtonText: "Ok",
-                    allowOutsideClick: false
-                });
-            break;
-        case 3:
-            Swal.fire(
-                {
-                    icon: 'error',
-                    title: "E-mail já cadastrado",
-                    text: "Tente novamente ou efetue login",
-                    confirmButtonText: "Ok",
-                    allowOutsideClick: false
-                });
-            $("#inputEmail").val('');
-            break;
-        case 4:
-            Swal.fire(
-                {
-                    icon: 'success',
-                    title: "Seu cadastro foi efetuado com sucesso",
-                    confirmButtonText: "Ok",
-                    allowOutsideClick: false
-                });
-            break;
-        case 5:
-            Swal.fire(
-                {
-                    icon: 'warning',
-                    title: "Não é um e-mail válido",
-                    text: "Tente novamente",
-                    confirmButtonText: "Ok",
-                    allowOutsideClick: false
-                });
-            $("#inputEmail").val('');
-            break;
-        case 6:
-            Swal.fire(
-                {
-                    icon: 'warning',
-                    title: "As senhas não combinam",
-                    text: "Tente novamente",
-                    confirmButtonText: "Ok",
-                    allowOutsideClick: false
-                });
-            $("#inputSenhaConfirma").val('');
-            $("#inputSenha").val('');
-            break;
-    }
 }

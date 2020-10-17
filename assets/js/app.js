@@ -9,11 +9,9 @@ $(window).load(function () {
     $("form").submit(function () {
         return false;
     });
-
-    return;
 });
 
-// Ativa troca de página
+// Aciona troca de página
 $('.buscaPagina').on('click', function (e) {
     e.preventDefault();
     link = $(this).attr('href');
@@ -30,8 +28,9 @@ function buscaPagina(link) {
             success: function (data) {
                 $.getScript("assets/js/app.js");
                 $.getScript("assets/js/autenticacao.js");
-                $.getScript("assets/js/validador.js");
                 $.getScript("assets/js/todolist.js");
+                $.getScript("assets/js/validador.js");
+                $.getScript("assets/js/mensagens.js");
                 $(".conteudo").html(data);
             }
         });

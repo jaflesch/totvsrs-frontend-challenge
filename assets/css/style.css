@@ -1,1 +1,11 @@
 * { color: #333; }
+
+.card
+{
+    margin:50px;
+}
+
+.imgCard
+{ 
+    width: 70%;
+}
