@@ -12,26 +12,12 @@
 
                     <!-- tabela -->
                     <table class="table" id="tbTodolist">
-                        <thead>
-                            <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">Título</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Data</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                        </tbody>
+                        <span></span>
                     </table>
 
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary abreModal">Novo</button>
                 </div>
             </div>
 
@@ -57,7 +43,7 @@
 
                 <!-- formulário -->
                 <form>
-                    <div class="form-group">
+                    <div id="groupID" class="form-group">
                         <label for="inputID">ID</label>
                         <input type="text" class="form-control" id="inputID" placeholder="id" disabled>
                     </div>
@@ -66,15 +52,19 @@
                         <input type="text" class="form-control" id="inputTitulo" placeholder="título">
                     </div>
                     <div class="form-group">
-                        <label for="inputData">Data</label>
-                        <input type="date" class="form-control" id="inputinputDataEmail" placeholder="data">
+                        <label for="inputDescricao">Descrição</label>
+                        <input type="text" class="form-control" id="inputDescricao" placeholder="título">
                     </div>
                     <div class="form-group">
-                        <label for="inputSenha">Status</label>
-                        <select class="form-control" id="inputSenha">
-                            <option>backlog</option>
-                            <option>andamento</option>
-                            <option>finalizado</option>
+                        <label for="inputData">Data</label>
+                        <input type="date" class="form-control" id="inputData" placeholder="data">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputStatus">Status</label>
+                        <select class="form-control" id="inputStatus">
+                            <option value="0">backlog</option>
+                            <option value="1">andamento</option>
+                            <option value="2">finalizado</option>
                         </select>
                     </div>
                 </form>
@@ -83,9 +73,10 @@
 
             <!-- botões -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Salvar</button>
-                <button type="button" class="btn btn-primary">Excluir</button>
+                <button type="button" class="btn btn-secondary">Cancelar</button>
+                <button id="btnExcluir" type="button" class="btn btn-danger">Excluir</button>
+                <button id="btnSalvar" type="button" class="btn btn-success">Salvar</button>
+                <button id="btnAdicionar" type="button" class="btn btn-success">Adicionar</button>
             </div>
 
         </div>
