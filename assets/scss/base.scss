@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    background: $color2;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+
+    .clearfix{
+        &::after{
+            display: table;
+            clear: both;
+            content: "";
+        }
+    }
+
+    .container{
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    #appContainer{
+        height: calc(100vh - 96px);
+    }
+    
+    form{
+        input{
+            width: 100%;
+            max-width: 256px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px $color1 solid;
+        }
+ 
+    }
+}

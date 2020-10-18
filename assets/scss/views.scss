@@ -1,0 +1,11 @@
+.viewBase{
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 25px;
+    text-align: center;
+    background: white;
+    color: #000;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
