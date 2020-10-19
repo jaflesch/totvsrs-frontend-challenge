@@ -7,7 +7,7 @@ const viewRegistrar = () => (
             <input type="password"  name="senha" placeholder="Digite sua senha">
             <input type="password"  name="senha2" placeholder="Digite sua senha novamente">
             <button data-view="ViewPrincipal" class="btn btn-solid btn-voltar">Voltar</button>
-            <button data-view="viewAreaUsuario" class="btn btn-unfilled btn-registrar">Registrar-se</button>
+            <button data-view="ViewTodo" class="btn btn-unfilled btn-registrar">Registrar-se</button>
         </form>
     </div>`
 );

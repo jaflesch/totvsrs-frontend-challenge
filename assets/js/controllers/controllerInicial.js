@@ -1,8 +1,12 @@
 class ControllerInicial {
 
     constructor() {
+
         this.appElement = document.querySelector('#appContainer');
+
+        //Adiciona Event Listeners nos botões de navegação do APP
         this.bindListeners();
+        this.verificaLogin();
     }
     
     bindListeners(){
@@ -16,9 +20,16 @@ class ControllerInicial {
             });
         });
     }
-}   
-  
-const controllerInicial = new ControllerInicial();
 
+    // Verifica se o usuário está logado e atualiza a DOM além de 
+    verificaLogin() {
+        let logado = userModel.getLogado();
+        
+        if(logado){
+            renderTodos();
+            renderBotaoSair();
+        }
+    }
+}  
 
         
