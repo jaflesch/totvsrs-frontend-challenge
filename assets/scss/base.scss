@@ -21,6 +21,19 @@ body{
         height: calc(100vh - 96px);
     }
     
+    .modal{
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        text-align: left;
+        background: rgba(0,0,0, .9);
+        transition: opacity .25s ease;
+    }
+
     form{
         input{
             width: 100%;

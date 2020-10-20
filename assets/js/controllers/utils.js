@@ -19,6 +19,8 @@ const mudarView = (e) => {
                 break;
             case "ViewTodo":
                 appElement.innerHTML = ViewTodo();
+                controllerTodo.bindListeners();
+                controllerTodo.updateTodoDOM();
                 break;
         default:
             break;
@@ -29,6 +31,7 @@ const mudarView = (e) => {
 const renderTodos = () => {
     let appElement = document.querySelector('#appContainer');
     appElement.innerHTML = ViewTodo();
+    controllerTodo.updateTodoDOM();
 }
 
 //Renderiza o botão sair no Header caso o usuário consiga logar
@@ -58,5 +61,37 @@ const removeBotaoSair = () => {
 
     if(btnLogout){
         btnLogout.remove();   
+    }
+}
+
+//Seta o conteúdo do modal
+const setModalContent = (conteudo) =>{
+    let modalEl = document.querySelector('.modal');
+    if(modalEl){
+        modalEl.innerHTML = conteudo;
+    }
+}
+
+//Exibe a modal passando o conteudo com parâmetro
+const openModal = () => {
+    let modalEl = document.querySelector('.modal');
+    let bodyEl  = document.querySelector('body');
+
+    if(!modalEl.style.opacity || !modalEl.style.opacity == 0){
+        bodyEl.style.overflow = "hidden";
+        modalEl.style.opacity = 1;
+        modalEl.style.visibility = "visible";
+    }
+}
+
+//Fecha o modal
+const closeModal = () => {
+    let modalEl = document.querySelector('.modal');
+    let bodyEl  = document.querySelector('body');
+
+    if(modalEl.style.opacity == 1){
+        bodyEl.style.overflow = "scroll";
+        modalEl.style.opacity = 0;
+        modalEl.style.visibility = "hidden";
     }
 }

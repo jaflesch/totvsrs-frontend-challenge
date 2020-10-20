@@ -1,0 +1,31 @@
+.modal{
+    .modalAtividade{
+        max-width: 600px;
+
+        input,textarea{
+            display: block;
+            max-width: 420px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        textarea{
+            padding: 10px;
+            resize: none;
+        }
+
+        .formRow{
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        [name=status], [name=date]{
+            float: left;
+            width: 47%;
+        }
+
+        [name=date]{
+            padding: 10px;
+        }
+    }
+}

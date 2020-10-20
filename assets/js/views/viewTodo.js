@@ -1,4 +1,5 @@
 const ViewTodo = () => {
+
     return(
         `<div class="viewBase viewTodo clearfix">
         <h2>Bem vindo(a)</h2>
@@ -12,24 +13,7 @@ const ViewTodo = () => {
                     <th>Status</th>
                 </thead>
                 <tbody class="listaTODOS">
-                <tr>
-                    <td>Id</td>
-                    <td>Título</td>
-                    <td>Data</td>
-                    <td>Status</td>
-                </tr>
-                <tr>
-                    <td>Id</td>
-                    <td>Título</td>
-                    <td>Data</td>
-                    <td>Status</td>
-                </tr>
-                <tr>
-                    <td>Id</td>
-                    <td>Título</td>
-                    <td>Data</td>
-                    <td>Status</td>
-                </tr>
+                
                 </tbody>
             </table>
         </div>
