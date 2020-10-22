@@ -29,9 +29,8 @@ class ControllerLogin {
         let senha = document.querySelector('[name="senha"]');
 
         usuarios.map(usuario=> {
-            
+
             if(usuario.email === email.value && usuario.senha === senha.value){
-                console.log("passou");
                 let user = new UserModel(usuario.id, usuario.nome);
                 db.setLogado(user);
                 mudarView(e);

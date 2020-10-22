@@ -35,7 +35,6 @@ class Database {
     getUserTodos() {
         let todos       = this.getTodos();
         let userID      = this.getUserID();
-        console.log(userID);
         let filtrados   = [];
 
         if(todos){

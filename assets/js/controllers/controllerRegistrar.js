@@ -2,8 +2,6 @@ class ControllerRegistrar {
 
     constructor() {
         this.appElement = document.querySelector('#appContainer');
-
-        console.log(db.getUsers());
     }
 
     //Adiciona os event Listeners

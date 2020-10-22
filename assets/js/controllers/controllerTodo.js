@@ -146,7 +146,6 @@ class ControllerTodo {
     //Renderiza a Todo List
     renderTODO() {
         let lista       = db.getUserTodos();
-        console.log(lista);
         let tableBody   = document.querySelector('.listaTODOS');
         let html        = '';
 
