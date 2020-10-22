@@ -2,6 +2,8 @@ class ControllerRegistrar {
 
     constructor() {
         this.appElement = document.querySelector('#appContainer');
+
+        console.log(db.getUsers());
     }
 
     //Adiciona os event Listeners
@@ -24,7 +26,7 @@ class ControllerRegistrar {
     registrarUser(e) {
         
         let errorMsgs = [];
-        let usuarios = userModel.getUsers();
+        let usuarios = db.getUsers();
         
         let nome   = document.querySelector('[name="nome"]');
         let email  = document.querySelector('[name="email"]');
@@ -78,9 +80,10 @@ class ControllerRegistrar {
             alert(errorString);
 
         }else{
-            let resposta = userModel.salvaUser(nome.value, email.value, senha.value);
+            let user = new UserModel(null, nome.value, email = email.value, senha = senha.value)
+            let resposta = db.salvaUser(user);
+
             if(resposta){
-                let usuario = JSON.parse(resposta);
                 mudarView(e);
                 renderBotaoSair();
             }else{

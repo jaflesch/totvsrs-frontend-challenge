@@ -13,6 +13,76 @@ class ControllerTodo {
         this.bindAdicionar();
         this.bindCreate();
         this.bindCancelar();
+        this.bindEditar();
+    }
+
+    //Adiciona os event listeners do botões edit/titulo
+    bindEditar() {
+        let btnsEdit      = document.querySelectorAll('.btn-edit');
+
+        if(btnsEdit){
+            btnsEdit = [...btnsEdit];
+
+            btnsEdit.map(btn =>{
+                btn.addEventListener('click', (e)=> {
+                    e.preventDefault();
+
+                    let titulo      = e.target.dataset.titulo;
+                    let descricao   = e.target.dataset.descricao;
+                    let date        = e.target.dataset.date;
+                    let status      = e.target.dataset.status;
+
+                    setModalContent(ViewEditAtividade(titulo,descricao,date, status));
+
+                    this.bindCancelar();
+                    this.bindExcluir(e);
+                    this.bindSalvar(e);
+
+                    openModal();
+                })
+            })
+        }
+    }
+
+    //Adiciona o event listener do botão excluir
+    bindExcluir(e) {
+        let btnExcluir     = document.querySelector('.btn-excluir');
+        let id = e.target.dataset.id;
+
+        if(btnExcluir){
+            btnExcluir.addEventListener('click', (e)=> {
+                e.preventDefault();
+
+                db.excluirTodo(id);
+                closeModal();
+                this.updateTodoDOM();
+                setModalContent(ViewCreateAtividade());
+                this.bindListeners();
+
+            })
+        }
+    }
+
+    //Adiciona o event listener do botão salvar
+    bindSalvar(e) {
+        let btnSalvar     = document.querySelector('.btn-salvar');
+        let id = e.target.dataset.id;
+
+        if(btnSalvar){
+            btnSalvar.addEventListener('click', (e)=> {
+                e.preventDefault();
+
+                let titulo      = document.querySelector('[name="titulo"]');
+                let descricao   = document.querySelector('[name="descricao"]');
+                let date        = document.querySelector('[name="date"]');
+                let status      = document.querySelector('[name="status"]');
+
+                let todo = new TodoModel(titulo.value, descricao.value, date.value, status.value);
+
+                db.updateItem(id,todo);
+                this.renderTODO();
+            })
+        }
     }
 
     //Adiciona o event listener do botão criar
@@ -42,7 +112,7 @@ class ControllerTodo {
                 this.bindListeners();
             })
         }
-    } 
+    }
 
     //Adiciona o event listener do botão Adicionar
     bindAdicionar() {
@@ -59,22 +129,24 @@ class ControllerTodo {
 
     //Salva a nova ToDo com as informações da DOM
     adicionarTODO() {
-        console.log("disparou");
+        
         let titulo      = document.querySelector('[name="titulo"]');
         let descricao   = document.querySelector('[name="descricao"]');
         let date        = document.querySelector('[name="date"]');
         let status      = document.querySelector('[name="status"]');
 
-        todoModel.salvarTodo(titulo.value ,descricao.value ,date.value ,status.value);
+        let todo = new TodoModel(titulo.value, descricao.value, date.value, status.value);
+
+        db.salvarTodo(todo);
 
         //Atualiza a lista após adicionar o novo TODO
         this.updateTodoDOM();
     }
 
-    //Renderiza os ToDos na DOM
-    updateTodoDOM() {
- 
-        let lista       = todoModel.getUserTodos();
+    //Renderiza a Todo List
+    renderTODO() {
+        let lista       = db.getUserTodos();
+        console.log(lista);
         let tableBody   = document.querySelector('.listaTODOS');
         let html        = '';
 
@@ -103,9 +175,9 @@ class ControllerTodo {
                         <td>
                         <button class="btn btn-solid btn-edit"
                         data-id=${item.id}
-                        data-titulo=${item.titulo}
-                        data-descricao=${item.descricao}
-                        data-date=${item.date}
+                        data-titulo="${item.titulo}"
+                        data-descricao="${item.descricao}"
+                        data-date="${item.date}"
                         data-status=${item.status}
                         >${item.titulo}
                         </button>
@@ -118,6 +190,11 @@ class ControllerTodo {
         }
 
         tableBody.innerHTML = html;
+    }
+
+    //Atualiza a DOM
+    updateTodoDOM() {
+        this.renderTODO();
         setModalContent(ViewCreateAtividade());
         this.bindListeners();
     }

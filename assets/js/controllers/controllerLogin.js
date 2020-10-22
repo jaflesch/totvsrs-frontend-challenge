@@ -22,19 +22,22 @@ class ControllerLogin {
 
     //Realize login caso o usuário digite as informações corretas
     efetuarLogin(e) {
-        let usuarios = userModel.getUsers();
+        let usuarios = db.getUsers();
         usuarios = JSON.parse(usuarios);
 
         let email = document.querySelector('[name="email"]');
         let senha = document.querySelector('[name="senha"]');
 
-        usuarios.map(usuario=>{
+        usuarios.map(usuario=> {
+            
             if(usuario.email === email.value && usuario.senha === senha.value){
-                userModel.setLogado(usuario.id, usuario.nome);
+                console.log("passou");
+                let user = new UserModel(usuario.id, usuario.nome);
+                db.setLogado(user);
                 mudarView(e);
                 renderBotaoSair();
             }
-        })
+        }) 
 
     }
 }   

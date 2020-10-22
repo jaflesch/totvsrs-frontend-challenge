@@ -1,27 +1,26 @@
 const mudarView = (e) => {
 
-    const appElement = document.querySelector('#appContainer');
+    let appElement = document.querySelector('#appContainer');
     let view = e.target.dataset.view
 
     switch(view){
         case "ViewLogin":
-            case "ViewLogin":  
-                appElement.innerHTML = ViewLogin();
-                controllerLogin.bindListeners();
-                break;
-            case "ViewRegistrar":
-                appElement.innerHTML = viewRegistrar();
-                controllerRegistrar.bindListeners();
-                break;
-            case "ViewPrincipal":
-                appElement.innerHTML = ViewPrincipal();
-                controllerInicial.bindListeners();
-                break;
-            case "ViewTodo":
-                appElement.innerHTML = ViewTodo();
-                controllerTodo.bindListeners();
-                controllerTodo.updateTodoDOM();
-                break;
+            appElement.innerHTML = ViewLogin();
+            controllerLogin.bindListeners();
+            break;
+        case "ViewRegistrar":
+            appElement.innerHTML = viewRegistrar();
+            controllerRegistrar.bindListeners();
+            break;
+        case "ViewPrincipal":
+            appElement.innerHTML = ViewPrincipal();
+            controllerInicial.bindListeners();
+            break;
+        case "ViewTodo":
+            appElement.innerHTML = ViewTodo();
+            controllerTodo.bindListeners();
+            controllerTodo.updateTodoDOM();
+            break;
         default:
             break;
     }
@@ -49,7 +48,7 @@ const renderBotaoSair = () => {
 
     btnLogout.addEventListener('click', (e) =>{
         e.preventDefault();
-        userModel.logout();
+        db.logout();
         mudarView(e);
         removeBotaoSair();
     });

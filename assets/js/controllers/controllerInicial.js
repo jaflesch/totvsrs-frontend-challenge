@@ -23,13 +23,16 @@ class ControllerInicial {
 
     // Verifica se o usuário está logado e atualiza a DOM além de 
     verificaLogin() {
-        let logado = userModel.getLogado();
+
+        //Retorna se tiver logado
+        let logado = db.getLogado();
         
         if(logado){
             renderTodos();
             renderBotaoSair();
         }
     }
-}  
+}   
+
 
         
