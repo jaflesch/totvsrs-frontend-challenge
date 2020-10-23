@@ -1,6 +1,6 @@
 const ViewLogin = () => (
 `<div class="viewBase viewLogin clearfix">
-        <h2>Faça Login para continuar</h2>
+        <h2 class="title-view">Faça Login para continuar</h2>
         <form>
             <input type="text" name="email" placeholder="Digite seu email">
             <input type="password" name="senha" placeholder="Digite sua senha">
