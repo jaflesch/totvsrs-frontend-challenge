@@ -2,9 +2,19 @@
     padding: 20px;
     max-width: 1040px;
 
+    @media(max-width: 1099px){
+        max-width: 800px;
+    }
+
     h2, p{
         text-align: left;
         margin: 10px 0;
+    }
+
+    p{
+        @media(max-width: 768px){
+            font-size: 14px;
+        }
     }
 
     table,td,th{
@@ -24,13 +34,39 @@
             text-align: center;
     
             td,th{
-                width: 200px;
                 padding: 5px;
+
+                @media(max-width: 768px){
+                    font-size: 12px;
+                }
+            }
+
+            .btn{
+                float: none;
+                margin: 0 auto;
+                max-width: 300px;
+
+                @media(max-width: 768px){
+                    font-size: 12px;
+                }
             }
         }
     }
     
+    
     .btn-adicionar{
         margin: 0;
+        margin-top: 20px;
+        max-width: 210px;
+
+        @media(max-width: 768px){
+            font-size: 12px;
+            max-width: 188px;
+        }
+
+        @media(max-width: 400px){
+            margin: 0 auto;
+            float: none;
+        }
     }
 }

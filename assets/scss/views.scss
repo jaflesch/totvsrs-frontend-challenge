@@ -8,4 +8,10 @@
     top: 50%;
     position: relative;
     transform: translateY(-50%);
+
+    @media(max-width: 1099px){
+        top: initial;
+        transform: initial;
+        margin-top: 30px;
+    }
 }
