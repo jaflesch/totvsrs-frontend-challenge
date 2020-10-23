@@ -1,15 +1,36 @@
-<html>
-    <head>
-        <title>Meu projeto To-do list - TOTVS RS</title>
-    </head>
-    <body>
-        <div>
-            <h1>To do list</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. 
-                Dolorum molestiae delectus tempore? Quod.
-            </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo APP - By Tiago Oliveira</title>
+
+    <link rel="stylesheet" href="assets/css/app.css">
+
+    <!-- Lembrete : salvar fonte mais tarde  -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container headerContainer">
+            <span  class="logo">Magic TODO</span>
         </div>
-    </body>
+    </header>
+
+    <div id="appContainer">
+        <div class="viewBase viewInicial clearfix">
+            <h2 class="title-view">Bem vindo(a) a Magic TODO</h2>
+            <p class="description-view">Faça login ou registre-se para continuar</p>
+            <button data-view="ViewLogin" class="btn btn-solid btn-navigate">Acessar Conta</button>
+            <button data-view="ViewRegistrar" class="btn btn-unfilled btn-navigate">Registrar-se</button>
+        </div>
+    </div>
+    <div class="modal"></div>
+    <footer>
+        <div class="container">&copy;2020 Tiago Oliveira - All Rights Reserved</div>
+    </footer>
+
+    <script src="assets/js/app.min.js"></script>
+</body>
 </html>

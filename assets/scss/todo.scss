@@ -1,0 +1,72 @@
+.viewTodo{
+    padding: 20px;
+    max-width: 1040px;
+
+    @media(max-width: 1099px){
+        max-width: 800px;
+    }
+
+    h2, p{
+        text-align: left;
+        margin: 10px 0;
+    }
+
+    p{
+        @media(max-width: 768px){
+            font-size: 14px;
+        }
+    }
+
+    table,td,th{
+        border: 2px $color1 solid;
+        border-spacing: 0;
+    }
+
+    .tableContainer{
+        height: 300px;
+        overflow: scroll;
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            padding: 15px;
+            text-align: center;
+    
+            td,th{
+                padding: 5px;
+
+                @media(max-width: 768px){
+                    font-size: 12px;
+                }
+            }
+
+            .btn{
+                float: none;
+                margin: 0 auto;
+                max-width: 300px;
+
+                @media(max-width: 768px){
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    
+    
+    .btn-adicionar{
+        margin: 0;
+        margin-top: 20px;
+        max-width: 210px;
+
+        @media(max-width: 768px){
+            font-size: 12px;
+            max-width: 188px;
+        }
+
+        @media(max-width: 400px){
+            margin: 0 auto;
+            float: none;
+        }
+    }
+}

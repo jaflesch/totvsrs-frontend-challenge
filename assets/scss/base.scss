@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    background: $color2;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+
+    .clearfix{
+        &::after{
+            display: table;
+            clear: both;
+            content: "";
+        }
+    }
+
+    .container{
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    #appContainer{
+        height: calc(100vh - 96px);
+        padding: 0 15px;
+    }
+    
+    .modal{
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        text-align: left;
+        background: rgba(0,0,0, .9);
+        transition: opacity .25s ease;
+    }
+
+    form{
+        input{
+            width: 100%;
+            max-width: 256px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px $color1 solid;
+        }
+ 
+    }
+}

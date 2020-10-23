@@ -1,0 +1,77 @@
+.viewBase{
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 25px;
+    text-align: center;
+    background: white;
+    color: #000;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+
+   
+        @media(max-width: 768px){
+            .title-view{
+                font-size: 18px;
+            }
+
+            .description-view{
+                font-size: 12px;
+            }
+
+            [data-view="ViewLogin"], [data-view="ViewRegistrar"]{
+                float: none;
+                margin: 0 auto 10px;
+            }
+        }
+
+    :not(&.viewHome){
+        @media(max-width: 1099px){
+            top: initial;
+            transform: initial;
+            margin-top: 30px;
+        }
+    }
+
+    &.viewLogin, &.viewRegistrarUsuario {
+        @media(max-width: 768px){
+            max-width: 270px;
+
+            form{
+                max-width: 222px;
+                margin: 0 auto;
+            }
+
+            input{
+                max-width: 200px;
+            }
+
+            .btn{
+                font-size: 11px;
+                width: 50%;
+                padding: 10px 6px;
+                margin: 0;
+            } 
+        }
+    }
+
+    &.modalAtividade {
+        .btns-box{
+            max-width: 395px;
+            margin: 0 auto;
+
+            @media(max-width: 768px){
+                max-width: 237px;
+                
+                .btn{
+                    font-size: 10px !important;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+    .erro{
+        border: 1px red solid;
+    }
+}

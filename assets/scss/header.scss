@@ -1,0 +1,38 @@
+header{
+    background: $color1;
+    padding: 15px 0;
+
+    .container{
+        padding: 0 15px;
+
+        .logo{
+            color: white;
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 3px #fff solid;
+            
+            @media(max-width: 400px){
+                font-size: 14px;
+            }
+        }
+    
+        .btn-logout{
+            float: right;
+            margin: 0;
+            max-width: 120px;
+            font-weight: 500;
+            border: none;
+            position: relative;
+            top: -4px;
+
+            @media(max-width: 400px){
+                top: -6px;
+                height: 33px;
+                font-size: 12px;
+            }
+        }
+    }
+}
