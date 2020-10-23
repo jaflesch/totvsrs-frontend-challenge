@@ -11,5 +11,5 @@
 
 Resolvi tentar criar um MVC para solucionar o desafio, assim poderia adicionar mais componentes caso fosse continuar trabalhando no projeto.
 Algumas coisas não tive tempo de revisar ou refatorar devido a rotina de trabalho + estudos.
-Não tive tempo de formatar e validar algumas coisas também.
+
 
