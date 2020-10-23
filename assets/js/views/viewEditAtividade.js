@@ -16,10 +16,11 @@ const ViewEditAtividade = (titulo, descricao , date , status) => {
                         <option value="2" ${status === "2" ? "selected" : ""}>Finalizado</option>
                     </select>
                 </div>
-                
-                <button class="btn btn-solid btn-cancelar">Cancelar</button>
-                <button class="btn btn-solid btn-salvar">Salvar</button>
-                <button class="btn btn-solid btn-excluir">Excluir</button>
+                <div class="btns-box">
+                    <button class="btn btn-solid btn-cancelar">Cancelar</button>
+                    <button class="btn btn-solid btn-salvar">Salvar</button>
+                    <button class="btn btn-solid btn-excluir">Excluir</button>
+                </div>
             </form>
         </div>`
     );
