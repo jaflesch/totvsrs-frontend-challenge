@@ -20,16 +20,23 @@ class ControllerLogin {
         });
     }
 
+    //Remove a classe de erro ao digitar algo nos inputs
+    cleanErrors(){
+        
+    }
+
+
+    
+
     //Realize login caso o usuário digite as informações corretas
     efetuarLogin(e) {
         let usuarios = db.getUsers();
         usuarios = JSON.parse(usuarios);
 
-        let email = document.querySelector('[name="email"]');
-        let senha = document.querySelector('[name="senha"]');
-
+        let email    = document.querySelector('[name="email"]');
+        let senha    = document.querySelector('[name="senha"]');
+      
         usuarios.map(usuario=> {
-
             if(usuario.email === email.value && usuario.senha === senha.value){
                 let user = new UserModel(usuario.id, usuario.nome);
                 db.setLogado(user);
@@ -37,6 +44,5 @@ class ControllerLogin {
                 renderBotaoSair();
             }
         }) 
-
     }
 }   

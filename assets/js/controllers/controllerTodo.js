@@ -53,12 +53,13 @@ class ControllerTodo {
             btnExcluir.addEventListener('click', (e)=> {
                 e.preventDefault();
 
-                db.excluirTodo(id);
-                closeModal();
-                this.updateTodoDOM();
-                setModalContent(ViewCreateAtividade());
-                this.bindListeners();
-
+                if (confirm('Você quer mesmo excluir essa atividade?')) {
+                    db.excluirTodo(id);
+                    closeModal();
+                    this.updateTodoDOM();
+                    setModalContent(ViewCreateAtividade());
+                    this.bindListeners();
+                } 
             })
         }
     }
@@ -130,17 +131,44 @@ class ControllerTodo {
     //Salva a nova ToDo com as informações da DOM
     adicionarTODO() {
         
+        let errorMsgs = [];
         let titulo      = document.querySelector('[name="titulo"]');
         let descricao   = document.querySelector('[name="descricao"]');
         let date        = document.querySelector('[name="date"]');
         let status      = document.querySelector('[name="status"]');
 
-        let todo = new TodoModel(titulo.value, descricao.value, date.value, status.value);
+        if(!titulo.value){
+            let erro = 'Título em branco!';
+            errorMsgs.push(erro);
+        }
 
-        db.salvarTodo(todo);
+        if(!descricao.value){
+            let erro = 'Descricao em branco!';
+            errorMsgs.push(erro);
+        }
 
-        //Atualiza a lista após adicionar o novo TODO
-        this.updateTodoDOM();
+        if(!date.value){
+            let erro = 'Data em branco!';
+            errorMsgs.push(erro);
+        }
+
+        if(errorMsgs.length > 0 ){
+            let errorString = "";
+
+            errorMsgs.map(err => {
+                errorString += err + "\n";
+            });
+
+            alert(errorString);
+
+        }else{
+
+            let todo = new TodoModel(titulo.value, descricao.value, date.value, status.value);
+            db.salvarTodo(todo);
+
+            //Atualiza a lista após adicionar o novo TODO
+            this.updateTodoDOM();
+        }
     }
 
     //Renderiza a Todo List

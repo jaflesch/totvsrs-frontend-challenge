@@ -9,7 +9,7 @@ const ViewEditAtividade = (titulo, descricao , date , status) => {
                 <textarea name="descricao" rows="4" cols="50">${descricao}</textarea>
     
                 <div class="formRow clearfix">
-                    <input name="date" type="date" value="${date}">
+                    <input name="date" type="datetime-local" value="${date}">
                     <select name="status">
                         <option value="0" ${status === "0" ? "selected" : ""}>Backlog</option>
                         <option value="1" ${status === "1" ? "selected" : ""}>Em Andamento</option>

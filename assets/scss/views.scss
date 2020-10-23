@@ -54,4 +54,24 @@
             } 
         }
     }
+
+    &.modalAtividade {
+        .btns-box{
+            max-width: 395px;
+            margin: 0 auto;
+
+            @media(max-width: 768px){
+                max-width: 237px;
+                
+                .btn{
+                    font-size: 10px !important;
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+    .erro{
+        border: 1px red solid;
+    }
 }
