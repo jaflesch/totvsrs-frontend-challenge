@@ -1,1 +1,3 @@
-console.log("TOTVS RS")
+function onInitAplication() {
+    document.getElementById('userEmail').focus();
+}

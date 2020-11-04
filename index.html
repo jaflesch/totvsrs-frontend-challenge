@@ -1,15 +1,34 @@
 <html>
     <head>
-        <title>Meu projeto To-do list - TOTVS RS</title>
+        <title>Diego Xavier - To-do list - TOTVS RS</title>
     </head>
-    <body>
-        <div>
-            <h1>To do list</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. 
-                Dolorum molestiae delectus tempore? Quod.
-            </p>
-        </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <body onload="onInitAplication()">
+
+        <section class="content-login-form df">
+            <div class="container">
+                <form id="login-form">
+                    
+                    <div class="form-group">
+                        <label for="userEmail">Email</label>
+                        <input type="email" class="form-control" id="userEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="userPassword">Senha</label>
+                        <input type="password" class="form-control" id="userPassword">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </section>
+
     </body>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./assets/js/app.js"></script>
 </html>

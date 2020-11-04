@@ -1,1 +1,21 @@
-* { color: #333; }
+* {
+    color: #333;
+}
+
+body,
+.content-login-form {
+    height: 100%;
+    width: 100%;
+}
+
+#login-form {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.df {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
