@@ -1,0 +1,10 @@
+#login-form {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+.login-button {
+    width: 100%;
+    margin-top: 3px;
+}
