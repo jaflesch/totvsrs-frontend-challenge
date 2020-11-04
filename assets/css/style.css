@@ -13,3 +13,15 @@ body,
     display: -ms-flexbox;
     display: flex;
 }
+
+.alg {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.sb {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}

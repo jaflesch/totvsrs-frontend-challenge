@@ -6,7 +6,7 @@ function showAlert() {
 function hideAlert() {
     setTimeout(() => {
         document.getElementById('alert').style.display = 'none';
-    }, 5000);
+    }, 4000);
 }
 
 function changeTextAlert(text) {
