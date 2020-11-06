@@ -1,24 +1,10 @@
 var userData = {};
 
-function renderTodoListItensByUserId(id) {
-    let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
-
-    let filterDataTodoListUser = lsDataTodoList.filter(
-        item => item.userId === id
-    );
-
-    document.getElementById('render-todo-list').innerHTML = filterDataTodoListUser.map(dataTodoList =>
-        `<tr class="tr-item-todo-list">
-          <th>${dataTodoList.id}</th>
-          <th>${dataTodoList.titulo}</th>
-          <th>${dataTodoList.data}</th>
-          <th>${returnDescriptionStatus(dataTodoList.status)} </th>
-        </tr>`
-    ).join('');
-
-}
-
 function registerTodoItem() {
+
+    if (requiredFieldsRegisterTodoItem()) {
+        return;
+    }
 
     let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
 
@@ -50,6 +36,24 @@ function registerTodoItem() {
     }, 100);
 }
 
+function renderTodoListItensByUserId(id) {
+    let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
+
+    let filterDataTodoListUser = lsDataTodoList.filter(
+        item => item.userId === id
+    );
+
+    document.getElementById('render-todo-list').innerHTML = filterDataTodoListUser.map(dataTodoList =>
+        `<tr class="tr-item-todo-list">
+          <th>${dataTodoList.id}</th>
+          <th>${dataTodoList.titulo}</th>
+          <th>${dataTodoList.data}</th>
+          <th>${returnDescriptionStatus(dataTodoList.status)} </th>
+        </tr>`
+    ).join('');
+
+}
+
 function renderInfoUser(filterUserLogin) {
     userData = filterUserLogin[0];
 
@@ -72,7 +76,7 @@ function resetRegisterTodoItem() {
     document.getElementById('titleTodoItem').value = '';
     document.getElementById('descriptionTodoItem').value = '';
     document.getElementById('dateTodoItem').value = '';
-    document.getElementById('statusTodoItem').value = '0';
+    document.getElementById('statusTodoItem').value = 0;
     document.getElementById('closeModalRegisterTodoItem').click();
 }
 
@@ -87,6 +91,30 @@ function returnDescriptionStatus(status) {
     }
     else if (status === 2) {
         return 'finalizado';
+    }
+
+}
+
+function requiredFieldsRegisterTodoItem() {
+
+    if (document.getElementById('titleTodoItem').value === '') {
+        document.getElementById('titleTodoItem').focus();
+        return true;
+    }
+
+    if (document.getElementById('descriptionTodoItem').value === '') {
+        document.getElementById('descriptionTodoItem').focus();
+        return true;
+    }
+
+    if (document.getElementById('dateTodoItem').value === '') {
+        document.getElementById('dateTodoItem').focus();
+        return true;
+    }
+
+    if (document.getElementById('statusTodoItem').value === '') {
+        document.getElementById('statusTodoItem').focus();
+        return true;
     }
 
 }

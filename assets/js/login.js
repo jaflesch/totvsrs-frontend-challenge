@@ -1,16 +1,3 @@
-function onKeyPressLoginForm(e) {
-    if (e.keyCode === 13) {
-        e.preventDefault();
-
-        if (requiredFields()) {
-            return;
-        }
-
-        login();
-    }
-}
-
-
 function login() {
 
     if (requiredFields()) {
@@ -31,10 +18,7 @@ function login() {
         renderTodoListItensByUserId(filterUserLogin[0].id);
 
     } else {
-
-        changeTextAlert('Usuário ou senha inválidos');
-        showAlert();
-
+        showErrorAlert('Usuário ou senha inválidos');
     }
 }
 
@@ -43,10 +27,8 @@ function logout() {
     hideTodoListTemplate();
     showLoginTemplate();
     resetFormLogin();
+    resetFormUserRegister();
     document.getElementById('userEmail').focus();
-    document.getElementById('userNameRegister').value = '';
-    document.getElementById('userEmailRegister').value = '';
-    document.getElementById('userPasswordRegister').value = '';
 
 }
 
@@ -59,16 +41,26 @@ function requiredFields() {
 
     if (document.getElementById('userEmail').value === '') {
         document.getElementById('userEmail').focus();
-        changeTextAlert('Campo email é obrigatório');
-        showAlert();
+        showErrorAlert('Campo email é obrigatório');
         return true;
     }
 
     if (document.getElementById('userPassword').value === '') {
         document.getElementById('userPassword').focus();
-        changeTextAlert('Campo senha é obrigatório');
-        showAlert();
+        showErrorAlert('Campo senha é obrigatório');
         return true;
     }
 
+}
+
+function onKeyPressLoginForm(e) {
+    if (e.keyCode === 13) {
+        e.preventDefault();
+
+        if (requiredFields()) {
+            return;
+        }
+
+        login();
+    }
 }

@@ -52,3 +52,9 @@ function requiredFieldsRegisterUser() {
     }
 
 }
+
+function resetFormUserRegister() {
+    document.getElementById('userNameRegister').value = '';
+    document.getElementById('userEmailRegister').value = '';
+    document.getElementById('userPasswordRegister').value = '';
+}
