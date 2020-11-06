@@ -27,6 +27,7 @@ function login() {
 
         showTodoListTemplate();
         hideLoginTemplate();
+        renderInfoUser(filterUserLogin);
         renderTodoListItensByUserId(filterUserLogin[0].id);
 
     } else {

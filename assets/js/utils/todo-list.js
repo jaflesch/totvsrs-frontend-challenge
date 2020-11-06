@@ -16,6 +16,11 @@ function renderTodoListItensByUserId(id) {
 
 }
 
+function renderInfoUser(filterUserLogin) {
+    document.getElementById('desc-name-user').innerHTML = 'Nome: ' + filterUserLogin[0].nome;
+    document.getElementById('desc-email-user').innerHTML = 'Email: ' + filterUserLogin[0].email;
+}
+
 
 function returnDescriptionStatus(status) {
 
