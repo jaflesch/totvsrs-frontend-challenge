@@ -15,3 +15,7 @@ function getItemCache(key) {
         return false;
     }
 }
+
+function removeItemCache(key) {
+    localStorage.removeItem(key);
+}

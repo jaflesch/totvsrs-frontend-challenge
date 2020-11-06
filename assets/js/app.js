@@ -2,19 +2,19 @@ let lsUsersList = [
     {
         id: 1,
         nome: 'user1',
-        email: 'user1@gmail.com',
+        email: 'user1',
         senha: 'user1'
     },
     {
         id: 2,
         nome: 'user2',
-        email: 'user2@gmail.com',
+        email: 'user2',
         senha: 'user2'
     },
     {
         id: 3,
         nome: 'user3',
-        email: 'user3@gmail.com',
+        email: 'user3',
         senha: 'user3'
     }
 ];
@@ -62,14 +62,14 @@ let lsDataTodoList = [
     }
 ];
 
-
+// let lsUsersList = [];
+// let lsDataTodoList = [];
 
 
 
 
 function onInitAplication() {
     document.getElementById('userEmail').focus();
-
     setItemCache('lsUsersList', lsUsersList);
     setItemCache('lsDataTodoList', lsDataTodoList);
 }
