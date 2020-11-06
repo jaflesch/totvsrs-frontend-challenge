@@ -6,6 +6,10 @@ function userNameRegisterFocus() {
 
 function registerUser() {
 
+    if (requiredFieldsRegisterUser()) {
+        return;
+    }
+
     let lsUsersList = getItemCache('lsUsersList')['data'];
 
     let obj = {
@@ -20,6 +24,26 @@ function registerUser() {
     removeItemCache('lsUsersList');
     setItemCache('lsUsersList', lsUsersList);
 
+    resetTodoList();
     showTodoListTemplate();
     hideLoginTemplate();
+}
+
+function requiredFieldsRegisterUser() {
+
+    if (document.getElementById('userNameRegister').value === '') {
+        document.getElementById('userNameRegister').focus();
+        return true;
+    }
+
+    if (document.getElementById('userEmailRegister').value === '') {
+        document.getElementById('userEmailRegister').focus();
+        return true;
+    }
+
+    if (document.getElementById('userPasswordRegister').value === '') {
+        document.getElementById('userPasswordRegister').focus();
+        return true;
+    }
+
 }

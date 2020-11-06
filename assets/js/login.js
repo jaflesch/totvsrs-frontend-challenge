@@ -44,6 +44,10 @@ function logout() {
     showLoginTemplate();
     resetFormLogin();
     document.getElementById('userEmail').focus();
+    document.getElementById('userNameRegister').value = '';
+    document.getElementById('userEmailRegister').value = '';
+    document.getElementById('userPasswordRegister').value = '';
+
 }
 
 function resetFormLogin() {

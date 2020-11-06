@@ -26,6 +26,10 @@ function resetInfoUser() {
     document.getElementById('desc-email-user').innerHTML = '';
 }
 
+function resetTodoList() {
+    document.getElementById('render-todo-list').innerHTML = '';
+}
+
 
 function returnDescriptionStatus(status) {
 
