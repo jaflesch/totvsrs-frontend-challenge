@@ -15,7 +15,7 @@ function login() {
         showTodoListTemplate();
         hideLoginTemplate();
         resetTodoList();
-        renderInfoUser(filterUserLogin);
+        renderInfoUser(filterUserLogin[0]);
         renderTodoListItensByUserId(filterUserLogin[0].id);
 
     } else {

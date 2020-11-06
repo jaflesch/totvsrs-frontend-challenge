@@ -9,14 +9,10 @@ function registerTodoItem() {
 
     let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
 
-    let filterDataTodoListUser = lsDataTodoList.filter(
-        item => item.userId === userData.id
-    );
-
-    let nextIdTodoItem = filterDataTodoListUser.length === 0 ? 1 : filterDataTodoListUser[filterDataTodoListUser.length - 1].id + 1;
+    let nextIdTodoItem = Math.max.apply(null, lsDataTodoList.map(item => item.id));
 
     let objTodoItem = {
-        id: nextIdTodoItem,
+        id: nextIdTodoItem + 1,
         userId: userData.id,
 
         titulo: document.getElementById('titleTodoItem').value,
@@ -115,7 +111,7 @@ function setValuesTodoItemForUpdate(todoItem) {
 }
 
 function renderInfoUser(filterUserLogin) {
-    userData = filterUserLogin[0];
+    userData = filterUserLogin;
 
     document.getElementById('desc-name-user').innerHTML = 'Nome: ' + userData.nome;
     document.getElementById('desc-email-user').innerHTML = 'Email: ' + userData.email;

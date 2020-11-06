@@ -29,9 +29,11 @@ function registerUser() {
     document.getElementById('desc-email-user').innerHTML = 'Email: ' + document.getElementById('userEmailRegister').value;
     document.getElementById('desc-id-user').innerHTML = 'Id: ' + nextIdUser;
 
-    resetTodoList();
     showTodoListTemplate();
     hideLoginTemplate();
+    resetTodoList();
+    renderInfoUser(obj);
+    renderTodoListItensByUserId(obj.id);
 }
 
 function requiredFieldsRegisterUser() {
