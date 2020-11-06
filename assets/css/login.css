@@ -4,6 +4,7 @@
     margin-top: 100px;
     border: 1px solid #ced4da;
     padding: 25px;
+    border-radius: .25rem;
 }
 
 .login-button {

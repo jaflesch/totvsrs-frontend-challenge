@@ -23,12 +23,52 @@
                     </div>
 
                     <div class="df alg sb">
-                        <a class="create-login">Criar conta</a>
+                        <a class="create-login" data-toggle="modal" data-target="#modalRegister">Criar conta</a>
                         <button type="button" class="btn btn-primary login-button" onclick="login()">Login</button>
                     </div>
                 </form>
             </div>
         </section>
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastrar</h5>
+                    <button type="button" class="close removeOutlineButton" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                    <form>
+                        <div class="form-group">
+                            <label for="userNameRegister">Nome</label>
+                            <input type="text" class="form-control" id="userNameRegister">
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmailRegister">Email</label>
+                            <input type="email" class="form-control" id="userEmailRegister">
+                        </div>
+                        <div class="form-group">
+                            <label for="userPasswordRegister">Senha</label>
+                            <input type="password" class="form-control" id="userPasswordRegister">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Cadastrar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
 
 
 
