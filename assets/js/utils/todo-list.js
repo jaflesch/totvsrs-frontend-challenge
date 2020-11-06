@@ -16,14 +16,20 @@ function renderTodoListItensByUserId(id) {
 
 }
 
+function registerTodoItem() {
+
+}
+
 function renderInfoUser(filterUserLogin) {
     document.getElementById('desc-name-user').innerHTML = 'Nome: ' + filterUserLogin[0].nome;
     document.getElementById('desc-email-user').innerHTML = 'Email: ' + filterUserLogin[0].email;
+    document.getElementById('desc-id-user').innerHTML = 'Id: ' + filterUserLogin[0].id;
 }
 
 function resetInfoUser() {
     document.getElementById('desc-name-user').innerHTML = '';
     document.getElementById('desc-email-user').innerHTML = '';
+    document.getElementById('desc-id-user').innerHTML = '';
 }
 
 function resetTodoList() {

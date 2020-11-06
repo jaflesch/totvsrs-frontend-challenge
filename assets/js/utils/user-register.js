@@ -11,9 +11,10 @@ function registerUser() {
     }
 
     let lsUsersList = getItemCache('lsUsersList')['data'];
+    let nextIdUser = lsUsersList.length === 0 ? 1 : lsUsersList[lsUsersList.length - 1].id + 1;
 
     let obj = {
-        id: lsUsersList.length === 0 ? 1 : lsUsersList[lsUsersList.length -1].id + 1,
+        id: nextIdUser,
         nome: document.getElementById('userNameRegister').value,
         email: document.getElementById('userEmailRegister').value,
         senha: document.getElementById('userPasswordRegister').value
@@ -23,6 +24,10 @@ function registerUser() {
 
     removeItemCache('lsUsersList');
     setItemCache('lsUsersList', lsUsersList);
+
+    document.getElementById('desc-name-user').innerHTML = 'Nome: ' + document.getElementById('userNameRegister').value;
+    document.getElementById('desc-email-user').innerHTML = 'Email: ' + document.getElementById('userEmailRegister').value;
+    document.getElementById('desc-id-user').innerHTML = 'Id: ' + nextIdUser;
 
     resetTodoList();
     showTodoListTemplate();
