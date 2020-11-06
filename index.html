@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="statusTodoItem">Status</label>
-                                    <select multiple class="form-control" id="statusTodoItem">
+                                    <select class="form-control" id="statusTodoItem">
                                         <option value="0">backlog</option>
                                         <option value="1">em andamento</option>
                                         <option value="2">finalizado</option>
@@ -183,8 +183,11 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                            <button type="button" class="btn btn-primary" onclick="updateTodoItem()">Atualizar</button>
+                            <div class="d-flex" style="width: 100%;">
+                                <div class="mr-auto p-2"><button type="button" class="btn btn-danger" onclick="deleteTodoItem()">Excluir</button></div>
+                                <div class="p-2"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button></div>
+                                <div class="p-2"><button type="button" class="btn btn-primary" onclick="updateTodoItem()">Salvar</button></div>
+                            </div>
                         </div>
 
                     </div>

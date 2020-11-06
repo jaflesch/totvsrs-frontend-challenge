@@ -46,16 +46,32 @@ function updateTodoItem() {
 
     lsDataTodoList[indexUpdate].data = document.getElementById('updateDateTodoItem').value;
     lsDataTodoList[indexUpdate].descricao = document.getElementById('updateDescriptionTodoItem').value;
-    lsDataTodoList[indexUpdate].status = document.getElementById('updateStatusTodoItem').value;
+    lsDataTodoList[indexUpdate].status = parseInt(document.getElementById('updateStatusTodoItem').value);
     lsDataTodoList[indexUpdate].titulo = document.getElementById('updateTitleTodoItem').value;
 
     removeItemCache('lsDataTodoList');
     setItemCache('lsDataTodoList', lsDataTodoList);
     resetTodoList();
-    document.getElementById('closeModalUpdateTodoItem').click();
 
     renderTodoListItensByUserId(userData.id);
 
+}
+
+function deleteTodoItem() {
+
+    let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
+
+    let indexDelete = lsDataTodoList.findIndex(
+        item => item.id === todoItemObject.id
+    );
+
+    lsDataTodoList.splice(1, indexDelete);
+
+    removeItemCache('lsDataTodoList');
+    setItemCache('lsDataTodoList', lsDataTodoList);
+    resetTodoList();
+    renderTodoListItensByUserId(userData.id);
+    document.getElementById('closeModalUpdateTodoItem').click();
 }
 
 function renderTodoListItensByUserId(id) {

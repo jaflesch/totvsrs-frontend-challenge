@@ -21,13 +21,13 @@
 
 (x) - * A tela inicial da To do List é uma tabela listando todas as atividades registradas para o usuário
 (x) - * A tabela inicial é composta pelas colunas `[ID, TITULO, DATA, STATUS]`
-() - * Ao clicar no título de um item da tabela, um modal deve ser aberto
-() - * O modal deve apresentar todas as informações do registro em campos de formulário passíveis de edição
-() - * O modal deve possuir 3 botões no seu rodapé: **Cancelar**, **Salvar**, **Excluir**
-() - * Ao clicar em Cancelar, o modal é simplesmente fechado
-() - * Ao clicar em Salvar, as informações são atualizadas, mas o modal permanece aberto
+(x) - * Ao clicar no título de um item da tabela, um modal deve ser aberto
+(x) - * O modal deve apresentar todas as informações do registro em campos de formulário passíveis de edição
+(x) - * O modal deve possuir 3 botões no seu rodapé: **Cancelar**, **Salvar**, **Excluir**
+(x) - * Ao clicar em Cancelar, o modal é simplesmente fechado
+(x) - * Ao clicar em Salvar, as informações são atualizadas, mas o modal permanece aberto
 () - * Ao clicar em Excluir, uma mensagem de confirmação deve aparecer. Se o usuário confirmar a exclusão, o modal é fechado e a linha, excluída
-() - * O usuário pode fazer quantas operações de CRUD quiser enquanto estiver em sua sessão ativa
+(x) - * O usuário pode fazer quantas operações de CRUD quiser enquanto estiver em sua sessão ativa
 (x) - * Quando ele clicar em um botão para encerrar a sessão, a tabela deve ser limpa e a aplicação retorna à página de autenticação
 
 ## Estrutura de dados:
