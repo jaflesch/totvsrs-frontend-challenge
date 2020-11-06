@@ -1,4 +1,5 @@
 var userData = {};
+var todoItemObject = {};
 
 function registerTodoItem() {
 
@@ -37,6 +38,24 @@ function registerTodoItem() {
 
 function updateTodoItem() {
 
+    let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
+
+    let indexUpdate = lsDataTodoList.findIndex(
+        item => item.id === todoItemObject.id
+    );
+
+    lsDataTodoList[indexUpdate].data = document.getElementById('updateDateTodoItem').value;
+    lsDataTodoList[indexUpdate].descricao = document.getElementById('updateDescriptionTodoItem').value;
+    lsDataTodoList[indexUpdate].status = document.getElementById('updateStatusTodoItem').value;
+    lsDataTodoList[indexUpdate].titulo = document.getElementById('updateTitleTodoItem').value;
+
+    removeItemCache('lsDataTodoList');
+    setItemCache('lsDataTodoList', lsDataTodoList);
+    resetTodoList();
+    document.getElementById('closeModalUpdateTodoItem').click();
+
+    renderTodoListItensByUserId(userData.id);
+
 }
 
 function renderTodoListItensByUserId(id) {
@@ -69,11 +88,11 @@ function renderTodoListItensByUserId(id) {
 }
 
 function setValuesTodoItemForUpdate(todoItem) {
-    console.log(todoItem);
+    todoItemObject = todoItem;
     document.getElementById('buttonAuxUpdateModal').click();
 
-    document.getElementById('updateTitleTodoItem').value = todoItem.id;
-    document.getElementById('updateDescriptionTodoItem').value = todoItem.titulo;
+    document.getElementById('updateTitleTodoItem').value = todoItem.titulo;
+    document.getElementById('updateDescriptionTodoItem').value = todoItem.descricao;
     document.getElementById('updateDateTodoItem').value = todoItem.data;
     document.getElementById('updateStatusTodoItem').value = todoItem.status;
 }
