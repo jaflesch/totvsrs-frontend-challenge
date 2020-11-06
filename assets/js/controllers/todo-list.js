@@ -61,7 +61,7 @@ function deleteTodoItem() {
         item => item.id === todoItemObject.id
     );
 
-    lsDataTodoList.splice(1, indexDelete);
+    lsDataTodoList.splice(indexDelete, 1);
 
     removeItemCache('lsDataTodoList');
     setItemCache('lsDataTodoList', lsDataTodoList);
