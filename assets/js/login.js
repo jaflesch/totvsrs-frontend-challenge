@@ -17,7 +17,8 @@ function login() {
         return;
     }
 
-    alert('Realiza login');
+    showTodoListTemplate();
+    hideLoginTemplate();
 }
 
 

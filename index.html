@@ -9,63 +9,64 @@
     
     <body onload="onInitAplication()">
 
-        <section class="content-login-form df">
-            <div class="container">
-                <form id="login-form">
-                    
-                    <div class="form-group">
-                        <label for="userEmail">Email</label>
-                        <input type="email" class="form-control" id="userEmail" onkeypress="onKeyPressLoginForm(event)">
-                    </div>
-                    <div class="form-group">
-                        <label for="userPassword">Senha</label>
-                        <input type="password" class="form-control" id="userPassword" onkeypress="onKeyPressLoginForm(event)">
-                    </div>
-
-                    <div class="df alg sb">
-                        <a class="create-login" data-toggle="modal" data-target="#modalRegister">Criar conta</a>
-                        <button type="button" class="btn btn-primary login-button" onclick="login()">Login</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Cadastrar</h5>
-                    <button type="button" class="close removeOutlineButton" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    
-                    <form>
+        <div id="painel-login">
+            <section class="content-login-form df">
+                <div class="container">
+                    <form id="login-form">
+                        
                         <div class="form-group">
-                            <label for="userNameRegister">Nome</label>
-                            <input type="text" class="form-control" id="userNameRegister">
+                            <label for="userEmail">Email</label>
+                            <input type="email" class="form-control" id="userEmail" onkeypress="onKeyPressLoginForm(event)">
                         </div>
                         <div class="form-group">
-                            <label for="userEmailRegister">Email</label>
-                            <input type="email" class="form-control" id="userEmailRegister">
+                            <label for="userPassword">Senha</label>
+                            <input type="password" class="form-control" id="userPassword" onkeypress="onKeyPressLoginForm(event)">
                         </div>
-                        <div class="form-group">
-                            <label for="userPasswordRegister">Senha</label>
-                            <input type="password" class="form-control" id="userPasswordRegister">
+
+                        <div class="df alg sb">
+                            <a class="create-login" data-toggle="modal" data-target="#modalRegister" onclick="userNameRegisterFocus()">Criar conta</a>
+                            <button type="button" class="btn btn-primary login-button" onclick="login()">Login</button>
                         </div>
                     </form>
+                </div>
+            </section>
 
+
+
+
+            <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastrar</h5>
+                        <button type="button" id="closeModalRegister" class="close removeOutlineButton" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <form>
+                            <div class="form-group">
+                                <label for="userNameRegister">Nome</label>
+                                <input type="text" class="form-control" id="userNameRegister">
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmailRegister">Email</label>
+                                <input type="email" class="form-control" id="userEmailRegister">
+                            </div>
+                            <div class="form-group">
+                                <label for="userPasswordRegister">Senha</label>
+                                <input type="password" class="form-control" id="userPasswordRegister">
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="registerUser()">Cadastrar</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Cadastrar</button>
                 </div>
-            </div>
             </div>
         </div>
 
@@ -79,6 +80,21 @@
             </div>
         </div>
 
+
+
+
+
+
+
+
+        <section id="painel-todo-list">
+
+            <div class="container">
+                painel todo list
+            </div>
+
+        </section>
+
     </body>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -87,4 +103,5 @@
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/login.js"></script>
     <script src="./assets/js/utils/alert.js"></script>
+    <script src="./assets/js/utils/user-register.js"></script>
 </html>
