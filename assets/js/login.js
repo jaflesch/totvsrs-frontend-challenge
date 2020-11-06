@@ -17,10 +17,34 @@ function login() {
         return;
     }
 
-    showTodoListTemplate();
-    hideLoginTemplate();
+    let lsUsersList = getItemCache('lsUsersList')['data'];
+
+    let filterUserLogin = lsUsersList.filter(
+        item => item.email === document.getElementById('userEmail').value && item.senha === document.getElementById('userPassword').value
+    );
+
+    if (filterUserLogin.length !== 0) {
+
+        showTodoListTemplate();
+        hideLoginTemplate();
+        returnTodoListUser(filterUserLogin[0].id);
+
+    } else {
+
+        changeTextAlert('Usuário ou senha inválidos');
+        showAlert();
+
+    }
 }
 
+function returnTodoListUser(id) {
+    let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
+
+    let filterDataTodoListUser = lsDataTodoList.filter(
+        item => item.userId === id
+    );
+    console.log(filterDataTodoListUser);
+}
 
 function requiredFields() {
 
