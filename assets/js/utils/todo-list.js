@@ -72,6 +72,7 @@ function deleteTodoItem() {
     resetTodoList();
     renderTodoListItensByUserId(userData.id);
     document.getElementById('closeModalUpdateTodoItem').click();
+    document.getElementById('closeModalConfirm').click();
 }
 
 function renderTodoListItensByUserId(id) {
@@ -142,6 +143,9 @@ function resetRegisterTodoItem() {
     document.getElementById('closeModalRegisterTodoItem').click();
 }
 
+function showModalConfirm() {
+    document.getElementById('buttonAuxModalConfirm').click();
+}
 
 function returnDescriptionStatus(status) {
 
