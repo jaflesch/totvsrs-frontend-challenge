@@ -26,7 +26,7 @@
 (x) - * O modal deve possuir 3 botões no seu rodapé: **Cancelar**, **Salvar**, **Excluir**
 (x) - * Ao clicar em Cancelar, o modal é simplesmente fechado
 (x) - * Ao clicar em Salvar, as informações são atualizadas, mas o modal permanece aberto
-() - * Ao clicar em Excluir, uma mensagem de confirmação deve aparecer. Se o usuário confirmar a exclusão, o modal é fechado e a linha, excluída
+(x) - * Ao clicar em Excluir, uma mensagem de confirmação deve aparecer. Se o usuário confirmar a exclusão, o modal é fechado e a linha, excluída
 (x) - * O usuário pode fazer quantas operações de CRUD quiser enquanto estiver em sua sessão ativa
 (x) - * Quando ele clicar em um botão para encerrar a sessão, a tabela deve ser limpa e a aplicação retorna à página de autenticação
 
