@@ -21,6 +21,11 @@ function renderInfoUser(filterUserLogin) {
     document.getElementById('desc-email-user').innerHTML = 'Email: ' + filterUserLogin[0].email;
 }
 
+function resetInfoUser() {
+    document.getElementById('desc-name-user').innerHTML = '';
+    document.getElementById('desc-email-user').innerHTML = '';
+}
+
 
 function returnDescriptionStatus(status) {
 

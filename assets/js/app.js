@@ -75,6 +75,14 @@ function showTodoListTemplate() {
     document.getElementById('painel-todo-list').style.display = 'block';
 }
 
+function hideTodoListTemplate() {
+    document.getElementById('painel-todo-list').style.display = 'none';
+}
+
+function showLoginTemplate() {
+    document.getElementById('painel-login').style.display = 'block';
+}
+
 function hideLoginTemplate() {
     document.getElementById('painel-login').style.display = 'none';
     document.getElementById('closeModalRegister').click();

@@ -38,6 +38,19 @@ function login() {
     }
 }
 
+function logout() {
+    resetInfoUser();
+    hideTodoListTemplate();
+    showLoginTemplate();
+    resetFormLogin();
+    document.getElementById('userEmail').focus();
+}
+
+function resetFormLogin() {
+    document.getElementById('userPassword').value = '';
+    document.getElementById('userEmail').value = '';
+}
+
 function requiredFields() {
 
     if (document.getElementById('userEmail').value === '') {
