@@ -43,15 +43,28 @@ function renderTodoListItensByUserId(id) {
         item => item.userId === id
     );
 
-    document.getElementById('render-todo-list').innerHTML = filterDataTodoListUser.map(dataTodoList =>
-        `<tr class="tr-item-todo-list">
-          <th>${dataTodoList.id}</th>
-          <th>${dataTodoList.titulo}</th>
-          <th>${dataTodoList.data}</th>
-          <th>${returnDescriptionStatus(dataTodoList.status)} </th>
-        </tr>`
-    ).join('');
+    let tbody = document.createElement("tbody");
 
+    for (var i = 0; i < filterDataTodoListUser.length; i++) {
+        
+        let item = document.createElement("tr");
+        item.classList.add("tr-item-todo-list");
+
+        let todoItem = filterDataTodoListUser[i];
+        item.addEventListener('click', () => {
+            console.log(todoItem);
+        });
+
+        item.innerHTML = `  <th>${filterDataTodoListUser[i].id}</th>
+                            <th>${filterDataTodoListUser[i].titulo}</th>
+                            <th>${filterDataTodoListUser[i].data}</th>
+                            <th>${returnDescriptionStatus(filterDataTodoListUser[i].status)} </th>
+                         `;
+
+        tbody.append(item);
+    }
+
+    document.getElementById('table-todo-list').appendChild(tbody);
 }
 
 function renderInfoUser(filterUserLogin) {
@@ -69,7 +82,10 @@ function resetInfoUser() {
 }
 
 function resetTodoList() {
-    document.getElementById('render-todo-list').innerHTML = '';
+    try {
+        let tbl = document.getElementById("table-todo-list");
+        tbl.removeChild(tbl.getElementsByTagName("tbody")[0]);
+    } catch (error) { }
 }
 
 function resetRegisterTodoItem() {

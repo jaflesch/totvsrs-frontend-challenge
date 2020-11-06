@@ -14,6 +14,7 @@ function login() {
 
         showTodoListTemplate();
         hideLoginTemplate();
+        resetTodoList();
         renderInfoUser(filterUserLogin);
         renderTodoListItensByUserId(filterUserLogin[0].id);
 
@@ -28,6 +29,7 @@ function logout() {
     showLoginTemplate();
     resetFormLogin();
     resetFormUserRegister();
+    resetTodoList();
     document.getElementById('userEmail').focus();
 
 }
