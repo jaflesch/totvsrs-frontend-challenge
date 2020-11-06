@@ -29,11 +29,14 @@ function registerTodoItem() {
     removeItemCache('lsDataTodoList');
     setItemCache('lsDataTodoList', lsDataTodoList);
 
-    renderTodoListItensByUserId(userData.id);
+    resetTodoList();
+    resetRegisterTodoItem();
 
-    setTimeout(() => {
-        resetRegisterTodoItem();
-    }, 100);
+    renderTodoListItensByUserId(userData.id);
+}
+
+function updateTodoItem() {
+
 }
 
 function renderTodoListItensByUserId(id) {
@@ -44,15 +47,14 @@ function renderTodoListItensByUserId(id) {
     );
 
     let tbody = document.createElement("tbody");
-
     for (var i = 0; i < filterDataTodoListUser.length; i++) {
-        
+
         let item = document.createElement("tr");
         item.classList.add("tr-item-todo-list");
 
         let todoItem = filterDataTodoListUser[i];
         item.addEventListener('click', () => {
-            console.log(todoItem);
+            setValuesTodoItemForUpdate(todoItem);
         });
 
         item.innerHTML = `  <th>${filterDataTodoListUser[i].id}</th>
@@ -60,11 +62,20 @@ function renderTodoListItensByUserId(id) {
                             <th>${filterDataTodoListUser[i].data}</th>
                             <th>${returnDescriptionStatus(filterDataTodoListUser[i].status)} </th>
                          `;
-
         tbody.append(item);
-    }
 
+    }
     document.getElementById('table-todo-list').appendChild(tbody);
+}
+
+function setValuesTodoItemForUpdate(todoItem) {
+    console.log(todoItem);
+    document.getElementById('buttonAuxUpdateModal').click();
+
+    document.getElementById('updateTitleTodoItem').value = todoItem.id;
+    document.getElementById('updateDescriptionTodoItem').value = todoItem.titulo;
+    document.getElementById('updateDateTodoItem').value = todoItem.data;
+    document.getElementById('updateStatusTodoItem').value = todoItem.status;
 }
 
 function renderInfoUser(filterUserLogin) {
