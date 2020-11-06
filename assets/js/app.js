@@ -65,9 +65,6 @@ let lsDataTodoList = [
 // let lsUsersList = [];
 // let lsDataTodoList = [];
 
-
-
-
 function onInitAplication() {
     document.getElementById('userEmail').focus();
     setItemCache('lsUsersList', lsUsersList);

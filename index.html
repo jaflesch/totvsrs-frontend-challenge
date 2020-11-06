@@ -5,11 +5,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/utils/alert.css">
+    <link rel="stylesheet" href="./assets/css/utils/todo-list.css">
     <link rel="stylesheet" href="./assets/css/login.css">
     
     <body onload="onInitAplication()">
 
         <div id="painel-login">
+
             <section class="content-login-form df">
                 <div class="container">
                     <form id="login-form">
@@ -30,8 +32,6 @@
                     </form>
                 </div>
             </section>
-
-
 
 
             <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog">
@@ -71,9 +71,6 @@
         </div>
 
 
-
-
-
         <div id="alert">
             <div style="padding: 5px;">
                 <div id="inner-alert" class="alert alert-danger" role="alert">Campo senha é obrigatório</div>
@@ -89,19 +86,19 @@
 
         <section id="painel-todo-list">
 
-            <table>
-                <thead>
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>TITULO</th>
-                        <th>DATA</th>
-                        <th>STATUS</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">TITULO</th>
+                        <th scope="col">DATA</th>
+                        <th scope="col">STATUS</th>
                     </tr>
-                </thead>
-                <tbody id="render-todo-list">
-                    
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody id="render-todo-list"></tbody>
+                </table>
+            </div>
 
         </section>
 
@@ -115,4 +112,5 @@
     <script src="./assets/js/utils/alert.js"></script>
     <script src="./assets/js/utils/user-register.js"></script>
     <script src="./assets/js/utils/manipulate-data-cache.js"></script>
+    <script src="./assets/js/utils/todo-list.js"></script>
 </html>

@@ -27,7 +27,7 @@ function login() {
 
         showTodoListTemplate();
         hideLoginTemplate();
-        returnTodoListUser(filterUserLogin[0].id);
+        renderTodoListItensByUserId(filterUserLogin[0].id);
 
     } else {
 
@@ -35,24 +35,6 @@ function login() {
         showAlert();
 
     }
-}
-
-function returnTodoListUser(id) {
-    let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
-
-    let filterDataTodoListUser = lsDataTodoList.filter(
-        item => item.userId === id
-    );
-
-    document.getElementById('render-todo-list').innerHTML = filterDataTodoListUser.map(dataTodoList =>
-        `<tr>
-          <th>${dataTodoList.id}</th>
-          <th>${dataTodoList.titulo}</th>
-          <th>${dataTodoList.data}</th>
-          <th>${returnDescriptionStatus(dataTodoList.status)} </th>
-        </tr>`
-    ).join('');
-
 }
 
 function requiredFields() {
@@ -69,21 +51,6 @@ function requiredFields() {
         changeTextAlert('Campo senha é obrigatório');
         showAlert();
         return true;
-    }
-
-}
-
-
-function returnDescriptionStatus(status) {
-
-    if (status === 0) {
-        return 'backlog';
-    }
-    else if (status === 1) {
-        return 'em andamento';
-    }
-    else if (status === 2) {
-        return 'finalizado';
     }
 
 }

@@ -1,4 +1,3 @@
-
 function setItemCache(key, data) {
     let lsData = JSON.stringify({
         data: data
