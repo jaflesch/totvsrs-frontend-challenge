@@ -10,9 +10,12 @@
     
     <body onload="onInitAplication()">
 
-        <div id="painel-login">
 
-            <section class="content-login-form df">
+
+        
+        <section id="painel-login">
+
+            <div class="content-login-form df">
                 <div class="container">
                     <form id="login-form">
                         
@@ -31,8 +34,7 @@
                         </div>
                     </form>
                 </div>
-            </section>
-
+            </div>
 
             <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -68,18 +70,8 @@
                 </div>
                 </div>
             </div>
-        </div>
 
-
-        <div id="alert">
-            <div style="padding: 5px;">
-                <div id="inner-alert" class="alert alert-danger" role="alert">Campo senha é obrigatório</div>
-            </div>
-        </div>
-
-
-
-
+        </section>
 
 
 
@@ -87,7 +79,6 @@
         <section id="painel-todo-list">
 
             <div class="container">
-
                 <div class="df alg sb">
                     <div id="desc-name-user">Nome: </div>
                     <div id="desc-email-user">Email: </div>
@@ -108,15 +99,7 @@
 
                 <button type="button" class="btn btn-primary login-button" onclick="logout()">Logout</button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegisterTodoItem">Adicionar tarefa</button>
-
             </div>
-
-
-
-
-
-            
-
 
             <div class="modal fade" id="modalRegisterTodoItem" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -162,8 +145,21 @@
                 </div>
             </div>
 
-
         </section>
+
+
+
+
+
+
+
+
+
+        <div id="alert">
+            <div style="padding: 5px;">
+                <div id="inner-alert" class="alert alert-danger" role="alert">Campo senha é obrigatório</div>
+            </div>
+        </div>
 
     </body>
 
