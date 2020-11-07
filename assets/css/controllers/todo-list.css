@@ -1,5 +1,5 @@
 table#table-todo-list {
-    margin-bottom: 50px;
+    margin-bottom: 23px;
 }
 
 table#table-todo-list thead th,
@@ -15,6 +15,11 @@ table#table-todo-list tbody th {
 
 #painel-todo-list {
     display: none;
+}
+
+#title-system {
+    font-weight: bold;
+    font-size: 19px;
 }
 
 .tr-item-todo-list {
@@ -34,6 +39,7 @@ table#table-todo-list tbody th {
 }
 
 .info-user {
+    font-size: 15px;
     margin-bottom: 20px;
 }
 
@@ -45,4 +51,11 @@ table#table-todo-list tbody th {
 .button-add-todo-item svg {
     fill: #fff;
     font-size: 19px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: #ced4da;
+    margin-bottom: 23px;
 }

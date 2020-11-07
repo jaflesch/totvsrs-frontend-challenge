@@ -1,9 +1,9 @@
 let lsUsersList = [
     {
         id: 1,
-        nome: 'Diego Xavier',
-        email: 'diegoferreirax95@gmail.com',
-        senha: 'xav'
+        nome: 'Usuário 1',
+        email: 'user1@gmail.com',
+        senha: 'user1'
     }
 ];
 
