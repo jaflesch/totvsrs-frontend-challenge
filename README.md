@@ -16,5 +16,5 @@ Dê dois clicks no arquivo `index.html` para iniciar a aplicação. Não utilize
 
 * Há 1 usuário criado: 
 
-`Email: user1@gmail.com`
-`Senha: user1`
+`Email: user1@gmail.com` 
+`Senha: user1` 
