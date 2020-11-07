@@ -3,7 +3,7 @@ var todoItemObject = {};
 
 function registerTodoItem() {
 
-    if (requiredFieldsRegisterTodoItem()) {
+    if (requiredFieldsRegisterTodoItem({ updateItem: false })) {
         return;
     }
 
@@ -33,6 +33,10 @@ function registerTodoItem() {
 }
 
 function updateTodoItem() {
+
+    if (requiredFieldsRegisterTodoItem({ updateItem: true })) {
+        return;
+    }
 
     let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
 
@@ -157,25 +161,25 @@ function returnDescriptionStatus(status) {
 
 }
 
-function requiredFieldsRegisterTodoItem() {
+function requiredFieldsRegisterTodoItem(objectValues) {
 
-    if (document.getElementById('titleTodoItem').value === '') {
-        document.getElementById('titleTodoItem').focus();
+    if (document.getElementById(objectValues.updateItem === false ? 'titleTodoItem' : 'updateTitleTodoItem').value === '') {
+        document.getElementById(objectValues.updateItem === false ? 'titleTodoItem' : 'updateTitleTodoItem').focus();
         return true;
     }
 
-    if (document.getElementById('descriptionTodoItem').value === '') {
-        document.getElementById('descriptionTodoItem').focus();
+    if (document.getElementById(objectValues.updateItem === false ? 'descriptionTodoItem' : 'updateDescriptionTodoItem').value === '') {
+        document.getElementById(objectValues.updateItem === false ? 'descriptionTodoItem' : 'updateDescriptionTodoItem').focus();
         return true;
     }
 
-    if (document.getElementById('dateTodoItem').value === '') {
-        document.getElementById('dateTodoItem').focus();
+    if (document.getElementById(objectValues.updateItem === false ? 'dateTodoItem' : 'updateDateTodoItem').value === '') {
+        document.getElementById(objectValues.updateItem === false ? 'dateTodoItem' : 'updateDateTodoItem').focus();
         return true;
     }
 
-    if (document.getElementById('statusTodoItem').value === '') {
-        document.getElementById('statusTodoItem').focus();
+    if (document.getElementById(objectValues.updateItem === false ? 'statusTodoItem' : 'updateStatusTodoItem').value === '') {
+        document.getElementById(objectValues.updateItem === false ? 'statusTodoItem' : 'updateStatusTodoItem').focus();
         return true;
     }
 
