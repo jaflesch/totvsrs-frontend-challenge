@@ -8,8 +8,10 @@ function registerTodoItem() {
     }
 
     let lsDataTodoList = getItemCache('lsDataTodoList')['data'];
+    let nextIdTodoItem = 0;
 
-    let nextIdTodoItem = Math.max.apply(null, lsDataTodoList.map(item => item.id));
+    if (lsDataTodoList.length !== 0)
+        nextIdTodoItem = Math.max.apply(null, lsDataTodoList.map(item => item.id));
 
     let objTodoItem = {
         id: nextIdTodoItem + 1,
