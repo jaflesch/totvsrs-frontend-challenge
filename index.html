@@ -1,15 +1,271 @@
 <html>
     <head>
-        <title>Meu projeto To-do list - TOTVS RS</title>
+        <title>Diego Xavier - To-do list - TOTVS RS</title>
     </head>
-    <body>
-        <div>
-            <h1>To do list</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. 
-                Dolorum molestiae delectus tempore? Quod.
-            </p>
+    <link rel="stylesheet" href="./assets/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/controllers/todo-list.css">
+    <link rel="stylesheet" href="./assets/css/controllers/login.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/utils/alert.css">
+    
+    <body onload="onInitAplication()">
+
+
+
+        
+        <section id="painel-login">
+
+            <div class="content-login-form df">
+                <div class="container">
+                    <form id="login-form">
+                        
+                        <div class="form-group">
+                            <label for="userEmail">Email</label>
+                            <input type="email" class="form-control" id="userEmail" onkeypress="onKeyPressLoginForm(event)">
+                        </div>
+                        <div class="form-group">
+                            <label for="userPassword">Senha</label>
+                            <input type="password" class="form-control" id="userPassword" onkeypress="onKeyPressLoginForm(event)">
+                        </div>
+
+                        <div class="df alg sb">
+                            <a class="create-login" data-toggle="modal" data-target="#modalRegister" onclick="userNameRegisterFocus()">Criar conta</a>
+                            <button type="button" class="btn btn-primary login-button" onclick="login()">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastrar</h5>
+                        <button type="button" id="closeModalRegister" class="close removeOutlineButton" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <form>
+                            <div class="form-group">
+                                <label for="userNameRegister">Nome</label>
+                                <input type="text" class="form-control" id="userNameRegister">
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmailRegister">Email</label>
+                                <input type="email" class="form-control" id="userEmailRegister">
+                            </div>
+                            <div class="form-group">
+                                <label for="userPasswordRegister">Senha</label>
+                                <input type="password" class="form-control" id="userPasswordRegister">
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary" onclick="registerUser()">Cadastrar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+        <section id="painel-todo-list">
+
+            <div class="container">
+
+                <div class="logout-button df alg sb">
+                    <span id="title-system">Lista de tarefas</span>
+                    <button type="button" class="btn btn-primary" title="Deslogar do sistema" onclick="logout()">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-door-open-fill" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2v13h1V2.5a.5.5 0 0 0-.5-.5H11zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="info-user df alg sb">
+                    <div id="desc-name-user">Nome: </div>
+                    <div id="desc-email-user">Email: </div>
+                    <div id="desc-id-user" style="display: none;"></div>
+                </div>
+
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="container">
+
+                <div id="content-table-todo-list">
+                    <table class="table table-hover" id="table-todo-list">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="no-registers-found">Nenhum registro encontrado</div>
+                </div>
+
+                <button type="button" class="btn btn-primary button-add-todo-item df" data-toggle="modal" data-target="#modalRegisterTodoItem" title="Adicionar tarefa">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Adicionar tarefa
+                </button>
+            </div>
+
+            <div class="modal fade" id="modalRegisterTodoItem" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Cadastrar item</h5>
+                            <button type="button" id="closeModalRegisterTodoItem" class="close removeOutlineButton" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <form>
+                                <div class="form-group">
+                                    <label for="titleTodoItem">Título</label>
+                                    <input type="text" class="form-control" id="titleTodoItem">
+                                </div>
+                                <div class="form-group">
+                                    <label for="descriptionTodoItem">Descrição</label>
+                                    <input type="email" class="form-control" id="descriptionTodoItem">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateTodoItem">Data</label>
+                                    <input type="datetime-local" class="form-control" id="dateTodoItem">
+                                </div>
+                                <div class="form-group">
+                                    <label for="statusTodoItem">Status</label>
+                                    <select class="form-control" id="statusTodoItem">
+                                        <option value="0">backlog</option>
+                                        <option value="1">em andamento</option>
+                                        <option value="2">finalizado</option>
+                                    </select>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="button" class="btn btn-primary" onclick="registerTodoItem()">Cadastrar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUpdateTodoItem" id="buttonAuxUpdateModal" style="visibility: hidden;"></button>
+            <div class="modal fade" id="modalUpdateTodoItem" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <h5 class="modal-title">Atualizar item</h5>
+                            <button type="button" id="closeModalUpdateTodoItem" class="close removeOutlineButton" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <form>
+                                <div class="form-group">
+                                    <label for="updateTitleTodoItem">Título</label>
+                                    <input type="text" class="form-control" id="updateTitleTodoItem">
+                                </div>
+                                <div class="form-group">
+                                    <label for="updateDescriptionTodoItem">Descrição</label>
+                                    <input type="email" class="form-control" id="updateDescriptionTodoItem">
+                                </div>
+                                <div class="form-group">
+                                    <label for="updateDateTodoItem">Data</label>
+                                    <input type="datetime-local" class="form-control" id="updateDateTodoItem">
+                                </div>
+                                <div class="form-group">
+                                    <label for="updateStatusTodoItem">Status</label>
+                                    <select class="form-control" id="updateStatusTodoItem">
+                                        <option value="0">backlog</option>
+                                        <option value="1">em andamento</option>
+                                        <option value="2">finalizado</option>
+                                    </select>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="d-flex" style="width: 100%;">
+                                <div class="mr-auto p-2"><button type="button" class="btn btn-danger" onclick="showModalConfirm()">Excluir</button></div>
+                                <div class="p-2"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button></div>
+                                <div class="p-2"><button type="button" class="btn btn-primary" onclick="updateTodoItem()">Salvar</button></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+
+
+
+
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalConfirm" id="buttonAuxModalConfirm" style="visibility: hidden;"></button>
+        <div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmação</h5>
+                    <button type="button" id="closeModalConfirm" class="close removeOutlineButton" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>O item será excluído permanentemente. Deseja continuar ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="button" class="btn btn-primary" onclick="deleteTodoItem()">Sim</button>
+                </div>
+            </div>
+            </div>
         </div>
+
+
+
+        <div id="alert">
+            <div style="padding: 5px;">
+                <div id="inner-alert" class="alert alert-danger" role="alert">Campo senha é obrigatório</div>
+            </div>
+        </div>
+
     </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
+    <script src="./assets/vendor/jquery/jquery.js"></script>
+    <script src="./assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/controllers/login.js"></script>
+    <script src="./assets/js/controllers/todo-list.js"></script>
+    <script src="./assets/js/controllers/user-register.js"></script>
+    <script src="./assets/js/utils/alert.js"></script>
+    <script src="./assets/js/utils/manipulate-data-cache.js"></script>
 </html>

@@ -1,0 +1,16 @@
+#alert {
+    position: fixed;
+    left: 0;
+    bottom: 450px;
+    width: 100%;
+    display: none;
+}
+#inner-alert {
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+}
+.alert-danger {
+    color: #ffffff;
+    background-color: #ff4141;
+}

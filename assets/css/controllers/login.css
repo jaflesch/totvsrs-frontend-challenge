@@ -1,0 +1,18 @@
+#login-form {
+    width: 450px;
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid #ced4da;
+    padding: 25px;
+    border-radius: .25rem;
+}
+
+.login-button {
+    width: 120px;
+    margin-top: 3px;
+}
+
+.create-login {
+    color: #007bff !important;
+    cursor: pointer;
+}

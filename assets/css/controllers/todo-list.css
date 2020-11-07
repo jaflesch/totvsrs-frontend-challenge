@@ -1,0 +1,74 @@
+table#table-todo-list {
+    margin-bottom: 0 !important;
+}
+
+div#content-table-todo-list {
+    margin-bottom: 23px;
+}
+
+table#table-todo-list thead th,
+table#table-todo-list tbody th {
+    padding: 3px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+}
+
+table#table-todo-list tbody th {
+    font-weight: 100;
+}
+
+#painel-todo-list {
+    display: none;
+}
+
+#title-system {
+    font-weight: bold;
+    font-size: 19px;
+}
+
+#no-registers-found {
+    padding: 1px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    text-align: center;
+    border-top: none;
+    display: none;
+}
+
+.tr-item-todo-list {
+    cursor: pointer;
+}
+
+.logout-button {
+    margin: 20px 0 20px 0;
+}
+
+.logout-button button {
+    padding: 5px;
+}
+
+.logout-button button svg {
+    font-size: 16px;
+}
+
+.info-user {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.button-add-todo-item {
+    font-size: 14px;
+    padding: 2px 10px 2px 5px;
+}
+
+.button-add-todo-item svg {
+    fill: #fff;
+    font-size: 19px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: #ced4da;
+    margin-bottom: 23px;
+}
