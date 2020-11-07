@@ -12,4 +12,9 @@ Bibliotecas:
 
 ## Iniciar aplicação:
 
-Dê dois clicks no arquivo `index.html` para iniciar a aplicação. Não utilizei nenhum runner pois preferi desenvolver com o JS mais nativo possível.
+Dê dois clicks no arquivo `index.html` para iniciar a aplicação. Não utilizei nenhum runner pois preferi desenvolver com o JS mais nativo possível. 
+
+* Há 1 usuário criado: 
+
+`Email: user1@gmail.com`
+`Senha: user1`
