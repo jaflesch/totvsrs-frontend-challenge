@@ -22,7 +22,6 @@ function onInitAplication() {
     document.getElementById('userEmail').focus();
     setItemCache('lsUsersList', lsUsersList);
     setItemCache('lsDataTodoList', lsDataTodoList);
-    hideTodoListTemplate();
 }
 
 function showTodoListTemplate() {

@@ -1,3 +1,7 @@
+#painel-todo-list {
+    display: none;
+}
+
 .tr-item-todo-list {
     cursor: pointer;
 }
