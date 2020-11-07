@@ -84,26 +84,34 @@ function renderTodoListItensByUserId(id) {
         item => item.userId === id
     );
 
-    let tbody = document.createElement("tbody");
-    for (var i = 0; i < filterDataTodoListUser.length; i++) {
+    if (filterDataTodoListUser.length !== 0) {
+        document.getElementById('no-registers-found').style.display = 'none';
 
-        let item = document.createElement("tr");
-        item.classList.add("tr-item-todo-list");
+        let tbody = document.createElement("tbody");
 
-        let todoItem = filterDataTodoListUser[i];
-        item.addEventListener('click', () => {
-            setValuesTodoItemForUpdate(todoItem);
-        });
+        for (var i = 0; i < filterDataTodoListUser.length; i++) {
 
-        item.innerHTML = `  <th>${filterDataTodoListUser[i].id}</th>
-                            <th>${filterDataTodoListUser[i].titulo}</th>
-                            <th>${formatDateTime(filterDataTodoListUser[i].data)}</th>
-                            <th>${returnDescriptionStatus(filterDataTodoListUser[i].status)} </th>
-                         `;
-        tbody.append(item);
+            let item = document.createElement("tr");
+            item.classList.add("tr-item-todo-list");
 
+            let todoItem = filterDataTodoListUser[i];
+            item.addEventListener('click', () => {
+                setValuesTodoItemForUpdate(todoItem);
+            });
+
+            item.innerHTML = `  <th>${filterDataTodoListUser[i].id}</th>
+                                <th>${filterDataTodoListUser[i].titulo}</th>
+                                <th>${formatDateTime(filterDataTodoListUser[i].data)}</th>
+                                <th>${returnDescriptionStatus(filterDataTodoListUser[i].status)} </th>
+                             `;
+            tbody.append(item);
+
+        }
+        document.getElementById('table-todo-list').appendChild(tbody);
+    } 
+    else {
+        document.getElementById('no-registers-found').style.display = 'block';
     }
-    document.getElementById('table-todo-list').appendChild(tbody);
 }
 
 function setValuesTodoItemForUpdate(todoItem) {

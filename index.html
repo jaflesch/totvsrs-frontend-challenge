@@ -101,16 +101,19 @@
 
             <div class="container">
 
-                <table class="table table-hover" id="table-todo-list">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Título</th>
-                            <th scope="col">Data</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                </table>
+                <div id="content-table-todo-list">
+                    <table class="table table-hover" id="table-todo-list">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Título</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div id="no-registers-found">Nenhum registro encontrado</div>
+                </div>
 
                 <button type="button" class="btn btn-primary button-add-todo-item df" data-toggle="modal" data-target="#modalRegisterTodoItem" title="Adicionar tarefa">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
