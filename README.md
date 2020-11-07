@@ -18,3 +18,8 @@ Dê dois clicks no arquivo `index.html` para iniciar a aplicação. Não utilize
 
 `Email: user1@gmail.com`  
 `Senha: user1`  
+
+## Observações:
+
+Como minha ideia foi não usar libs npm, foram aplicados estilos sem pré-processador css. Admito que iria ficam bem melhor e mais organizado com mixins, functions e etc. Também por questões de prazo resolvi não utilizar. Mas caso for do interesse posso fazer essas alterações com scss.  
+Pensei em aplicar um painel com menus e tudo mais... mas pelo questão do minimalismo, resolvi manter o layout bem simples.  
