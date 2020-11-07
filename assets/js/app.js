@@ -1,9 +1,9 @@
 let lsUsersList = [
     {
         id: 1,
-        nome: 'user1',
-        email: 'user1',
-        senha: 'user1'
+        nome: 'xav',
+        email: 'xav',
+        senha: 'xav'
     }
 ];
 
@@ -11,10 +11,10 @@ let lsDataTodoList = [
     {
         id: 1,
         userId: 1,
-        titulo: 'teste1',
-        descricao: 'teste1 desc',
-        data: Date(),
-        status: 0
+        titulo: 'Teste',
+        descricao: 'Teste todo-list javascript',
+        data: '2020-11-14T04:40',
+        status: 1
     }
 ];
 
@@ -22,6 +22,7 @@ function onInitAplication() {
     document.getElementById('userEmail').focus();
     setItemCache('lsUsersList', lsUsersList);
     setItemCache('lsDataTodoList', lsDataTodoList);
+    hideTodoListTemplate();
 }
 
 function showTodoListTemplate() {

@@ -97,7 +97,7 @@ function renderTodoListItensByUserId(id) {
 
         item.innerHTML = `  <th>${filterDataTodoListUser[i].id}</th>
                             <th>${filterDataTodoListUser[i].titulo}</th>
-                            <th>${filterDataTodoListUser[i].data}</th>
+                            <th>${formatDateTime(filterDataTodoListUser[i].data)}</th>
                             <th>${returnDescriptionStatus(filterDataTodoListUser[i].status)} </th>
                          `;
         tbody.append(item);
@@ -161,6 +161,13 @@ function returnDescriptionStatus(status) {
         return 'finalizado';
     }
 
+}
+
+function formatDateTime(date) {
+    let dateAndTime = date.split('T');
+    let dateFormated = dateAndTime[0].split('-');
+    let newDate = dateFormated[2] + "/" + dateFormated[1] + "/" + dateFormated[0];
+    return dateAndTime[1] + " " + newDate;
 }
 
 function requiredFieldsRegisterTodoItem(objectValues) {

@@ -2,8 +2,7 @@
     color: #333;
 }
 
-body,
-.content-login-form {
+body {
     height: 100%;
     width: 100%;
 }
