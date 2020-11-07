@@ -2,6 +2,11 @@
     color: #333;
 }
 
+body, 
+table {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
 body {
     height: 100%;
     width: 100%;
