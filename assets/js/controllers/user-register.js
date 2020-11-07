@@ -10,6 +10,11 @@ function registerUser() {
         return;
     }
 
+    if (verifyIfUserHasExist()) {
+        document.getElementById('userEmailRegister').focus();
+        return;
+    }
+
     let lsUsersList = getItemCache('lsUsersList')['data'];
     let nextIdUser = lsUsersList.length === 0 ? 1 : lsUsersList[lsUsersList.length - 1].id + 1;
 
@@ -59,4 +64,18 @@ function resetFormUserRegister() {
     document.getElementById('userNameRegister').value = '';
     document.getElementById('userEmailRegister').value = '';
     document.getElementById('userPasswordRegister').value = '';
+}
+
+function verifyIfUserHasExist() {
+    let lsUsersList = getItemCache('lsUsersList')['data'];
+
+    let verifyUser = lsUsersList.filter(
+        item => item.email === document.getElementById('userEmailRegister').value
+    );
+    
+    if (verifyUser.length !== 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
