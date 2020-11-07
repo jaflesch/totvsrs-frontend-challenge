@@ -12,4 +12,4 @@ Bibliotecas:
 
 ## Iniciar aplicação:
 
-Dê dois clicks no arquivo `index.html` para iniciar a aplicação. Não utilizei nenhum runner pois preferi desenvolver com o JS nativo.
+Dê dois clicks no arquivo `index.html` para iniciar a aplicação. Não utilizei nenhum runner pois preferi desenvolver com o JS mais nativo possível.
