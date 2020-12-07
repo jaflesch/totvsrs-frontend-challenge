@@ -1,1 +1,35 @@
-* { color: #333; }
+* {
+    color: #333;
+}
+
+body,
+table {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.df {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.alg {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.sb {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.removeOutlineButton {
+    outline: none !important;
+}
