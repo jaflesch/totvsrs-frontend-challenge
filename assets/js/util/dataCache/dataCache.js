@@ -9,7 +9,7 @@ function setCache(key,data)
 
 function getCache(key)
 {
-    var dados = JSON.parse(localStorage.getItem(key));
+    let dados = JSON.parse(localStorage.getItem(key));
     if (dados !== null) {
         dados = JSON.parse(localStorage.getItem(key));
         return dados;
