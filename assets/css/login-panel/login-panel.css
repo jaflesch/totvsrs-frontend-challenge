@@ -64,6 +64,7 @@
     transition: all .1s ease-in-out;
 }
 
+
 .form-label-group input::-webkit-input-placeholder {
     color: transparent;
 }
