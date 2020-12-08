@@ -17,30 +17,34 @@ function camposObrigatorios()
     return true;
 }
 
-function camposObrigatoriosCadastro() {
+function camposObrigatoriosCadastro()
+{
 
-    if (document.getElementById('nomeCadastro').value === '') {
+    if (document.getElementById('nomeCadastro').value === '')
+    {
         document.getElementById('nomeCadastro').focus();
         mostrarErroCadastro("nome obrigatório");
-        return false;
+        return true;
     }
 
-    if (document.getElementById('emailCadastro').value === '') {
+    if (document.getElementById('emailCadastro').value === '')
+    {
         document.getElementById('emailCadastro').focus();
         mostrarErroCadastro("email obrigatório");
-        return false;
+        return true;
     }
 
-    if (document.getElementById('senhaCadastro').value === '') {
+    if (document.getElementById('senhaCadastro').value === '')
+    {
         document.getElementById('senhaCadastro').focus();
         mostrarErroCadastro("senha obrigatório");
-        return false;
+        return true;
     }
 
-    return true;
 }
 
-function verificaUsuarioExistente() {
+function verificaUsuarioExistente()
+{
     let userList = getCache('users')['data'];
 
     let verificaUsuario = userList.filter(

@@ -2,7 +2,7 @@ function login()
 {
     if(camposObrigatorios())
     {
-        let usersList = getCache('lsUsersList')['data'];
+        let usersList = getCache('users')['data'];
 
         let filterUserLogin = usersList.filter(
             item => item.email === document.getElementById('inputEmail').value && item.senha === document.getElementById('inputPassword').value
@@ -10,6 +10,7 @@ function login()
 
         if (filterUserLogin.length !== 0) {
 
+            esconderTelaLogin();
 
 
         } else {
@@ -21,6 +22,12 @@ function login()
 
 
 
+}
+
+function esconderTelaLogin()
+{
+    document.getElementById("login-painel").style.display = 'none';
+    document.getElementById("fecharModalCadastro").click();
 }
 
 

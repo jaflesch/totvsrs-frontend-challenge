@@ -12,7 +12,7 @@ function mostrarErro(text) {
 function esconderAlert() {
     setTimeout(() => {
         document.getElementById('alert').style.display = 'none';
-    }, 5000);
+    }, 6000);
 }
 
 /** ALERTS CADASTRO*/
@@ -21,7 +21,7 @@ function esconderAlertCadastro()
 {
     setTimeout(() => {
         document.getElementById("alert-cadastro").style.display = 'none';
-    },5000);
+    },6000);
 }
 
 function mostrarErroCadastro(text)

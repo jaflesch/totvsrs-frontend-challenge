@@ -6,37 +6,29 @@ function userRegisterFocus() {
 
 function cadastraUsuario() {
 
-    if (!camposObrigatoriosCadastro()) {
-        return false;
+    if (camposObrigatoriosCadastro()) {
+        return;
     }
 
-    if (!verificaUsuarioExistente()) {
-        document.getElementById('emailCadastro').focus();
-        return false;
+    if (verificaUsuarioExistente()) {
+        return;
     }
 
     let userList = getCache('users')['data'];
     let proxIdUsuario = userList.length === 0 ? 1 : userList[userList.length - 1].id + 1;
 
-    let obj = {
+    let cadastro = {
         id: proxIdUsuario,
         nome: document.getElementById('nomeCadastro').value,
         email: document.getElementById('emailCadastro').value,
         senha: document.getElementById('senhaCadastro').value
     };
 
-    userList.push(obj);
+    userList.push(cadastro);
 
     removeCache('users');
     setCache('users', userList);
 
-    document.getElementById('desc-name-user').innerHTML = 'Nome: ' + document.getElementById('nomeCadastro').value;
-    document.getElementById('desc-email-user').innerHTML = 'Email: ' + document.getElementById('emailCadastro').value;
-    document.getElementById('desc-id-user').innerHTML = 'Id: ' + proxIdUsuario;
+    esconderTelaLogin();
 
-    showTodoListTemplate();
-    hideLoginTemplate();
-    resetTodoList();
-    renderInfoUser(obj);
-    renderTodoListItensByUserId(obj.id);
 }
