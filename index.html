@@ -28,12 +28,12 @@
                                             <h3 class="login-heading mb-4">Bem Vindo!</h3>
                                             <form>
                                                 <div class="form-label-group">
-                                                    <input type="email" id="inputEmail" class="form-control" placeholder="userEmail"  required autofocus onkeypress="onKeyPressLoginForm(event)">
+                                                    <input type="email" id="inputEmail" class="form-control" placeholder="userEmail"  required>
                                                     <label for="inputEmail">Email</label>
                                                 </div>
 
                                                 <div class="form-label-group">
-                                                    <input type="password" id="inputPassword" class="form-control" placeholder="userPassword" required onkeypress="onKeyPressLoginForm(event)">
+                                                    <input type="password" id="inputPassword" class="form-control" placeholder="userPassword" required>
                                                     <label for="inputPassword">Senha</label>
                                                 </div>
 
@@ -49,7 +49,7 @@
 
                                                 <div id="alert" style="display: none">
                                                     <div style="padding: 5px;">
-                                                        <div id="inner-alert" class="alert alert-danger" role="alert">Campo senha é obrigatório</div>
+                                                        <div id="inner-alert" class="alert alert-danger" role="alert"></div>
                                                     </div>
                                                 </div>
                                             </form>
@@ -108,13 +108,12 @@
                 <div class="container">
 
                     <header>
-                        <img src="assets/images/logo-totvs-rs.png" class="logo" alt="logo" style="height: 60px; width: 300px">Totvs
+                        <img src="assets/images/logo-totvs-rs.png" class="logo" alt="logo" style="height: 60px; width: 300px">
 
                         <div class="header-right">
-                            <a onclick="">adicionar</a>
-                            <a onclick="">remover</a>
-                            <a onclick="">editar</a>
-                            <a onclick="">logout</a>
+                            <a id="adicionar-tarefa" data-toggle="modal" data-target="#modal-todo-app" onclick="modalAdicionarTarefa()">Adicionar tarefa</a>
+                            <a id="logout" onclick="logout()">logout</a>
+
                         </div>
                     </header>
 
@@ -124,12 +123,61 @@
                     </div>
 
                     <div class="info-user df alg sb">
-                        <div id="desc-name-user">Nome: </div>
-                        <div id="desc-email-user">Email: </div>
-                        <div id="desc-id-user" style="display: none;"></div>
+                        <div id="descricao-nome">Nome: </div>
+                        <div id="descricao-email">Email: </div>
+                        <div id="descricao-id-usuario" style="display: none;"></div>
                     </div>
 
                     <div class="divisor"></div>
+                </div>
+
+
+            </section>
+
+            <section id="modal-adicionar-tarefa">
+                <div class="modal fade" id="modal-todo-app" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title">Cadastrar item</h5>
+                                <button type="button" id="closeModalRegisterTodoItem" class="close removeOutlineButton" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <form>
+                                    <div class="form-group">
+                                        <label for="tituloTarefa">Título</label>
+                                        <input type="text" class="form-control" id="tituloTarefa">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descricaoTarefa">Descrição</label>
+                                        <input type="email" class="form-control" id="descricaoTarefa">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dataTarefa">Data</label>
+                                        <input type="datetime-local" class="form-control" id="dataTarefa">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="statusTarefa">Status</label>
+                                        <select class="form-control" id="statusTarefa">
+                                            <option value="0">backlog</option>
+                                            <option value="1">em andamento</option>
+                                            <option value="2">finalizado</option>
+                                        </select>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary" onclick="">Cadastrar</button>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -141,9 +189,10 @@
             <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
             <script src="./assets/js/app.js"></script>
             <script src="./assets/js/controller/login/login.js"></script>
+            <script src="./assets/js/controller/login/logout.js"></script>
             <script src="./assets/js/controller/validate/validate.js"></script>
             <script src="./assets/js/controller/cadastro/cadastro.js"></script>
-            <!--            <script src="./assets/js/controllers/todo-list.js"></script>-->
+            <script src="./assets/js/controller/todo-list/todoList.js"></script>
             <script src="./assets/js/controller/errors/errors.js"></script>
             <script src="./assets/js/util/dataCache/dataCache.js"></script>
     </body>

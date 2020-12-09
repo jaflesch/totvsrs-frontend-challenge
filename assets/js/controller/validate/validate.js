@@ -47,9 +47,7 @@ function verificaUsuarioExistente()
 {
     let userList = getCache('users')['data'];
 
-    let verificaUsuario = userList.filter(
-        item => item.email === document.getElementById('emailCadastro').value
-    );
+    let verificaUsuario = userList.filter(item => item.email === document.getElementById('emailCadastro').value);
 
     return verificaUsuario.length !== 0;
 }

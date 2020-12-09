@@ -4,9 +4,6 @@ function login()
     {
         let usersList = getCache('users')['data'];
 
-        let filterUserLogin = usersList.filter(
-            item => item.email === document.getElementById('inputEmail').value && item.senha === document.getElementById('inputPassword').value
-        );
 
         if (filterUserLogin.length !== 0) {
 
@@ -28,6 +25,7 @@ function esconderTelaLogin()
 {
     document.getElementById("login-painel").style.display = 'none';
     document.getElementById("fecharModalCadastro").click();
+    document.getElementById("todoApp").style.display ='block';
 }
 
 
