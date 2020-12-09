@@ -2,21 +2,24 @@ function login()
 {
     if(camposObrigatorios())
     {
-        let usersList = getCache('users')['data'];
-
-
-        if (filterUserLogin.length !== 0) {
-
-            esconderTelaLogin();
-
-
-        } else {
-            mostrarErro('Usuário ou senha inválidos');
-            esconderAlert();
-        }
-
+        return;
     }
 
+    let usersList = getCache('users')['data'];
+    let userLogin = usersList.filter(user => user.email === document.getElementById("inputEmail")
+        && user.senha === document.getElementById("inputPassword"));
+
+
+    if (userLogin.length !== 0) {
+
+        esconderTelaLogin();
+        usuarioLogado(userLogin[0]);
+
+
+    } else {
+        mostrarErro('Usuário ou senha inválidos');
+        esconderAlert();
+    }
 
 
 }
@@ -28,15 +31,13 @@ function esconderTelaLogin()
     document.getElementById("todoApp").style.display ='block';
 }
 
+function onKeyPressLoginForm(e) {
+    if (e.keyCode === 13) {
+        e.preventDefault();
 
-function onKeyPressLoginForm(event) {
-    if (event.keyCode === 13) {
-        event.preventDefault();
-
-        if (camposObrigatorios(event)) {
+        if (camposObrigatorios()) {
             return;
         }
-
         login();
     }
 }

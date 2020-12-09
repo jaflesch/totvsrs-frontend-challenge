@@ -7,12 +7,16 @@
         <meta name="author" content="Enio Oliveira">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+        <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-grid.min.css">
         <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-reboot.css">
         <link href="assets/css/login-panel/login-panel.css" rel="stylesheet" type="text/css">
         <link href="assets/css/todo-app-header/todo-app-header.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/todo-list/todo-list.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     </head>
     <body onload="initApp()">
@@ -28,12 +32,12 @@
                                             <h3 class="login-heading mb-4">Bem Vindo!</h3>
                                             <form>
                                                 <div class="form-label-group">
-                                                    <input type="email" id="inputEmail" class="form-control" placeholder="userEmail"  required>
+                                                    <input type="email" id="inputEmail" class="form-control" placeholder="userEmail"  required onkeypress="onKeyPressLoginForm(e)">
                                                     <label for="inputEmail">Email</label>
                                                 </div>
 
                                                 <div class="form-label-group">
-                                                    <input type="password" id="inputPassword" class="form-control" placeholder="userPassword" required>
+                                                    <input type="password" id="inputPassword" class="form-control" placeholder="userPassword" required onkeypress="onKeyPressLoginForm(e)">
                                                     <label for="inputPassword">Senha</label>
                                                 </div>
 
@@ -96,7 +100,7 @@
                             </div>
                             <div id="alert-cadastro" >
                                 <div style="padding: 5px;">
-                                    <div id="inner-alert-cadastro" class="alert alert-danger" role="alert">Campo senha é obrigatório</div>
+                                    <div id="inner-alert-cadastro" class="alert alert-danger" role="alert">Todos os campos são obrigatórios</div>
                                 </div>
                             </div>
                         </div>
@@ -111,26 +115,23 @@
                         <img src="assets/images/logo-totvs-rs.png" class="logo" alt="logo" style="height: 60px; width: 300px">
 
                         <div class="header-right">
-                            <a id="adicionar-tarefa" data-toggle="modal" data-target="#modal-todo-app" onclick="modalAdicionarTarefa()">Adicionar tarefa</a>
+                            <a id="adicionar-tarefa" data-toggle="modal" data-target="#modal-todo-app">Adicionar tarefa</a>
                             <a id="logout" onclick="logout()">logout</a>
 
                         </div>
                     </header>
 
-
-                    <div id="titulo-sistema">
-                        <span>Lista de tarefas</span>
-                    </div>
-
                     <div class="info-user df alg sb">
                         <div id="descricao-nome">Nome: </div>
                         <div id="descricao-email">Email: </div>
-                        <div id="descricao-id-usuario" style="display: none;"></div>
+                        <div id="descricao-id-usuario"></div>
                     </div>
 
                     <div class="divisor"></div>
                 </div>
+            </section>
 
+            <section id="todoList">
 
             </section>
 
@@ -182,9 +183,8 @@
             </section>
 
 
-
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
             <script src="./vendor/jquery/jquery.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.4/umd/popper.min.js"></script>
             <script src="./vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
             <script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
             <script src="./assets/js/app.js"></script>

@@ -4,17 +4,15 @@ function camposObrigatorios()
     {
         document.getElementById("inputEmail").focus();
         mostrarErro("Email Obrigatório");
-        return false;
+        return true;
     }
 
     if(document.getElementById("inputPassword").value === "")
     {
         document.getElementById("inputPassword").focus();
         mostrarErro("Senha Obrigatória");
-        return false;
+        return true;
     }
-
-    return true;
 }
 
 function camposObrigatoriosCadastro()
