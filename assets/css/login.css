@@ -1,0 +1,99 @@
+.form_login{
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_login .title {
+    font-size: 2.5rem;
+}
+
+.title:hover,
+.title:focus,
+.title:active {
+    color: #aeaeae87;
+    border-bottom: 1px solid #acabab87;
+    border-color: #acabab87;
+    color: #191919;
+}
+
+.form_login .image_login {
+    width: 20rem;
+    margin: 2rem;
+}
+
+.box_login, .box_button{
+    text-align: center;
+}
+
+.form_login .box_login .input{
+    margin: 1rem;
+    flex-basis: 15%;
+    padding: 0.9rem;
+    text-align: left;
+    color: #191919;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    font-size: 1.5rem;
+}
+
+.form_login .box_login .label {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #191919;
+}
+
+.label:hover,
+.label:focus,
+.label:active {
+    color: #aeaeae87;
+    border-bottom: 1px solid #acabab87;
+    border-color: #acabab87;
+    color: #191919;
+}
+
+.form_login .box_button .button{
+    background-color: #191919;
+    margin: 1rem;
+    flex-basis: 15%;
+    padding: 1.5rem;
+    text-align: left;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.button_entra:hover,
+.button_entra:focus,
+.button_entra:active {
+    cursor: pointer;
+    background-color: #aeaeae87;
+    color: #aeaeae87;
+    border-color: #acabab87;
+    color: #191919;
+    transition-duration: 2s;
+}
+
+.form_login .box_button .button_cadastro{
+    background-color: #ffffff87;
+    color: #000000;
+}
+
+.button_cadastro:hover,
+.button_cadastro:focus,
+.button_cadastro:active {
+    cursor: pointer;
+    background-color: #191919;
+    color: #191919;
+    border-color: #191919;
+    color: #ffffff;
+    transition-duration: 2s;
+}
