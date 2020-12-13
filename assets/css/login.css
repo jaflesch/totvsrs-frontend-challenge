@@ -12,73 +12,11 @@
     font-size: 1.5rem;
 }
 
-.title:hover,
-.title:focus,
-.title:active {
-    color: #aeaeae87;
-    border-bottom: 1px solid #acabab87;
-    border-color: #acabab87;
-    color: #191919;
-}
-
-.form_login .image_login {
+.form_login .image_form {
     width: 20rem;
     margin: 2rem;
 }
 
-.col_form {
-    border: 1px solid #393E41;
-    border-radius: 1rem 1rem;
-    box-shadow: 0.1rem 0.1rem #393E41;
-    padding: 4rem;
-}
-
-.box_login, .box_button{
-    text-align: center;
-}
-
-.form_login .box_login .input{
-    margin: 1rem;
-    flex-basis: 15%;
-    padding: 0.9rem;
-    text-align: left;
-    color: #191919;
-    text-decoration: none;
-    border: 1px solid #eaeaea;
-    border-radius: 10px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-    font-size: 1.5rem;
-}
-
-.form_login .box_login .label {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #191919;
-}
-
-.label:hover,
-.label:focus,
-.label:active {
-    color: #aeaeae87;
-    border-bottom: 1px solid #acabab87;
-    border-color: #acabab87;
-    color: #191919;
-}
-
-.form_login .box_button .button{
-    background-color: #191919;
-    margin: 1rem;
-    flex-basis: 15%;
-    padding: 1.5rem;
-    text-align: left;
-    color: #ffffff;
-    text-decoration: none;
-    border: 1px solid #eaeaea;
-    border-radius: 10px;
-    transition: color 0.15s ease, border-color 0.15s ease;
-    text-align: center;
-    font-size: 1.5rem;
-}
 .button_entra:hover,
 .button_entra:focus,
 .button_entra:active {
