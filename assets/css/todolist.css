@@ -28,3 +28,51 @@ th:active {
     border-color: #acabab87;
     color: #191919;
 }
+
+#fade {
+    position: absolute;
+    top: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 1;
+    background: rgba(0,0,0,0.7);
+    padding: 2rem;
+}
+
+#modal {
+    width: 90%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+.fade #modal #title_modal {
+    display: flex;
+    justify-content: center;
+    padding: 7px;
+    color: #666;
+    font-size: 18px;
+}
+
+.fade #modal .button_modal{
+    background-color: #191919;
+    margin: 1rem;
+    flex-basis: 5%;
+    padding: 0.5rem;
+    text-align: left;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

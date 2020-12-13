@@ -1,17 +1,37 @@
-
 <section class="section_todolist">
     <table class="table">
         <tr>
             <th>ID</th>
+            <th>USERID</th>
             <th>TITULO</th>
+            <th>DESCRICAO</th>
             <th>DATA</th>
             <th>STATUS</th>
         </tr>
         <tr>
             <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
+            <td>1</td>
+            <td>Impossibilite olhar para trás!</td>
+            <td>A impossibilidade de olhar o que já passou te deixará mais forte.</td>
+            <td>(formato "HH:mm DD/MM/YYYY")</td>
+            <td>0: backlog; 1: em andamento; 2: finalizado</td>
         </tr>
     </table>
 </section>
+
+<div id="fade">
+    <div id="modal">
+      <div id="title_modal">Alterar Campo da Tabela</div>
+  
+      <form>
+        <input type="text" class="input" name="id" id="id" placeholder="Alterar ID">
+        <input type="text" class="input" name="titulo" placeholder="Alterar TITULO">
+        <input type="text" class="input" name="data" placeholder="Alterar DATA">
+        <input type="text" class="input" name="status" placeholder="Alterar STATUS">
+      </form>
+      
+      <button class="button_modal" onclick="closeModal()">Cancelar</button>
+      <button class="button_modal" onclick="saveModal()">Salvar</button> 
+      <button class="button_modal" onclick="deleteModal()">Excluir</button>
+    </div>
+</div>
