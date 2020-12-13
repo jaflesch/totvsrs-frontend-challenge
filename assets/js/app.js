@@ -5,7 +5,7 @@
     function init() {
         const router = new Router([
             new Route('login', 'login.html', true),
-            new Route('login', 'login.html'),
+            new Route('register', 'register.html'),
         ]);
     }
     init();

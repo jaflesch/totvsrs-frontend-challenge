@@ -5,10 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .form_login .title {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 .title:hover,
@@ -23,6 +24,13 @@
 .form_login .image_login {
     width: 20rem;
     margin: 2rem;
+}
+
+.col_form {
+    border: 1px solid #393E41;
+    border-radius: 1rem 1rem;
+    box-shadow: 0.1rem 0.1rem #393E41;
+    padding: 4rem;
 }
 
 .box_login, .box_button{
