@@ -1,0 +1,30 @@
+.section_todolist{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+}
+
+.table{
+    margin: 2rem;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial;
+    border: 1px solid black;
+}
+
+th, td{
+    padding: 2rem;
+}
+
+th:hover,
+th:focus,
+th:active {
+    color: #aeaeae87;
+    border-bottom: 1px solid #acabab87;
+    border-color: #acabab87;
+    color: #191919;
+}
