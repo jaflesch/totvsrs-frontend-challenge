@@ -1,0 +1,20 @@
+{
+  "name": "totvsrs-frontend-challenge",
+  "version": "1.0.0",
+  "description": "[![TOTVS RS](https://i.imgur.com/PXpCoIl.png)](https://br.linkedin.com/company/totvsrs)\r > TOTVS - A maior empresa de tecnologia do Brasil",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luanmedeirossilveira/totvsrs-frontend-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luanmedeirossilveira/totvsrs-frontend-challenge/issues"
+  },
+  "homepage": "https://github.com/luanmedeirossilveira/totvsrs-frontend-challenge#readme"
+}
