@@ -1,22 +1,24 @@
 <section class="section_todolist">
-    <table class="table">
-        <tr>
-            <th>ID</th>
-            <th>USERID</th>
-            <th>TITULO</th>
-            <th>DESCRICAO</th>
-            <th>DATA</th>
-            <th>STATUS</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>Impossibilite olhar para trás!</td>
-            <td>A impossibilidade de olhar o que já passou te deixará mais forte.</td>
-            <td>(formato "HH:mm DD/MM/YYYY")</td>
-            <td>0: backlog; 1: em andamento; 2: finalizado</td>
-        </tr>
-    </table>
+    <div class="box_table">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>USERID</th>
+                <th>TITULO</th>
+                <th>DESCRICAO</th>
+                <th>DATA</th>
+                <th>STATUS</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td class="modal-click" onclick="openModal()">Impossibilite olhar para trás!</td>
+                <td>A impossibilidade de olhar o que já passou te deixará mais forte.</td>
+                <td>(formato "HH:mm DD/MM/YYYY")</td>
+                <td>0: backlog; 1: em andamento; 2: finalizado</td>
+            </tr>
+        </table>
+    </div>
 </section>
 
 <div id="fade">

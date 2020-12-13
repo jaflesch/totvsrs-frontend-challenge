@@ -13,7 +13,7 @@
     border-collapse: collapse;
     border-spacing: 0;
     font-family: arial;
-    border: 1px solid black;
+    border: 1px solid black;    
 }
 
 th, td{
@@ -27,6 +27,15 @@ th:active {
     border-bottom: 1px solid #acabab87;
     border-color: #acabab87;
     color: #191919;
+}
+
+.modal-click{
+    cursor: pointer;
+}
+
+.modal-click:hover{
+    background-color: #cecdcd;
+    border-radius: 5px;
 }
 
 #fade {
@@ -53,7 +62,7 @@ th:active {
 }
 
 
-.fade #modal #title_modal {
+#fade #modal #title_modal {
     display: flex;
     justify-content: center;
     padding: 7px;
@@ -61,7 +70,7 @@ th:active {
     font-size: 18px;
 }
 
-.fade #modal .button_modal{
+#fade #modal .button_modal{
     background-color: #191919;
     margin: 1rem;
     flex-basis: 5%;
@@ -75,4 +84,16 @@ th:active {
     text-align: center;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+@media screen and (max-width: 991px){
+    .box_table{
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .box_table{
+        overflow-x: auto;
+    }
 }
