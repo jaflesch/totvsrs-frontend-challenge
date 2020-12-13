@@ -11,7 +11,7 @@ nav ul li{
 }
 
 li:hover{
-    background-color: aquamarine;
+    cursor: pointer;
 }
 
 .image {
@@ -21,4 +21,10 @@ li:hover{
 
 .header {
     position: relative;
+}
+
+.button_session{
+    background-color: transparent;
+    color: #000000;
+    border: none;
 }
