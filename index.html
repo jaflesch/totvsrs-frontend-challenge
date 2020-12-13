@@ -10,8 +10,9 @@
         <link rel="stylesheet" href="assets/css/form.css">
         <link rel="stylesheet" href="assets/css/todolist.css">
     </head>
-    <body>
+    <body onload="onloadpat()">
 
+        <!-- Header de Navegação padrão do APP -->
         <header class="header">
             <img src="assets/images/logo-totvs-rs.png" class="image" alt="Logo TOTVSRS"/>
 
@@ -21,8 +22,8 @@
                         <a href="#login">Login</a>
                     </li>
                     <li id="name_user"></li>
-                    <li>
-                        <button class="button_session" onclick="exitSession()">Encerrar minha sessão</button>
+                    <li id="exit_session">
+                        <a onclick="exitSession()">Encerrar minha sessão</a>
                     </li>
                 </ul>
             </nav>

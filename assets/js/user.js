@@ -1,8 +1,25 @@
+/**
+ * Encerra a sessão do usuário, voltando a tela inicial e formatando o header.
+ */
 function exitSession(){
   sessionStorage.clear();
-  window.location.href = "#login"
+  window.location.href = "#login";
+  document.getElementById("name_user").innerHTML = "";
+  document.getElementById("exit_session").style.visibility = "hidden";
 }
 
+/*
+  carregamento com padrão dos campos de navegação e localização 
+*/
+function onloadpat(){
+  document.getElementById("exit_session").style.visibility = "hidden";
+  window.location.href = '#login'
+}
+ 
+/**
+ * Coloca o nome do usuário no header
+ * @param {*} email 
+ */
 function setUser(email){
   const name = JSON.parse(localStorage.getItem(email)).name;
 
@@ -21,11 +38,19 @@ function login(email, password){
       alert("Localizado!");
       setUser(email);
       sessionStorage.setItem(email, email);
+      document.getElementById("exit_session").style.visibility = "visible";
       window.location.href = "#todolist"
     }else{
       alert("Não localizado!");
     }
 }
+
+/**
+ * Efetua o cadastro do usuário
+ * @param {*} name 
+ * @param {*} email 
+ * @param {*} password 
+ */
 
 function cadastro(name, email, password){
     if(localStorage.getItem(email) === email){

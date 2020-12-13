@@ -11,6 +11,8 @@ function closeModal(){
 //Função para excluir um item do modal
 function deleteModal(){
     console.log("item deletado!");
+    //id
+    document.getElementById()
 }
 
 //Função para salvar um item do modal
