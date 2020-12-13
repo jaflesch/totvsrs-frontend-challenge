@@ -7,7 +7,8 @@ const fs = require('fs');
 const types = {
     "html": "text/html",
     "js": "text/javascript",
-    "css": "text/css"
+    "css": "text/css",
+    "png": "image/png"
 };
 
 http.createServer(function(req, res) {

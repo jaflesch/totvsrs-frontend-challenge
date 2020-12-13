@@ -2,9 +2,27 @@
     <head lang="pt-br">
         <meta charset="UTF-8" />
         <title>Meu projeto To-do list - TOTVS RS</title>
+        <link rel="stylesheet" href="assets/css/index.css" />
+        <link rel="stylesheet" href="assets/css/header.css" />
     </head>
     <body>
+
+        <header class="header">
+            <img src="assets/images/logo-totvs-rs.png" class="image" alt="Logo TOTVSRS"/>
+
+            <nav>
+                <ul>
+                    <li><a href="#login">Login</a></li>
+                    <li><a href="#register">Cadastro</a></li>
+                    <li><a href="#todolist">List</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Raiz do App -->
         <div id="app"></div>
+
+        <!-- Scripts do App -->
         <script src="assets/js/route.js"></script>
         <script src="assets/js/router.js"></script>
         <script src="assets/js/app.js"></script>
