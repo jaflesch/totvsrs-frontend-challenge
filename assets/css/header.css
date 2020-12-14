@@ -11,6 +11,12 @@ nav ul{
 nav ul li{
     display: inline;
     margin: 0 0 0 15px;
+    font-size: 1.5rem;
+}
+nav ul li:hover{
+    border-bottom: solid 2px #000000;
+    padding: 0 1rem 0.5rem 0;
+    transition: border-bottom 0.2s linear;
 }
 
 li:hover{

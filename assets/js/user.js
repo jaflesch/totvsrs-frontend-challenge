@@ -34,6 +34,7 @@ function setUser(email){
  * Validação do email e da senha por comparação do LocalStorage
  */
 function login(email, password){
+  if(localStorage.getItem(email)){
     if(JSON.parse(localStorage.getItem(email)).password === password){
       alert("Localizado!");
       setUser(email);
@@ -41,8 +42,14 @@ function login(email, password){
       document.getElementById("exit_session").style.visibility = "visible";
       window.location.href = "#todolist"
     }else{
-      alert("Não localizado!");
+      alert("Não localizado1!");
     }
+  }else{
+    alert("Email não cadastro!");
+    if (window.confirm("Faça um cadastro!")) { 
+      window.location.href = "#register";
+    }
+  }
 }
 
 /**
@@ -73,7 +80,8 @@ function cadastro(name, email, password){
       sessionStorage.setItem(email, email);
 
       document.getElementById("name_user").innerHTML= `Seja bem vindo ${name}`;
+      document.getElementById("exit_session").style.visibility = "visible";
 
-      window.location.href = "#todolist"
+      window.location.href = "#todolist";
     }
   }

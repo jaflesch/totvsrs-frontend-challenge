@@ -45,7 +45,7 @@ th:active {
     position: absolute;
     top: 0;
     display: none;
-    height: 100vh;
+    height: 140vh;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -55,8 +55,8 @@ th:active {
 }
 
 #modal {
-    width: 90%;
-    top: 0;
+    width: 70%;
+    top: 20;
     display: flex;
     flex-direction: column;
     background: white;

@@ -65,3 +65,15 @@
     border-color: #acabab87;
     color: #191919;
 }
+
+@media screen and (max-width: 1199px){
+    .input{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .input{
+        width: 90%;
+    }
+}
