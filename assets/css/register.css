@@ -1,0 +1,54 @@
+/*
+*   CSS do component register
+*/
+.form_register{
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.form_register .title {
+    font-size: 1.5rem;
+}
+
+.title:hover,
+.title:focus,
+.title:active {
+    color: #aeaeae87;
+    border-bottom: 1px solid #acabab87;
+    border-color: #acabab87;
+    color: #191919;
+}
+
+.form_register .image_form {
+    width: 20rem;
+    margin: 2rem;
+}
+
+.col_form {
+    border: 1px solid #393E41;
+    border-radius: 1rem 1rem;
+    box-shadow: 0.1rem 0.1rem #393E41;
+    padding: 4rem;
+}
+
+.button_confirma_cadastro:hover,
+.button_confirma_cadastro:focus,
+.button_confirma_cadastro:active {
+    cursor: pointer;
+    background-color: #aeaeae87;
+    color: #aeaeae87;
+    border-color: #acabab87;
+    color: #191919;
+    transition-duration: 2s;
+}
+
+.box_button .button_volta{
+    background-color: #ffffff87;
+    color: #000000;
+    cursor: pointer;
+}

@@ -1,0 +1,114 @@
+<!--
+    Tabela de atividades To-do list do usuário, onde o modal 
+    através do campo title de cada linha da lista é passível de edição.
+-->
+<section id="list_task" class="section_todolist" onload="console.log(document.location.hash);">
+    <div class="box_table">
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>USERID</th>
+                <th>TITULO</th>
+                <th>DESCRICAO</th>
+                <th>DATA</th>
+                <th>STATUS</th>
+            </tr>
+            <tr id="tr_1">
+                <td id="id1">1</td>
+                <td>1</td>
+                <td id="titulo1" 
+                    class="modal-click" 
+                    onclick="openModal(
+                            document.getElementById('id1').innerText, 
+                            document.getElementById('titulo1').innerText, 
+                            document.getElementById('descricao1').innerText, 
+                            document.getElementById('status1').innerText,
+                            document.getElementById('tr_1').id
+                            )"
+                >Impossibilite olhar para trás!</td>
+                <td id="descricao1">A impossibilidade de olhar o que já passou te deixará mais forte.</td>
+                <td id="data1"></td>
+                <td id="status1">0</td>
+            </tr>
+            <tr id="tr_2">
+                <td id="id2">2</td>
+                <td>1</td>
+                <td id="titulo2"
+                    class="modal-click" 
+                    onclick="openModal(
+                            document.getElementById('id2').innerText, 
+                            document.getElementById('titulo2').innerText, 
+                            document.getElementById('descricao2').innerText, 
+                            document.getElementById('status2').innerText,
+                            document.getElementById('tr_2').id
+                            )"
+                >Planeje tudo que você faz!</td>
+                <td id="descricao2">O planejamento trará sustentabilidade e eficiência para seu objetivo.</td>
+                <td id="data2"></td>
+                <td id="status2">0</td>
+            </tr>
+            <tr id="tr_3">
+                <td id="id3">3</td>
+                <td>1</td>
+                <td id="titulo3" 
+                    class="modal-click" 
+                    onclick="openModal(
+                            document.getElementById('id3').innerText, 
+                            document.getElementById('titulo3').innerText, 
+                            document.getElementById('descricao3').innerText, 
+                            document.getElementById('status3').innerText,
+                            document.getElementById('tr_3').id
+                            )"
+                >Nunca aceite o erro!</td>
+                <td id="descricao3">Todos erramos, mas aprenda com ele para próxima vez trazer o acerto.</td>
+                <td id="data3"></td>
+                <td id="status3">0</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+
+
+<div id="fade">
+    <div id="modal">
+        <div id="title_modal">Alterar Campo da Tabela</div>
+    
+        <form style="display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;"
+        >
+            <label for="id_input" class="label">
+                ID
+            </label>
+            <input type="number" class="input" id="id_input" placeholder="Alterar ID" />
+
+            <label for="titulo_input" class="label">
+                TITULO
+            </label>
+            <input type="text" class="input" id="titulo_input" placeholder="Alterar TITULO" />
+
+            <label for="titulo_input" class="label">
+                DESCRICAO
+            </label>
+            <input type="text" class="input" id="descricao_input" placeholder="Alterar DESCRICAO" />
+
+            <label for="titulo_input" class="label" title="(formato 'HH:mm DD/MM/YYYY')">
+                DATA (?)
+            </label>
+            <input type="datetime" class="input" id="data_input" placeholder="Alterar DATA" />
+
+            <label for="titulo_input" class="label" title="(0: backlog; 1: em andamento; 2: finalizado)">
+                STATUS (?)
+            </label>
+            <input type="number" class="input" id="status_input" placeholder="Alterar STATUS" />
+            
+            <input type="hidden" id="td_input" />
+        </form>
+        
+        <button class="button_modal" onclick="closeModal()">Cancelar</button>
+        <button class="button_modal" onclick="saveModal()">Salvar</button> 
+        <button class="button_modal" onclick="deleteModal()">Excluir</button>
+    </div>
+</div>

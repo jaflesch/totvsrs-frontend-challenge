@@ -1,0 +1,43 @@
+<!--
+    Formulário de registro do usuário
+-->
+<section class="form_register">
+    <h1 class="title">Faça seu Cadastro TOTVS</h1>
+    <img src="assets/images/logo-totvs-rs.png" class="image_form" alt="Logo TOTVSRS"/>
+
+    <div class="col_form">
+        <div class="box_login">
+            <label for="name" class="label">
+                Nome Completo
+            </label><br/>
+            <input type="text" id="name" class="input" placeholder="Coloque seu nome" required autofocus />
+        </div>
+
+        <div class="box_login">
+            <label for="email" class="label">
+                Email
+            </label><br/>
+            <input type="email" id="email" class="input" placeholder="Ex.: voce@email.com" required />
+        </div>
+
+        <div class="box_login">
+            <label for="password" class="label">
+                Senha
+            </label><br/>
+            <input type="password" id="password" class="input" placeholder="Coloque sua senha" min="8" required />
+        </div>
+
+        <div class="box_button">
+
+            <button 
+                class="button button_confirma_cadastro"
+                onclick="cadastro(document.getElementById('name').value, document.getElementById('email').value, document.getElementById('password').value)"
+            >
+                Cadastrar
+            </button>
+            <a href="#login">
+                <button type="button" class="button button_volta">Voltar</button>
+            </a>
+        </div>
+    </div>
+</section>

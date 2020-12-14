@@ -1,0 +1,110 @@
+/*
+*   CSS do component todolist
+*/
+.section_todolist{
+    margin-top: 10rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: right;
+}
+
+.table{
+    margin: 2rem;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial;
+    border: 1px solid black;    
+}
+
+th, td{
+    padding: 2rem;
+}
+
+th:hover,
+th:focus,
+th:active {
+    color: #aeaeae87;
+    border-bottom: 1px solid #acabab87;
+    border-color: #acabab87;
+    color: #191919;
+}
+
+.modal-click{
+    cursor: pointer;
+}
+
+.modal-click:hover{
+    background-color: #cecdcd;
+    border-radius: 5px;
+}
+
+#fade {
+    position: absolute;
+    top: 0;
+    display: none;
+    height: 160vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 1;
+    background: rgba(0,0,0,0.7);
+    padding: 2rem;
+}
+
+#modal {
+    width: 70%;
+    top: 20;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+#fade #modal #title_modal {
+    display: flex;
+    justify-content: center;
+    padding: 7px;
+    color: #666;
+    font-size: 18px;
+}
+
+#fade #modal .button_modal{
+    background-color: #191919;
+    margin: 1rem;
+    flex-basis: 5%;
+    padding: 0.5rem;
+    text-align: left;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 991px){
+    .box_table{
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .box_table{
+        overflow-x: auto;
+    }
+    #fade {
+        height: 240vh;
+    }
+    #modal{
+        width: 100%;
+        top: 100;
+    }
+}

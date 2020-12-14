@@ -1,15 +1,47 @@
 <html>
-    <head>
+    <head lang="pt-br">
+        <meta charset="UTF-8" />
         <title>Meu projeto To-do list - TOTVS RS</title>
+        <meta name="description" content="Projeto de aplicativo para TOTVSRS que possibilita login, cadastro e acesso a uma to-do list editável." />
+        <meta name="keywords" content="Projeto TOTVS, To-do List, Login TOTVS, TOTVS" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex" />
+        <link rel="stylesheet" href="assets/css/index.css" />
+        <link rel="stylesheet" href="assets/css/header.css" />
+        <link rel="stylesheet" href="assets/css/login.css" />
+        <link rel="stylesheet" href="assets/css/register.css" />
+        <link rel="stylesheet" href="assets/css/form.css" />
+        <link rel="stylesheet" href="assets/css/todolist.css" />
     </head>
-    <body>
-        <div>
-            <h1>To do list</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. 
-                Dolorum molestiae delectus tempore? Quod.
-            </p>
-        </div>
+    <body onload="onloadpat()">
+
+        <!-- Header de Navegação padrão do APP -->
+        <header class="header" id="header">
+            <img src="assets/images/logo-totvs-rs.png" class="image" alt="Logo TOTVSRS"/>
+
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <a href="#login">Login</a>
+                    </li>
+                    <li id="name_user"></li>
+                    <li id="exit_session">
+                        <a onclick="exitSession()">Encerrar minha sessão</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        
+        <!-- Raiz do App -->
+        <main id="app"></main>
+
+        <!-- Scripts do App -->
+        <script src="assets/vendor/jquery-3.5.1.min.js"></script>
+        <script src="assets/js/route.js"></script>
+        <script src="assets/js/router.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/modal.js"></script>
+        <script src="assets/js/user.js"></script>
     </body>
+    
 </html>

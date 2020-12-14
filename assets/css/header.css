@@ -1,0 +1,40 @@
+/*
+*   CSS do component header
+*/
+nav{
+    position: absolute;
+}
+nav ul{
+    display: inline;
+}
+
+nav ul li{
+    display: inline;
+    margin: 0 0 0 15px;
+    font-size: 1.5rem;
+    padding: 0 1rem 0.5rem 0;
+}
+nav ul li:hover{
+    border-bottom: solid 2px #000000;
+    padding: 0 1rem 0.5rem 0;
+    transition: border-bottom 0.2s linear;
+}
+
+li:hover{
+    cursor: pointer;
+}
+
+.image {
+    width: 10rem;
+    margin: 2rem;
+}
+
+.header {
+    position: relative;
+}
+
+.button_session{
+    background-color: transparent;
+    color: #000000;
+    border: none;
+}

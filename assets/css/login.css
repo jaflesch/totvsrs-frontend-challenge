@@ -1,0 +1,48 @@
+/*
+*   CSS do component login
+*/
+.form_login{
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.form_login .title {
+    font-size: 1.5rem;
+}
+
+.form_login .image_form {
+    width: 20rem;
+    margin: 2rem;
+}
+
+.button_entra:hover,
+.button_entra:focus,
+.button_entra:active {
+    cursor: pointer;
+    background-color: #aeaeae87;
+    color: #aeaeae87;
+    border-color: #acabab87;
+    color: #191919;
+    transition-duration: 2s;
+}
+
+.form_login .box_button .button_cadastro{
+    background-color: #ffffff87;
+    color: #000000;
+}
+
+.button_cadastro:hover,
+.button_cadastro:focus,
+.button_cadastro:active {
+    cursor: pointer;
+    background-color: #191919;
+    color: #191919;
+    border-color: #191919;
+    color: #ffffff;
+    transition-duration: 2s;
+}
