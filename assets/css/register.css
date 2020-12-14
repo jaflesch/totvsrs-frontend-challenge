@@ -46,3 +46,9 @@
     color: #191919;
     transition-duration: 2s;
 }
+
+.box_button .button_volta{
+    background-color: #ffffff87;
+    color: #000000;
+    cursor: pointer;
+}

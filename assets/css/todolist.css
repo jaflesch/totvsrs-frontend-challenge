@@ -2,6 +2,7 @@
 *   CSS do component todolist
 */
 .section_todolist{
+    margin-top: 10rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -45,7 +46,7 @@ th:active {
     position: absolute;
     top: 0;
     display: none;
-    height: 140vh;
+    height: 160vh;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -98,5 +99,12 @@ th:active {
 @media screen and (max-width: 768px){
     .box_table{
         overflow-x: auto;
+    }
+    #fade {
+        height: 240vh;
+    }
+    #modal{
+        width: 100%;
+        top: 100;
     }
 }

@@ -79,11 +79,31 @@
                         justify-content: center;
                         align-items: center;"
         >
+            <label for="id_input" class="label">
+                ID
+            </label>
             <input type="number" class="input" id="id_input" placeholder="Alterar ID" />
+
+            <label for="titulo_input" class="label">
+                TITULO
+            </label>
             <input type="text" class="input" id="titulo_input" placeholder="Alterar TITULO" />
+
+            <label for="titulo_input" class="label">
+                DESCRICAO
+            </label>
             <input type="text" class="input" id="descricao_input" placeholder="Alterar DESCRICAO" />
+
+            <label for="titulo_input" class="label" title="(formato 'HH:mm DD/MM/YYYY')">
+                DATA (?)
+            </label>
             <input type="datetime" class="input" id="data_input" placeholder="Alterar DATA" />
+
+            <label for="titulo_input" class="label" title="(0: backlog; 1: em andamento; 2: finalizado)">
+                STATUS (?)
+            </label>
             <input type="number" class="input" id="status_input" placeholder="Alterar STATUS" />
+            
             <input type="hidden" id="td_input" />
         </form>
         

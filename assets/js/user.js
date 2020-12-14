@@ -23,7 +23,7 @@ function onloadpat(){
 function setUser(email){
   const name = JSON.parse(localStorage.getItem(email)).name;
 
-  document.getElementById("name_user").innerHTML= `Seja bem vindo ${name}`;
+  document.getElementById("name_user").innerHTML= `Seja bem vindo, ${name}`;
 }
 
 /**
