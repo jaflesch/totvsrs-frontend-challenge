@@ -4,9 +4,9 @@ $('#btnAcessar').click(function(e){
     $('#emailHelp').addClass('d-none');
     $('#senhaHelp').addClass('d-none');
     
-    var validation = {hasError: false, fields:[]};
-    var email = $('#email');
-    var senha = $('#senha');
+    let validation = {hasError: false, fields:[]};
+    let email = $('#email');
+    let senha = $('#senha');
 
     if(isUndefinedOrEmpty(email.val())){
         validation.hasError = true;
@@ -34,6 +34,22 @@ $('#btnAcessar').click(function(e){
         }
     }
     else{
+        let user = getUserByEmail(email.val());
+        if(!isObjectWithAttribute(user)){
+            let id = getUserIdNext();
+            let vetEmail = email.val().split('@');
+            let nome = vetEmail[0];
+            let user = {id: id, nome: nome, email: email.val(), senha: senha.val()};
+            addUser(user);    
+        }
+        else if(user.senha !== senha.val()){
+            $('#loginAlert').removeClass('d-none');
+            return;
+        }
+
+        localStorage.setItem('auth', true);
+        localStorage.setItem('userName', user.nome);
+        $('#profile-dynamic').loadTemplate('views/profile.html');
         $('#body-dynamic').loadTemplate('views/list.html');
     }
 });

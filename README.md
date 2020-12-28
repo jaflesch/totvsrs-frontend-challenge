@@ -6,10 +6,18 @@
 ## Workflow:
 ### Formulário de acesso:
 1. O formulário de acesso (autenticação) possui 2 campos (email e senha)
-2. Estes campos possuem validação que se detectadas não deixam avançar no fluxo do sistema
+2. Estes campos possuem validação que ao serem detectadas não deixam avançar o fluxo do sistema
 2.1. O campo de email possui validação de campo *obrigatório* (não pode ser vazio) e *email incorreto* (testado por expressão regular)
 2.2. O campo de senha possui validação de campo *obrigatório* (não pode ser vazio)
 3. Caso o formulário seja preenchido correntamente a tela é atualizada com os dados de Todo List
+3.1. O cadastro de dados serão armazenados em *LocalStorage* (recurso existente em navegadores modernos, Html 5 WebStorage)
+3.2. Caso o email e senha já exista no cadastro, a tela é atualizada com os dados de Todo List
+3.3. Caso o email já exista, mas a senha não corresponde, será exibido um componente de alerta para orientar o usuario
+3.4. Caso o email não exista no cadastro, os dados serão cadastrados e a tela é atualizada com os dados de Todo List
+3.5. A tela de Todo List corresponde a um usuário autenticado, exibindo o nome do mesmo e a opção de sair no canto superior direito
+3.6. A opção de sair desconectar o usuario com segurança do sistema e retorna a tela de formulário de acesso
+
+* **Importante:** O fluxo foi testado no navegador Google Chrome atualizado.
 
 ## Instruções:
 
