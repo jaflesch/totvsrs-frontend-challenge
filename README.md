@@ -3,6 +3,13 @@
 [![TOTVS RS](https://i.imgur.com/PXpCoIl.png)](https://br.linkedin.com/company/totvsrs)
 > TOTVS - A maior empresa de tecnologia do Brasil
 
+## Workflow:
+### Formulário de acesso:
+1. O formulário de acesso (autenticação) possui 2 campos (email e senha)
+2. Estes campos possuem validação que se detectadas não deixam avançar no fluxo do sistema
+2.1. O campo de email possui validação de campo *obrigatório* (não pode ser vazio) e *email incorreto* (testado por expressão regular)
+2.2. O campo de senha possui validação de campo *obrigatório* (não pode ser vazio)
+
 ## Instruções:
 
 1. Faça um *fork* deste repositório;
