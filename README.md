@@ -9,6 +9,7 @@
 2. Estes campos possuem validação que se detectadas não deixam avançar no fluxo do sistema
 2.1. O campo de email possui validação de campo *obrigatório* (não pode ser vazio) e *email incorreto* (testado por expressão regular)
 2.2. O campo de senha possui validação de campo *obrigatório* (não pode ser vazio)
+3. Caso o formulário seja preenchido correntamente a tela é atualizada com os dados de Todo List
 
 ## Instruções:
 
