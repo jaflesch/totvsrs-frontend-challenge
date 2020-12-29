@@ -1,35 +1,41 @@
 <div class="row justify-content-md-center">
-    <div class="col-sm-4">
+    <div class="col-sm-6">
         <h1>To do list</h1>
+        <div class="row" >
+            <div class="col">
+                <button id="btn-adicionar-link" type="submit" class="btn btn-primary mb-2 float-right">Adicionar</button>
+            </div>
+        </div>
+        <div class="row d-none" id="alerta-row" >
+            <div class="col">
+                <div class="alert alert-success" id="alert-sucesso">
+                    Todo cadastrado com sucesso.
+                    <button type="button" class="close" id="btn-alerta-sucesso">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
         <table class="table">
-        <thead>
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">TÍTULO</th>
-            <th scope="col">DATA</th>
-            <th scope="col">STATUS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            </tr>
-        </tbody>
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">TÍTULO</th>
+                <th scope="col">DATA</th>
+                <th scope="col">STATUS</th>
+                </tr>
+            </thead>
+            <tbody id="list-dynamic"></tbody>
         </table>
     </div>
 </div>
+<script type="text/html" id="list-dynamic-template">
+    <tr>
+        <td data-content-append="id"></td>
+        <td data-content-append="titulo"></td>
+        <td data-content-append="data"></td>
+        <td data-content-append="status"></td>
+    </tr>
+</script>
+<script src="./assets/js/list.js"></script>

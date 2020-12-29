@@ -1,17 +1,35 @@
-localStorage.setItem('page', 'home');
-localStorage.setItem('auth', false);
-localStorage.setItem('userName', '');
+if(isUndefinedOrEmpty(localStorage.getItem('auth'))){
+    localStorage.setItem('auth', false);
+}
 
 if(isUndefinedOrEmpty(localStorage.getItem('users'))){
     localStorage.setItem('users', '{}');
 }
 
-if (localStorage.getItem('page') == 'home'){
-	$('#body-dynamic').loadTemplate('views/login.html');
+if(isUndefinedOrEmpty(localStorage.getItem('list'))){
+    localStorage.setItem('list', '{}');
 }
 
-if(!localStorage.getItem('auth')){
+if(isUndefinedOrEmpty(localStorage.getItem('page'))){
+    localStorage.setItem('page', 'home');
+}
+
+let currentPage = localStorage.getItem('page');
+if (currentPage == 'home'){
+	$('#body-dynamic').loadTemplate('views/login.html');
+}
+else if(currentPage == 'list'){
+    $('#body-dynamic').loadTemplate('views/list.html');
+}
+else if(currentPage == 'list-add'){
+    $('#body-dynamic').loadTemplate('views/list-add.html');
+}
+
+if(!JSON.parse(localStorage.getItem('auth'))){
     $('#profile').remove();
+}
+else{
+    $('#profile-dynamic').loadTemplate('views/profile.html');
 }
 
 function isUndefinedOrEmpty(text){
@@ -29,4 +47,8 @@ function isObjectWithAttribute(obj){
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function dateFormatBr(date){
+    return date.format("HH:MM dd/mm/yyyy");
 }

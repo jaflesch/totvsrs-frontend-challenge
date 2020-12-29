@@ -7,5 +7,6 @@ $('#logout').click(function(e){
     $('#profile').remove();
 });
 
-let name = capitalizeFirstLetter(localStorage.getItem('userName'));
-$('#userName').html(name);
+let user = localStorage.getItem('user');
+let userName = capitalizeFirstLetter(JSON.parse(user).nome);
+$('#user-name').html(userName);

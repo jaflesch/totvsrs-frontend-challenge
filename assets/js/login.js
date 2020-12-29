@@ -39,7 +39,7 @@ $('#btnAcessar').click(function(e){
             let id = getUserIdNext();
             let vetEmail = email.val().split('@');
             let nome = vetEmail[0];
-            let user = {id: id, nome: nome, email: email.val(), senha: senha.val()};
+            user = {id: id, nome: nome, email: email.val(), senha: senha.val()};
             addUser(user);    
         }
         else if(user.senha !== senha.val()){
@@ -48,7 +48,9 @@ $('#btnAcessar').click(function(e){
         }
 
         localStorage.setItem('auth', true);
-        localStorage.setItem('userName', user.nome);
+        let userSession = {id: user.id, nome: user.nome, email: user.email};
+        localStorage.setItem('user', JSON.stringify(userSession));
+        localStorage.setItem('page', 'list');
         $('#profile-dynamic').loadTemplate('views/profile.html');
         $('#body-dynamic').loadTemplate('views/list.html');
     }

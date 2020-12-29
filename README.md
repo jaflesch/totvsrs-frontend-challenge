@@ -10,12 +10,26 @@
 2.1. O campo de email possui validação de campo *obrigatório* (não pode ser vazio) e *email incorreto* (testado por expressão regular)
 2.2. O campo de senha possui validação de campo *obrigatório* (não pode ser vazio)
 3. Caso o formulário seja preenchido correntamente a tela é atualizada com os dados de Todo List
-3.1. O cadastro de dados serão armazenados em *LocalStorage* (recurso existente em navegadores modernos, Html 5 WebStorage)
+3.1. O cadastro de dados serão armazenados em local específico (definido na seção de Requisitos não funcionais)
 3.2. Caso o email e senha já exista no cadastro, a tela é atualizada com os dados de Todo List
 3.3. Caso o email já exista, mas a senha não corresponde, será exibido um componente de alerta para orientar o usuario
 3.4. Caso o email não exista no cadastro, os dados serão cadastrados e a tela é atualizada com os dados de Todo List
 3.5. A tela de Todo List corresponde a um usuário autenticado, exibindo o nome do mesmo e a opção de sair no canto superior direito
 3.6. A opção de sair desconectar o usuario com segurança do sistema e retorna a tela de formulário de acesso
+
+### Todo List:
+1. Todo List é uma tela que contem um botão para adicionar novas Todo e uma tabelas que exibe as existentes
+2. Ao clicar no botão adicionar a tela é atualizada com o formulário de cadastro de Todo
+2.1. O formulário de adicionar Todo possui 3 campos (título, descrição e status)
+2.1.1. O campo de título possui validação de campo *obrigatório* (não pode ser vazio)
+2.1.2. O campo de descrição possui validação de campo *obrigatório* (não pode ser vazio) 
+2.2. O cadastro de dados serão armazenados em local específico (definido na seção de Requisitos não funcionais)
+2.3. O cadastro armazena os campos do formulario juntamente com as informações de usuário autenticado e a data hora atual
+2.4. Após o cadastro a tela é atualizada para a lista de Todo List com um alerta de cadastro com sucesso
+
+## Requisitos não funcionais:
+### Armazenamento de dados:
+1. Os dados serão armazenados em *LocalStorage*, recurso existente em navegadores modernos (Html 5 WebStorage)
 
 * **Importante:** O fluxo foi testado no navegador Google Chrome atualizado.
 
