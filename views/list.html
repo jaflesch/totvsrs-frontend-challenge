@@ -8,8 +8,8 @@
         </div>
         <div class="row d-none" id="alerta-row" >
             <div class="col">
-                <div class="alert alert-success" id="alert-sucesso">
-                    Todo cadastrado com sucesso.
+                <div class="alert alert-success" id="alerta-sucesso">
+                    <span id="alert-message">Todo cadastrado com sucesso.</span>
                     <button type="button" class="close" id="btn-alerta-sucesso">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -24,6 +24,7 @@
                 <th scope="col">TÍTULO</th>
                 <th scope="col">DATA</th>
                 <th scope="col">STATUS</th>
+                <th scope="col"></th>
                 </tr>
             </thead>
             <tbody id="list-dynamic"></tbody>
@@ -36,6 +37,11 @@
         <td data-content-append="titulo"></td>
         <td data-content-append="data"></td>
         <td data-content-append="status"></td>
+        <td>
+            <a href="#" class="btn-editar" data-alt="id"><i class="fas fa-edit" title="Editar"></i></a>
+            <a href="#" class="btn-remover" data-alt="id"><i class="fas fa-trash-alt" title="Remover"></i></a>
+        </td>
     </tr>
+    
 </script>
 <script src="./assets/js/list.js"></script>

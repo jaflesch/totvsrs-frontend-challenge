@@ -18,14 +18,20 @@
 3.6. A opção de sair desconectar o usuario com segurança do sistema e retorna a tela de formulário de acesso
 
 ### Todo List:
+## Lista, alteração:
 1. Todo List é uma tela que contem um botão para adicionar novas Todo e uma tabelas que exibe as existentes
 2. Ao clicar no botão adicionar a tela é atualizada com o formulário de cadastro de Todo
 2.1. O formulário de adicionar Todo possui 3 campos (título, descrição e status)
 2.1.1. O campo de título possui validação de campo *obrigatório* (não pode ser vazio)
 2.1.2. O campo de descrição possui validação de campo *obrigatório* (não pode ser vazio) 
 2.2. O cadastro de dados serão armazenados em local específico (definido na seção de Requisitos não funcionais)
-2.3. O cadastro armazena os campos do formulario juntamente com as informações de usuário autenticado e a data hora atual
+2.3. O cadastro armazena os campos do formulário juntamente com as informações de usuário autenticado e a data hora atual
 2.4. Após o cadastro a tela é atualizada para a lista de Todo List com um alerta de cadastro com sucesso
+3. Ao clicar no botão editar a tela é atualizada com o formulário de alteração de Todo
+3.1. Os dados originais são exibidos nos respectivos campos
+3.2. A alteração dos dados serão armazenados em local específico (definido na seção de Requisitos não funcionais)
+3.3. A alteração armazena os campos do formulário juntamente com as informações de usuário autenticado e a data hora atual
+3.4. Após a alteração a tela é atualizada para a lista de Todo List com um alerta de alteração com sucesso
 
 ## Requisitos não funcionais:
 ### Armazenamento de dados:

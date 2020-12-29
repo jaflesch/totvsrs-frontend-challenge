@@ -1,0 +1,30 @@
+<div class="row justify-content-md-center">
+    <div class="col-sm-6">
+        <h1>Editar Todo</h1>        
+        <div class="card">
+            <div class="card-body">
+                <form>
+                <input id="todo-id" type="hidden" data-alt="id"/>    
+                <input id="usuario" type="hidden"/>
+                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo" placeholder="Digite título">
+                    <small id="titulo-help" class="form-text d-none text-danger">Título obrigatório.</small>
+                </div>
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea class="form-control" id="descricao" rows="3"></textarea>
+                    <small id="descricao-help" class="form-text d-none text-danger">Descrição obrigatória.</small>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" id="status"></select>
+                </div>
+                <button id="btn-voltar" type="button" class="btn btn-primary">Voltar</button>
+                <button id="btn-editar" type="submit" class="btn btn-primary float-right">Editar</button>
+                </form>
+            </div>
+        </div>
+    </div>    
+</div>
+<script src="./assets/js/list-edit.js"></script>

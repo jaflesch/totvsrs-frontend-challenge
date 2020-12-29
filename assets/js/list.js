@@ -6,7 +6,7 @@ $('#btn-adicionar-link').click(function(e){
 
 $('#btn-alerta-sucesso').click(function(e){
     e.preventDefault();
-    $('#alert-sucesso').remove();
+    $('#alerta-sucesso').remove();
 });
 
 $('#btn-voltar').click(function(e){
@@ -68,6 +68,17 @@ $('#btn-adicionar').click(function(e){
     }
 });
 
+$('#list-dynamic').on('click','a.btn-editar',function(e){
+    e.preventDefault();
+    let id = $(this).attr('alt');
+    $('#body-dynamic').loadTemplate('views/list-edit.html', {id: id});
+});
+
+/* $('#list-dynamic').on('click','a.btn-remover',function(e){
+    e.preventDefault();
+    console.log('c:'+$(this).attr('alt'));
+}); */
+
 let status = [{value: 0, text: 'backlog'}, {value: 1, text: 'em andamento'}, {value: 2, text: 'finalizado'}]
 status.forEach(function(item){
     $('#status').append($('<option>', {
@@ -103,6 +114,7 @@ function listToArray(list){
 
         array.push({id: list[key]['id'], titulo: list[key]['titulo'], data: list[key]['data'], status: status});
     }
+    console.log(array)
     return array;
 }
 
