@@ -18,7 +18,7 @@
 3.6. A opção de sair desconectar o usuario com segurança do sistema e retorna a tela de formulário de acesso
 
 ### Todo List:
-## Lista, alteração:
+## Lista, alteração e remoção:
 1. Todo List é uma tela que contem um botão para adicionar novas Todo e uma tabelas que exibe as existentes
 2. Ao clicar no botão adicionar a tela é atualizada com o formulário de cadastro de Todo
 2.1. O formulário de adicionar Todo possui 3 campos (título, descrição e status)
@@ -32,6 +32,10 @@
 3.2. A alteração dos dados serão armazenados em local específico (definido na seção de Requisitos não funcionais)
 3.3. A alteração armazena os campos do formulário juntamente com as informações de usuário autenticado e a data hora atual
 3.4. Após a alteração a tela é atualizada para a lista de Todo List com um alerta de alteração com sucesso
+4. Ao clicar no botão remover um alerta (tipo pop-up) de remoção é exibido na tela, solicitando a confirmação da operação
+4.1. O alerta tem uma frase com o título do Todo
+4.2. Ao clicar em sim, o alerta some e a lista é atualizada
+4.3. Ainda existe uma opção de cancelar esta operação no alerta de confirmação
 
 ## Requisitos não funcionais:
 ### Armazenamento de dados:

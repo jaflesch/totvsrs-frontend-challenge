@@ -32,7 +32,7 @@
     </div>
 </div>
 <script type="text/html" id="list-dynamic-template">
-    <tr>
+    <tr data-alt="id">
         <td data-content-append="id"></td>
         <td data-content-append="titulo"></td>
         <td data-content-append="data"></td>
@@ -45,3 +45,22 @@
     
 </script>
 <script src="./assets/js/list.js"></script>
+<div class="modal" tabindex="-1" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Remover Todo</h5>
+          <button type="button" class="close btn-cancela-remover" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="modal-frase">Você tem certeza de deseja remover o Todo x ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn-confirma-remover">Sim</button>
+          <button type="button" class="btn btn-secondary btn-cancela-remover" data-dismiss="modal" >Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>

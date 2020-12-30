@@ -9,6 +9,22 @@ $('#btn-alerta-sucesso').click(function(e){
     $('#alerta-sucesso').remove();
 });
 
+$('.btn-cancela-remover').click(function(e){
+    e.preventDefault();
+    $('#modal').hide();
+});
+
+$('#btn-confirma-remover').click(function(e){
+    e.preventDefault();
+    let id = $(this).data('id');
+    let key = 'todo' + id;
+    let list = JSON.parse(localStorage.getItem('list'));
+
+    delete list[key];
+    localStorage.setItem('list', JSON.stringify(list));
+    $('#body-dynamic').loadTemplate('views/list.html');
+});
+
 $('#btn-voltar').click(function(e){
     e.preventDefault();
     localStorage.setItem('page', 'list');
@@ -74,10 +90,19 @@ $('#list-dynamic').on('click','a.btn-editar',function(e){
     $('#body-dynamic').loadTemplate('views/list-edit.html', {id: id});
 });
 
-/* $('#list-dynamic').on('click','a.btn-remover',function(e){
+$('#list-dynamic').on('click','a.btn-remover',function(e){
     e.preventDefault();
-    console.log('c:'+$(this).attr('alt'));
-}); */
+    let id = $(this).attr('alt');    
+    let key = 'todo' + id;
+
+    let list = JSON.parse(localStorage.getItem('list'));
+    let titulo = list[key]['titulo'];
+
+    $('#btn-confirma-remover').data('id', id);
+    $('#modal-frase').html('Você tem certeza de deseja remover o Todo <strong>'+titulo+'</strong> ?');
+    $('#modal').show();
+
+});
 
 let status = [{value: 0, text: 'backlog'}, {value: 1, text: 'em andamento'}, {value: 2, text: 'finalizado'}]
 status.forEach(function(item){
@@ -114,7 +139,6 @@ function listToArray(list){
 
         array.push({id: list[key]['id'], titulo: list[key]['titulo'], data: list[key]['data'], status: status});
     }
-    console.log(array)
     return array;
 }
 
