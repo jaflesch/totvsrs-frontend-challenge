@@ -1,0 +1,66 @@
+<div class="row justify-content-md-center">
+    <div class="col-sm-6">
+        <h1>To do list</h1>
+        <div class="row" >
+            <div class="col">
+                <button id="btn-adicionar-link" type="submit" class="btn btn-primary mb-2 float-right">Adicionar</button>
+            </div>
+        </div>
+        <div class="row d-none" id="alerta-row" >
+            <div class="col">
+                <div class="alert alert-success" id="alerta-sucesso">
+                    <span id="alert-message">Todo cadastrado com sucesso.</span>
+                    <button type="button" class="close" id="btn-alerta-sucesso">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">TÍTULO</th>
+                <th scope="col">DATA</th>
+                <th scope="col">STATUS</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="list-dynamic"></tbody>
+        </table>
+    </div>
+</div>
+<script type="text/html" id="list-dynamic-template">
+    <tr data-alt="id">
+        <td data-content-append="id"></td>
+        <td data-content-append="titulo"></td>
+        <td data-content-append="data"></td>
+        <td data-content-append="status"></td>
+        <td>
+            <a href="#" class="btn-editar" data-alt="id"><i class="fas fa-edit" title="Editar"></i></a>
+            <a href="#" class="btn-remover" data-alt="id"><i class="fas fa-trash-alt" title="Remover"></i></a>
+        </td>
+    </tr>
+    
+</script>
+<script src="./assets/js/list.js"></script>
+<div class="modal" tabindex="-1" id="modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Remover Todo</h5>
+          <button type="button" class="close btn-cancela-remover" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p id="modal-frase">Você tem certeza de deseja remover o Todo x ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="btn-confirma-remover">Sim</button>
+          <button type="button" class="btn btn-secondary btn-cancela-remover" data-dismiss="modal" >Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>

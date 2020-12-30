@@ -3,6 +3,46 @@
 [![TOTVS RS](https://i.imgur.com/PXpCoIl.png)](https://br.linkedin.com/company/totvsrs)
 > TOTVS - A maior empresa de tecnologia do Brasil
 
+## Workflow:
+### Formulário de acesso:
+1. O formulário de acesso (autenticação) possui 2 campos (email e senha)
+2. Estes campos possuem validação que ao serem detectadas não deixam avançar o fluxo do sistema
+2.1. O campo de email possui validação de campo *obrigatório* (não pode ser vazio) e *email incorreto* (testado por expressão regular)
+2.2. O campo de senha possui validação de campo *obrigatório* (não pode ser vazio)
+3. Caso o formulário seja preenchido correntamente a tela é atualizada com os dados de Todo List
+3.1. O cadastro de dados serão armazenados em local específico (definido na seção de Requisitos não funcionais)
+3.2. Caso o email e senha já exista no cadastro, a tela é atualizada com os dados de Todo List
+3.3. Caso o email já exista, mas a senha não corresponde, será exibido um componente de alerta para orientar o usuario
+3.4. Caso o email não exista no cadastro, os dados serão cadastrados e a tela é atualizada com os dados de Todo List
+3.5. A tela de Todo List corresponde a um usuário autenticado, exibindo o nome do mesmo e a opção de sair no canto superior direito
+3.6. A opção de sair desconectar o usuario com segurança do sistema e retorna a tela de formulário de acesso
+
+### Todo List:
+## Lista, alteração e remoção:
+1. Todo List é uma tela que contem um botão para adicionar novas Todo e uma tabelas que exibe as existentes
+2. Ao clicar no botão adicionar a tela é atualizada com o formulário de cadastro de Todo
+2.1. O formulário de adicionar Todo possui 3 campos (título, descrição e status)
+2.1.1. O campo de título possui validação de campo *obrigatório* (não pode ser vazio)
+2.1.2. O campo de descrição possui validação de campo *obrigatório* (não pode ser vazio) 
+2.2. O cadastro de dados serão armazenados em local específico (definido na seção de Requisitos não funcionais)
+2.3. O cadastro armazena os campos do formulário juntamente com as informações de usuário autenticado e a data hora atual
+2.4. Após o cadastro a tela é atualizada para a lista de Todo List com um alerta de cadastro com sucesso
+3. Ao clicar no botão editar a tela é atualizada com o formulário de alteração de Todo
+3.1. Os dados originais são exibidos nos respectivos campos
+3.2. A alteração dos dados serão armazenados em local específico (definido na seção de Requisitos não funcionais)
+3.3. A alteração armazena os campos do formulário juntamente com as informações de usuário autenticado e a data hora atual
+3.4. Após a alteração a tela é atualizada para a lista de Todo List com um alerta de alteração com sucesso
+4. Ao clicar no botão remover um alerta (tipo pop-up) de remoção é exibido na tela, solicitando a confirmação da operação
+4.1. O alerta tem uma frase com o título do Todo
+4.2. Ao clicar em sim, o alerta some e a lista é atualizada
+4.3. Ainda existe uma opção de cancelar esta operação no alerta de confirmação
+
+## Requisitos não funcionais:
+### Armazenamento de dados:
+1. Os dados serão armazenados em *LocalStorage*, recurso existente em navegadores modernos (Html 5 WebStorage)
+
+* **Importante:** O fluxo foi testado no navegador Google Chrome atualizado.
+
 ## Instruções:
 
 1. Faça um *fork* deste repositório;
