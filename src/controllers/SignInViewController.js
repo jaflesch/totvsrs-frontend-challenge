@@ -11,13 +11,16 @@ class SignInViewController {
 
     handleForm() {
         
-        signInForm.addEventListener('submit', event => {
+        signInForm.addEventListener('submit', async event => {
             event.preventDefault();
             const authenticateUserService = new AuthenticateUserService();
             const email = loginEmail.value;
             const password = loginPassword.value;
 
-            authenticateUserService.execute({email, password})
+            const authenticate = await authenticateUserService.execute({email, password})
+            if(authenticate) {
+                window.location.hash = "#todoHome";
+            }
         })
         
     }

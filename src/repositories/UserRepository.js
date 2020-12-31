@@ -8,7 +8,7 @@ class UserRepository {
         {
             this.user = JSON.parse(sessionStorage.getItem('user'))
         }
-        var idValue = new Uint32Array(10);
+        const idValue = new Uint32Array(10);
         const id = window.crypto.getRandomValues(idValue);
         Object.assign(userData,
             {

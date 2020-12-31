@@ -12,8 +12,8 @@ class AuthenticateUserService {
             throw new Error('Email ou senha incorreto');
         }
 
-        console.log('logado')
-
+        window.sessionStorage.setItem('authenticatedUser', JSON.stringify(user));
+        return true;
     }
     
 }
