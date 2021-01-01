@@ -3,6 +3,10 @@ import AuthenticateUserService from '../services/AuthenticateUserService';
 class SignInViewController {
 
     create() {
+        if(sessionStorage.getItem('authenticatedUser'))
+        {
+            window.location.hash = '#todoHome'
+        }
         const element = document.createElement('div');
         element.innerHTML = view;
         rootContainer.appendChild(element);
@@ -10,7 +14,7 @@ class SignInViewController {
     }
 
     handleForm() {
-        
+
         signInForm.addEventListener('submit', async event => {
             event.preventDefault();
             const authenticateUserService = new AuthenticateUserService();

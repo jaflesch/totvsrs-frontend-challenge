@@ -1,5 +1,6 @@
 import view from '../Views/signUp.html';
 import CreateUserService from '../services/CreateUserService'
+import AuthenticateUserService from '../services/AuthenticateUserService';
 
 class SignUpViewController{
 
@@ -12,16 +13,17 @@ class SignUpViewController{
         }
 
     handleform() {
-        
-        signUpForm.addEventListener('submit', event => {
+        const authenticateUserService = new AuthenticateUserService();
+        signUpForm.addEventListener('submit', async event => {
             event.preventDefault();
             const createUserService = new CreateUserService();
             const name = registerName.value;
             const email = registerEmail.value;
             const password = registerPassword.value;
             
-            createUserService.execute({name, email, password});
-            window.location.hash = '#';
+            await createUserService.execute({name, email, password});
+            await authenticateUserService.execute({email, password})
+            window.location.hash = '#todoHome';
         })
         
 

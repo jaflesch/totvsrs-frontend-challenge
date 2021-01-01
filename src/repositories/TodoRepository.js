@@ -1,13 +1,14 @@
 class TodoRepository {
     constructor() {
         this.todo = []
-    }
-
-    async createTodo(todoData) {
         if(sessionStorage.getItem('todos'))
         {
             this.todo = JSON.parse(sessionStorage.getItem('todos'))
         }
+    }
+
+    async createTodo(todoData) {
+        
         const idValue = new Uint32Array(10);
         const id = window.crypto.getRandomValues(idValue);
         const dateTime = new Date().toLocaleString([], 
@@ -19,10 +20,17 @@ class TodoRepository {
             date: dateTime
         })
 
-        this.todo.push(todoData);
+        await this.todo.push(todoData);
 
-        sessionStorage.setItem('todos', JSON.stringify(this.todo));
+        await sessionStorage.setItem('todos', JSON.stringify(this.todo));
         return sessionStorage;
+    }
+
+    async listTodoByUserId(userId) {
+
+        const todoByUser = this.todo.filter(todo => todo.userId === userId);
+        
+        return todoByUser;
     }
 }
 

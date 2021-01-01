@@ -15,7 +15,10 @@ class AuthenticateUserService {
         window.sessionStorage.setItem('authenticatedUser', JSON.stringify(user));
         return true;
     }
-    
+
+    remove() {
+        return window.sessionStorage.removeItem('authenticatedUser');
+    }
 }
 
 export default AuthenticateUserService;
