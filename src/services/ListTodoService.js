@@ -4,7 +4,6 @@ class ListTodoService {
 
     async execute(userId) {
         this.todoRepository = new TodoRepository();
-        console.log(userId)
         const todo = await this.todoRepository.listTodoByUserId(userId);
  
         todo.forEach(todos => {

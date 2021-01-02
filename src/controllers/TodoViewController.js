@@ -30,9 +30,7 @@ class TodoViewController {
     
 
     async loadTodos(user) {
-        console.log(user);
         const todo = await this.listTodoService.execute(user);
-        console.log(todo);
         const todosCard = await this._todosMount(todo);
 
         return todosCard;
@@ -52,7 +50,7 @@ class TodoViewController {
             container.setAttribute('id', element.id);
             container.setAttribute('class', 'todoCard');
             title.innerText = element.title;
-            title.setAttribute('id', 'openUpdateTodoButton');
+            title.setAttribute('class', 'openUpdateTodoButton');
             title.addEventListener('click', () => {
                 updateTodoForm.create(element.id)
             })

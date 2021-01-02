@@ -12,9 +12,11 @@ create(todoId)
 _createUpdateFormBody(todoId) 
 {
     const element = document.createElement('div');
+    element.id = 'modalContainer'
     element.innerHTML = updateTodoView;
     rootContainer.appendChild(element);
     this._loadTodoData(todoId)
+    this._handleCancelForm();
     return rootContainer;
 }
 
@@ -30,7 +32,6 @@ _handleUpdateForm(todoData)
         return updateTodo.addEventListener('submit', async event => {
             const updateTodoService = new UpdateTodoService();
             const todoViewController = new TodoViewController();
-            //console.log(todoData)
             event.preventDefault();
             const id = todoData.id;
 
@@ -43,6 +44,14 @@ _handleUpdateForm(todoData)
         })
 
 }
+
+_handleCancelForm() {
+    cancel.addEventListener('click', () => {
+        modalContainer.remove();
+    })
+}
+
+
 
 }
 
