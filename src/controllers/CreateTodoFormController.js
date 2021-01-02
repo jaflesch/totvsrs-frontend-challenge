@@ -5,7 +5,7 @@ import CreateTodoService from '../services/CreateTodoService'
 class TodoFormController {
     constructor() {
         this.createTodoService = new CreateTodoService();
-        this.user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
+        ;
     }
 
     create() {
@@ -16,10 +16,10 @@ class TodoFormController {
     }
 
     async handleCreateTodoForm() {
-        
+        const user = JSON.parse(sessionStorage.getItem('authenticatedUser'))
         createTodoForm.addEventListener('submit', async event => {
             event.preventDefault();
-            const userId = this.user.id;
+            const userId = user.id;
             const title = todoTitle.value;
             const description = todoDescription.value;
             const status = parseInt(document.querySelector('input:checked').value);

@@ -18,7 +18,7 @@ class TodoViewController {
             const element = document.createElement('div');
             element.innerHTML = todoHomeView;
             rootContainer.appendChild(element);
-            await this._loadTodos(user)
+            await this.loadTodos(user.id)
             this._handleEndSession();
             
             return rootContainer;
@@ -29,16 +29,20 @@ class TodoViewController {
 
     
 
-    async _loadTodos(user) {
-        const todo = await this.listTodoService.execute(user.id);
+    async loadTodos(user) {
+        console.log(user);
+        const todo = await this.listTodoService.execute(user);
+        console.log(todo);
         const todosCard = await this._todosMount(todo);
-        this._handleUpdateClick()
+
         return todosCard;
 }
 
     async _todosMount(todo) {
-    
+        const updateTodoForm = new UpdateTodoFormController();
+        todosContainer.innerHTML = '';
         const todoCard = todo.forEach(element => {
+            
             const container = document.createElement('div');
             const title = document.createElement('button');
             const description = document.createElement('p');
@@ -48,7 +52,10 @@ class TodoViewController {
             container.setAttribute('id', element.id);
             container.setAttribute('class', 'todoCard');
             title.innerText = element.title;
-            title.setAttribute('id', 'updateTodo');
+            title.setAttribute('id', 'openUpdateTodoButton');
+            title.addEventListener('click', () => {
+                updateTodoForm.create(element.id)
+            })
             description.innerText = element.description;
             status.innerText = element.status;
             date.innerText = element.date;
@@ -71,20 +78,6 @@ class TodoViewController {
         })
     }
 
-    _handleUpdateClick() {
-        if(document.getElementById('updateTodo')){
-        const updateTodoForm = new UpdateTodoFormController();
-        const todoCard = document.getElementsByClassName('todoCard');
-        const idTodo = todoCard.id;
-        console.log()
-        const updateTodo = document.getElementById('updateTodo');
-        
-        updateTodo.addEventListener('click', element => {
-            updateTodoForm.create(idTodo);
-            
-        })
-        }
-    }
 }
 
 export default TodoViewController;

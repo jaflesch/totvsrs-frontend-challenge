@@ -35,11 +35,6 @@ const router = async (route) => {
             return createTodoForm
         }
 
-        case "#updateTodo": {
-            updateTodoForm.create();
-        
-            return updateTodoForm;
-        }
     }
 }
 

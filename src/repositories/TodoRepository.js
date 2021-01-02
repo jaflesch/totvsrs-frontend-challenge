@@ -22,20 +22,38 @@ class TodoRepository {
 
         await this.todo.push(todoData);
 
-        await sessionStorage.setItem('todos', JSON.stringify(this.todo));
+        sessionStorage.setItem('todos', JSON.stringify(this.todo));
         return sessionStorage;
     }
 
     async listTodoByUserId(userId) {
 
-        const todoByUser = this.todo.filter(todo => todo.userId === userId);
+        const todoByUser = await this.todo.filter(todo => todo.userId === userId);
         
         return todoByUser;
     }
 
-    async updateTodo(todoData) {
-        const todo = this.todo.filter(todo => todo.id === todoData.id);
+    async findTodoById(todoId) {
+        const todo = await this.todo.filter(todo => todo.id === todoId);
+        return todo[0];
+    }
 
+    async updateTodo(todoData) {
+        const findTodo = await this.todo.filter(todo => todo.id === todoData.id);
+        const todo = findTodo[0];
+        const todoIndex = this.todo.indexOf(todo);
+        
+        Object.assign(todo,
+            {
+            title: todoData.title,
+            description: todoData.description,
+            status: todoData.status
+            }
+        )
+        this.todo[todoIndex] = todo;
+        sessionStorage.setItem('todos', JSON.stringify(this.todo));
+        
+        return todo; 
     }
 }
 
