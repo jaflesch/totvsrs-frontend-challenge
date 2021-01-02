@@ -1,13 +1,14 @@
 import SignInViewController from '../controllers/SignInViewController'
 import SignUpViewController from "../controllers/SignUpViewController";
 import TodoViewController from "../controllers/TodoViewController";
-import TodoFormController from '../controllers/TodoFormController';
+import CreateTodoFormController from '../controllers/CreateTodoFormController';
+import UpdateTodoFormController from '../controllers/UpdateTodoFormController';
 
 const signInView = new SignInViewController();
 const signUpView = new SignUpViewController();
 const todoView = new TodoViewController();
-const todoForm = new TodoFormController();
-
+const createTodoForm = new CreateTodoFormController();
+const updateTodoForm = new UpdateTodoFormController();
 const router = async (route) => {
 
     rootContainer.innerHTML = "";
@@ -28,10 +29,16 @@ const router = async (route) => {
             
             return todoView;
         }
-        case "#createTodoHome": {
-            todoForm.create();
-            await todoForm.handleCreateTodoForm()
-            return todoForm
+        case "#createTodo": {
+            createTodoForm.create();
+            await createTodoForm.handleCreateTodoForm()
+            return createTodoForm
+        }
+
+        case "#updateTodo": {
+            updateTodoForm.create();
+        
+            return updateTodoForm;
         }
     }
 }

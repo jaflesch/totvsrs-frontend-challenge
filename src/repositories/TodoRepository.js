@@ -32,6 +32,11 @@ class TodoRepository {
         
         return todoByUser;
     }
+
+    async updateTodo(todoData) {
+        const todo = this.todo.filter(todo => todo.id === todoData.id);
+
+    }
 }
 
 export default TodoRepository;

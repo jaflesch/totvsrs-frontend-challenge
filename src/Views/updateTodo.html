@@ -1,0 +1,17 @@
+<form action="" id="updateTodo">
+    <p id="todoId"> </p>
+    <label for="title">Titulo da Tarefa</label>
+    
+    <input type="text" name="title" id="todoTitle">
+        <label for="description">Descrição da Tarefa</label>
+    <input type="textarea" name="description" id="todoDescription">
+        <label for="backlog">Backlog</label>
+    <input type="radio" name="status" value=0 id="backlog" checked='checked'>
+        <label for="inProgress">Em progresso</label>
+    <input type="radio" name="status" value=1 id="inProgress">
+        <label for="done">Concluído</label>
+    <input type="radio" name="status" value=2 id="done">
+    <button id="cancel">Cancelar</button>
+    <input type="submit" id="save" value="Salvar">
+    <button id="delete">Excluir</button>
+</form>
