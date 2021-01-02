@@ -1,5 +1,6 @@
-import CreateTodoService from '../services/CreateTodoService'
 import createTodoFormView from '../Views/createTodo.html';
+import CreateTodoService from '../services/CreateTodoService'
+
 
 class TodoFormController {
     constructor() {
@@ -29,6 +30,8 @@ class TodoFormController {
             return todo;
         })
     }
+
+    
 }
 
 export default TodoFormController;
