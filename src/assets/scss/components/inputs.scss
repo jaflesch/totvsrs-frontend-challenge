@@ -19,6 +19,7 @@ input[type=submit] {
     border: 1px solid black;
     box-shadow: $box-shadow;
     padding: 10px 30px 10px 30px;
+    margin: 10px;
     cursor: pointer;
     &:hover {
         background-color: #f6f6f6;
