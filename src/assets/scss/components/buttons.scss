@@ -1,0 +1,15 @@
+$background-color : #fff;
+$box-shadow:  rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+
+button {
+    background-color: $background-color;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: $box-shadow;
+    padding: 10px 30px 10px 30px;
+    cursor: pointer;
+    &:hover {
+        background-color: #f6f6f6;
+    }
+}

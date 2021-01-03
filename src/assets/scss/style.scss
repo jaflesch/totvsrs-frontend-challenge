@@ -1,1 +1,8 @@
 // Seu código aqui
+* {
+    background-color: #f3f3f3;
+}
+
+@import './typography/typography.scss';
+@import './globalCssReset.scss';
+@import './components/components.scss';

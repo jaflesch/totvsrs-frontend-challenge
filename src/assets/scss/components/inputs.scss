@@ -1,0 +1,38 @@
+$background-color : #fff;
+$box-shadow:  rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+input[type=text], input[type=password] {
+    background-color: $background-color;
+    border-radius: 8px;
+    border: none;
+    box-shadow: $box-shadow;
+   
+    height: 30px;
+    margin: 10px;
+    width: 200px;
+    padding-left: 10px;
+}
+
+input[type=submit] {
+    background-color: $background-color;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: $box-shadow;
+    padding: 10px 30px 10px 30px;
+    cursor: pointer;
+    &:hover {
+        background-color: #f6f6f6;
+    }
+}
+
+input[type=radio] {
+    background-color: $background-color;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+
+    &:checked {
+        margin-left: 25px;
+        border: 4px solid black;
+    }
+}
