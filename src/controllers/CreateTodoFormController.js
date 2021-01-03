@@ -11,6 +11,7 @@ class TodoFormController {
     create() {
         const element = document.createElement('div');
         element.innerHTML = createTodoFormView;
+        element.id = 'createTodoContainer';
         rootContainer.appendChild(element);
         return rootContainer;
     }
