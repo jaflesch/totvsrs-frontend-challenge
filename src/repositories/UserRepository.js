@@ -9,7 +9,8 @@ class UserRepository {
             this.user = JSON.parse(sessionStorage.getItem('user'))
         }
         const idValue = new Uint32Array(10);
-        const id = window.crypto.getRandomValues(idValue);
+        const id = global.crypto.getRandomValues(idValue);
+        
         Object.assign(userData,
             {
             id: id[1]
@@ -17,7 +18,7 @@ class UserRepository {
         
         this.user.push(userData);
         sessionStorage.setItem('user', JSON.stringify(this.user));
-        return sessionStorage;
+        return userData;
     }
 
 
