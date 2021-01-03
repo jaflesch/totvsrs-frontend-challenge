@@ -8,6 +8,7 @@ class SignUpViewController{
     create() {
         const element = document.createElement('div');
         element.innerHTML = view;
+        element.id = 'signUpContainer'
         rootContainer.appendChild(element)
         return rootContainer;
         }
