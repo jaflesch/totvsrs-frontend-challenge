@@ -12,12 +12,13 @@ class AuthenticateUserService {
             throw new Error('Email ou senha incorreto');
         }
 
-        window.sessionStorage.setItem('authenticatedUser', JSON.stringify(user));
-        return true;
+        global.sessionStorage.setItem('authenticatedUser', JSON.stringify(user));
+        return user;
     }
 
     remove() {
-        return window.sessionStorage.removeItem('authenticatedUser');
+        global.sessionStorage.removeItem('authenticatedUser');
+        return true;
     }
 }
 
