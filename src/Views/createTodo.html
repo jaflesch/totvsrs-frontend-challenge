@@ -5,11 +5,21 @@
     <input type="text" name="title" id="todoTitle">
         <label for="description">Descrição da Tarefa</label>
     <textarea name="description" id="todoDescription"> </textarea>
-        <label for="backlog">Backlog</label>
-    <input type="radio" name="status" value=0 id="backlog" checked='checked'>
-        <label for="inProgress">Em progresso</label>
-    <input type="radio" name="status" value=1 id="inProgress">
-        <label for="done">Concluído</label>
-    <input type="radio" name="status" value=2 id="done">
-    <input type='submit' id="criarTodo" value="Criar">
+    <div id="createStatus">
+        <label for="backlog">
+            <input type="radio" name="status" value=0 id="backlog" checked='checked'>
+            Backlog
+        </label>
+        <label for="inProgress">
+            <input type="radio" name="status" value=1 id="inProgress">
+            Em progresso
+        </label>
+        <label for="done">
+            <input type="radio" name="status" value=2 id="done">    
+            Concluído
+        </label>
+    </div>
+    <div id="submitCreateTodo">
+        <input type='submit' id="criarTodo" value="Criar">
+    </div>
 </form>

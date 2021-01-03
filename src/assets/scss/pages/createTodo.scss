@@ -1,11 +1,42 @@
 #createTodoContainer {
-    max-width: 25rem;
-    display:flex;
+    display:inline-flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-
+    align-items: center;
+    border-radius: 10px;
+    width: 90%;
+    padding: 1.5em;
     label {
         margin: 10px;
+    }
+    #createTodoForm{
+        width: 100%;
+    }
+    #createStatus{
+        display: inline-flex;
+        flex-direction: column;
+        width: 50%;
+        
+        input[type=text], textarea {
+            width: 90%;
+        }
+    }
+    #submitCreateTodo{
+        width: 40%;
+        min-height: 2em;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: relative;
+        transform: translateY(4em);
+        input[type=submit] {
+            width: 90%;
+            position: relative;
+            margin:0;
+        }
+        button {
+            width: 90%;
+            margin-top: 10px;
+        }
     }
 }
