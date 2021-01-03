@@ -1,17 +1,14 @@
-import createTodoFormView from '../Views/createTodo.html';
 import todoHomeView from '../Views/todo.html';
 import UpdateTodoFormController from '../controllers/UpdateTodoFormController'
-
-import CreateTodoService from '../services/CreateTodoService'
+import CreateTodoFormController from '../controllers/CreateTodoFormController';
 import ListTodoService from '../services/ListTodoService'
 import AuthenticateUserService from '../services/AuthenticateUserService'
 
 class TodoViewController {
     constructor() {
-        this.createTodoService = new CreateTodoService();
         this.listTodoService = new ListTodoService();
+        this.createTodoFormController = new CreateTodoFormController();
     }
-
     async create() {
         const user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
         if(user){
@@ -20,22 +17,18 @@ class TodoViewController {
             rootContainer.appendChild(element);
             await this.loadTodos(user.id)
             this._handleEndSession();
-            
+            this._handleOpenCreateTodoModal();
             return rootContainer;
         } 
             window.location.hash = "#"
         
     }
-
-    
-
     async loadTodos(user) {
         const todo = await this.listTodoService.execute(user);
         const todosCard = await this._todosMount(todo);
 
         return todosCard;
-}
-
+    }
     async _todosMount(todo) {
         const updateTodoForm = new UpdateTodoFormController();
         todosContainer.innerHTML = '';
@@ -66,7 +59,6 @@ class TodoViewController {
             });
         return todoCard;
     }
-
     _handleEndSession() {
         const authenticateUserService = new AuthenticateUserService()
         endSession.addEventListener('click', element => {
@@ -75,7 +67,12 @@ class TodoViewController {
             return element;
         })
     }
-
+    _handleOpenCreateTodoModal() {
+        openCreateTodoModal.addEventListener('click', () => {
+            modal.style.display = "flex";
+            this.createTodoFormController.create();
+        })
+    }
 }
 
 export default TodoViewController;
