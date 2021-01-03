@@ -3,6 +3,16 @@
     background-color: #f3f3f3;
 }
 
+#rootContainer{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    vertical-align: center;
+    position: static;
+}
+
+
 @import './typography/typography.scss';
 @import './globalCssReset.scss';
 @import './components/components.scss';
