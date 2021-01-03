@@ -55,6 +55,21 @@ class TodoRepository {
         
         return todo; 
     }
+
+    async deleteTodo(todoData) {
+        
+        const findTodo = await this.todo.filter(todo => todo.id === todoData.id);
+        
+        const todo = findTodo[0];
+        const todoIndex = this.todo.indexOf(todo);
+        console.log(todoIndex);
+        await this.todo.splice(todoIndex,1);
+        console.log(this.todo);
+        if (this.todo.length <= 0){
+            return sessionStorage.removeItem('todos');
+        }
+        return sessionStorage.setItem('todos', JSON.stringify(this.todo));
+    }
 }
 
 export default TodoRepository;

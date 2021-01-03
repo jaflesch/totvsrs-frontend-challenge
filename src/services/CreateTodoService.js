@@ -1,13 +1,10 @@
 import TodoRepository from '../repositories/TodoRepository';
 
 class CreateTodoService {
-    constructor() {
-        this.todoRepository = new TodoRepository();
-        
-    }
 
     async execute({ userId ,title, description, status }) {
-        const todo = this.todoRepository.createTodo(
+        const todoRepository = new TodoRepository();
+        const todo = todoRepository.createTodo(
             {
                 userId,
                 title, 

@@ -1,6 +1,7 @@
 import updateTodoView from '../Views/updateTodo.html';
 import UpdateTodoService from '../services/UpdateTodoService';
 import TodoViewController from '../controllers/TodoViewController';
+import DeleteTodoService from '../services/DeleteTodoService';
 class UpdateTodoFormController {
 
 
@@ -24,6 +25,7 @@ async _loadTodoData(todoId) {
     const updateTodo = new UpdateTodoService();
     const todo = await updateTodo.findTodo(todoId);
     this._handleUpdateForm(todo);
+    this._handleDeleteForm(todo);
     return todo;
 }
 
@@ -46,12 +48,20 @@ _handleUpdateForm(todoData)
 }
 
 _handleCancelForm() {
-    cancel.addEventListener('click', () => {
+    cancelTodo.addEventListener('click', () => {
         modalContainer.remove();
     })
 }
 
-
+_handleDeleteForm(todoData) {
+    deleteTodo.addEventListener('click', async () => {
+        const todoViewController = new TodoViewController();
+        const deleteTodo = new DeleteTodoService();
+        await deleteTodo.execute(todoData)
+        modalContainer.remove();
+        return todoViewController.loadTodos(todoData.userId)
+    })
+}
 
 }
 
