@@ -9,13 +9,14 @@ class CreateUserService {
     
     const checkUserExist = await this.userRepository.findUserByEmail(email);
     if(checkUserExist) {
-            throw new Error('E-mail já utilizado');
+            return new Error('E-mail já utilizado');
+            
     }
     
     const user = await this.userRepository.createUser({
             name, email, password
         })
-
+    
     return user;    
     }
 }

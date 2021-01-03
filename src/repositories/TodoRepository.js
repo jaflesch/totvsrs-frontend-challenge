@@ -10,7 +10,7 @@ class TodoRepository {
     async createTodo(todoData) {
         
         const idValue = new Uint32Array(10);
-        const id = window.crypto.getRandomValues(idValue);
+        const id = global.crypto.getRandomValues(idValue);
         const dateTime = new Date().toLocaleString([], 
             {hour: '2-digit', minute: '2-digit',
             day: "2-digit", month: "2-digit", year: "numeric"});
@@ -23,7 +23,7 @@ class TodoRepository {
         await this.todo.push(todoData);
 
         sessionStorage.setItem('todos', JSON.stringify(this.todo));
-        return sessionStorage;
+        return todoData;
     }
 
     async listTodoByUserId(userId) {
@@ -62,13 +62,15 @@ class TodoRepository {
         
         const todo = findTodo[0];
         const todoIndex = this.todo.indexOf(todo);
-        console.log(todoIndex);
+
         await this.todo.splice(todoIndex,1);
-        console.log(this.todo);
+
         if (this.todo.length <= 0){
-            return sessionStorage.removeItem('todos');
+            sessionStorage.removeItem('todos');
+            return this.todo; 
         }
-        return sessionStorage.setItem('todos', JSON.stringify(this.todo));
+        sessionStorage.setItem('todos', JSON.stringify(this.todo));
+        return this.todo; 
     }
 }
 
