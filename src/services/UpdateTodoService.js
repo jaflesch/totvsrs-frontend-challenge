@@ -5,8 +5,8 @@ class UpdateTodoService {
     async execute(todoData) {
         const todoRepository = new TodoRepository()
 
-        const todo = await todoRepository.updateTodo(todoData)
-        return todo;
+        return await todoRepository.updateTodo(todoData)
+        
     }
     
     async findTodo(todoId) {
