@@ -1,16 +1,27 @@
 // Seu código aqui
 * {
-    background-color: #f3f3f3;
+    background-color: #e4f3fb;
+    
 }
-
+#applicationHeader {
+    align-items: center;
+    width: 100%;
+    h1{
+        padding: 0.5em;
+        background-color: darkblue;
+        font-weight: 700;
+        color: white;
+    }
+    
+}
 #rootContainer{
     display: flex;
-    align-items: center;
-    height: 100vh;
+    
+    height: 90vh;
     justify-content: center;
-    vertical-align: center;
+    
     position: static;
-    font-size: 16px;
+    
 }
 
 
