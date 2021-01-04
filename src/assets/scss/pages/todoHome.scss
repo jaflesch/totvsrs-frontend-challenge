@@ -38,6 +38,15 @@
     
             }
         }
-    
+    @media (min-width: 991px) {
+        width: 55vw;
+        #todoHomeHeader {
+
+            button {
+                align-items: left;
+                margin: 3rem 0 1rem 1.1rem;
+            }
+        }
+    }
     
 }
