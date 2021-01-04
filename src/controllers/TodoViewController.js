@@ -28,13 +28,14 @@ class TodoViewController {
     async loadTodos(user) {
         const todo = await this.listTodoService.execute(user);
         const todosCard = await this._todosMount(todo);
-
+        
         return todosCard;
     }
     async _todosMount(todo) {
         const updateTodoForm = new UpdateTodoFormController();
         todosContainer.innerHTML = ''
         this._mountTodoTable();
+
         const todoCard = todo.forEach(element => {
             
 
