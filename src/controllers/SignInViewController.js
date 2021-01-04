@@ -8,6 +8,7 @@ class SignInViewController {
             window.location.hash = '#todoHome'
         }
         const element = document.createElement('div');
+        const rootContainer = document.getElementById('rootContainer')
         element.innerHTML = view;
         element.id = "signInContainer"
         rootContainer.appendChild(element);
@@ -15,12 +16,12 @@ class SignInViewController {
     }
 
     handleForm() {
-
+        const signInForm = document.getElementById('signInForm')
         signInForm.addEventListener('submit', async event => {
             event.preventDefault();
             const authenticateUserService = new AuthenticateUserService();
-            const email = loginEmail.value;
-            const password = loginPassword.value;
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
 
             const authenticate = await authenticateUserService.execute({email, password})
             if(authenticate) {

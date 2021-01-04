@@ -8,6 +8,9 @@ class TodoViewController {
     constructor() {
         this.listTodoService = new ListTodoService();
         this.createTodoFormController = new CreateTodoFormController();
+        this.rootContainer = document.getElementById('rootContainer');
+        this.modal = document.getElementById('modal');
+        
     }
     async create() {
         const user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
@@ -15,12 +18,12 @@ class TodoViewController {
             const element = document.createElement('div');
             element.innerHTML = todoHomeView;
             element.id = 'todoHome';
-            rootContainer.appendChild(element);
+            this.rootContainer.appendChild(element);
 
             await this.loadTodos(user.id)
             this._handleEndSession();
             this._handleOpenCreateTodoModal();
-            return rootContainer;
+            return this.rootContainer;
         } 
             window.location.hash = "#"
         
@@ -33,6 +36,7 @@ class TodoViewController {
     }
     async _todosMount(todo) {
         const updateTodoForm = new UpdateTodoFormController();
+        const todosContainer = document.getElementById('todosContainer')
         todosContainer.innerHTML = ''
         this._mountTodoTable();
 
@@ -53,7 +57,7 @@ class TodoViewController {
             title.setAttribute('class', 'openUpdateTodoButton');
             title.addEventListener('click', () => {
                 updateTodoForm.create(element.id)
-                modal.style.display = "flex";
+                this.modal.style.display = "flex";
             })
             id.innerText = element.id;
             status.innerText = element.status;
@@ -84,6 +88,8 @@ class TodoViewController {
         const authenticateUserService = new AuthenticateUserService()
         const buttonEndSession = document.createElement('button');
         const endSessionIcon = document.createElement('img');
+        const applicationHeader = document.getElementById('applicationHeader');
+
         endSessionIcon.src = svgIcon;
         buttonEndSession.id = 'endSession';
         buttonEndSession.appendChild(endSessionIcon);
@@ -97,7 +103,7 @@ class TodoViewController {
     }
     _handleOpenCreateTodoModal() {
         openCreateTodoModal.addEventListener('click', () => {
-            modal.style.display = "flex";
+            this.modal.style.display = "flex";
             this.createTodoFormController.create();
         })
     }

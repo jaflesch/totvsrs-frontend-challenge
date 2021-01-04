@@ -7,6 +7,7 @@ class SignUpViewController{
 
     create() {
         const element = document.createElement('div');
+        const rootContainer = document.getElementById('rootContainer')
         element.innerHTML = view;
         element.id = 'signUpContainer'
         rootContainer.appendChild(element)
@@ -15,12 +16,13 @@ class SignUpViewController{
 
     handleform() {
         const authenticateUserService = new AuthenticateUserService();
+        const signUpForm = document.getElementById('signUpForm');
         signUpForm.addEventListener('submit', async event => {
             event.preventDefault();
             const createUserService = new CreateUserService();
-            const name = registerName.value;
-            const email = registerEmail.value;
-            const password = registerPassword.value;
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
 
             await createUserService.execute({name, email, password});
             await authenticateUserService.execute({email, password})

@@ -6,14 +6,15 @@ import TodoViewController from '../controllers/TodoViewController';
 class CreateTodoFormController {
     constructor() {
         this.createTodoService = new CreateTodoService();
-        ;
+        this.modal = document.getElementById('modal');;
     }
 
     create() {
         const element = document.createElement('div');
+        
         element.innerHTML = createTodoFormView;
         element.id = 'createTodoContainer';
-        modal.appendChild(element);
+        this.modal.appendChild(element);
         this.handleCreateTodoForm();
         return rootContainer;
     }
@@ -21,12 +22,13 @@ class CreateTodoFormController {
     async handleCreateTodoForm() {
         const user = JSON.parse(sessionStorage.getItem('authenticatedUser'));
         const todoViewController = new TodoViewController();
+        const createTodoForm = document.getElementById('createTodoForm')
         createTodoForm.addEventListener('submit', async event => {
             event.preventDefault();
             
             const userId = user.id;
-            const title = todoTitle.value;
-            const description = todoDescription.value;
+            const title = document.getElementById('todoTitle').value;
+            const description = document.getElementById('todoDescription').value;
             const status = parseInt(document.querySelector('input:checked').value);
 
             const todo = await this.createTodoService.execute({userId, title, description, status});
@@ -37,8 +39,8 @@ class CreateTodoFormController {
     }
 
     _closeModal() {
-        modal.style.display = "none";
-        modal.innerHTML = '';
+        this.modal.style.display = "none";
+        this.modal.innerHTML = '';
     }
     
 }
