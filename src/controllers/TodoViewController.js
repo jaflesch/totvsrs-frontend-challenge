@@ -43,6 +43,7 @@ class TodoViewController {
             
             const id = document.createElement('td');
             const title = document.createElement('td');
+            
             const status = document.createElement('td');
             const date = document.createElement('td');
 

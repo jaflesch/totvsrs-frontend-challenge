@@ -2,19 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $backgroundcolor;
-    border-radius: 5px;
-    padding: 1.5rem;
+    background-color: transparent;
     width: 90%;
-    position: fixed;
-
+    
     #updateTodo {
         display:flex;
+        position: relative;
         flex-direction: column;
         border-radius: 5px;
         width: 100%;
-    
+        
         background-color: $backgroundcolor;
+        padding:1.5rem;
         label{
             display: block;
             background-color: $backgroundcolor;
@@ -73,6 +72,6 @@
 
     @media (min-height: 1000px) {
         width: 40%;
-        height: 50%;
+        height: 40%;
     }
 }

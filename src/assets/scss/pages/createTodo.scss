@@ -44,7 +44,7 @@ $backgroundcolor : #fff;
 
     @media (min-width: 991px) {
         width: 40%;
-        height: 60%;
+        height: 80%;
         #submitCreateTodo{
             input[type=submit] {
                 width: 100%;
@@ -53,9 +53,9 @@ $backgroundcolor : #fff;
         }
     }
 
-    @media (min-height: 1000px) {
+    @media (min-width: 1280px) and (min-height: 1000px) {
         width: 40%;
-        height: 50%;
+        height: 60%;
         #submitCreateTodo{
             input[type=submit] {
                 width: 100%;
