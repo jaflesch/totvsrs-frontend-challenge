@@ -9,6 +9,7 @@ class SignInViewController {
         }
         const element = document.createElement('div');
         element.innerHTML = view;
+        element.id = "signInContainer"
         rootContainer.appendChild(element);
         return rootContainer;
     }

@@ -1,0 +1,26 @@
+#applicationHeader {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: darkblue;
+    
+    h1{
+        padding: 0.5em;
+        background-color: darkblue;
+        font-weight: 700;
+        color: white;
+    }
+    
+    button {
+        background-color: darkblue;
+        border: 0;
+        img {
+            background-color: darkblue;
+            width: 1rem;
+            fill: white;
+            
+        }
+    }
+
+}

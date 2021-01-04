@@ -8,6 +8,7 @@ class UpdateTodoFormController {
 create(todoId) 
 {
     this._createUpdateFormBody(todoId);
+    console.log(todoId)
 }
 
 _createUpdateFormBody(todoId) 
@@ -15,15 +16,33 @@ _createUpdateFormBody(todoId)
     const element = document.createElement('div');
     element.id = 'modalContainer'
     element.innerHTML = updateTodoView;
-    rootContainer.appendChild(element);
+    modal.appendChild(element);
     this._loadTodoData(todoId)
     this._handleCancelForm();
+
     return rootContainer;
 }
 
 async _loadTodoData(todoId) {
     const updateTodo = new UpdateTodoService();
     const todo = await updateTodo.findTodo(todoId);
+    todoTitle.value = todo.title;
+    todoDescription.value = todo.description;
+    switch (todo.status) {
+        case 0:
+            backlog.checked = true;
+            break;
+    
+        case 1:
+            inProgress.checked = true;
+            break;
+
+        case 2:
+            done.checked = true;
+            break;            
+    }
+
+
     this._handleUpdateForm(todo);
     this._handleDeleteForm(todo);
     return todo;
@@ -41,6 +60,8 @@ _handleUpdateForm(todoData)
             const description = todoDescription.value;
             const status = parseInt(document.querySelector('input:checked').value);
             const todo = await updateTodoService.execute({id, title, description, status})
+            modal.style.display = "none"
+            modalContainer.remove();
             await todoViewController.loadTodos(todo.userId);
             return todo;
         })
@@ -50,6 +71,7 @@ _handleUpdateForm(todoData)
 _handleCancelForm() {
     cancelTodo.addEventListener('click', () => {
         modalContainer.remove();
+        modal.style.display = "none"
     })
 }
 
@@ -59,6 +81,7 @@ _handleDeleteForm(todoData) {
         const deleteTodo = new DeleteTodoService();
         await deleteTodo.execute(todoData)
         modalContainer.remove();
+        modal.style.display = "none"
         return todoViewController.loadTodos(todoData.userId)
     })
 }

@@ -1,0 +1,29 @@
+#signUpContainer {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    #signUpForm {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        justify-content: center;    
+        width: 22rem;
+        background-color: white;
+        border-radius: 5px;
+        h1 {
+            background-color: white;
+            margin: 1rem 0 0.5rem 0em;
+            justify-content: center;
+            text-align: center;
+        }
+        label {
+            box-sizing: border-box;
+            padding: 1.2rem 0 0.3rem 1.2rem;
+            width: 100%;
+            background-color: white;
+            font-size: 16px;
+        }
+    }
+}

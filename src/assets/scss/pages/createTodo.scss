@@ -1,0 +1,48 @@
+$backgroundcolor : #fff;
+
+#createTodoContainer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 90%;
+    padding: 1.5rem;
+    background-color: $backgroundcolor;
+    #createTodoForm{
+        
+        background-color: $backgroundcolor;
+        label {
+            display: block;
+            background-color: $backgroundcolor;
+            margin: 2rem 0rem 0.3rem 1rem;
+        }
+        input[type=text], textarea {
+            width: 90%;
+        }
+    }
+    #createStatus{
+        display: inline-flex;
+        flex-direction: column;
+        width: 50%;
+        background-color: $backgroundcolor;
+        margin-top: 1rem;
+        label {
+            padding: 0;
+            margin: 1rem 0.5rem 0.2rem 1rem;
+        }
+    }
+    #submitCreateTodo{
+        background-color: $backgroundcolor;
+        width: 100%;
+
+        input[type=submit] {
+            width: 100%;
+            margin: 1rem 0 0 0;
+        }
+    }
+
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+}

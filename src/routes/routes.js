@@ -29,11 +29,6 @@ const router = async (route) => {
             
             return todoView;
         }
-        case "#createTodo": {
-            createTodoForm.create();
-            await createTodoForm.handleCreateTodoForm()
-            return createTodoForm
-        }
 
     }
 }
