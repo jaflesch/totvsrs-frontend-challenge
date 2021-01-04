@@ -6,7 +6,7 @@ import TodoViewController from '../controllers/TodoViewController';
 class CreateTodoFormController {
     constructor() {
         this.createTodoService = new CreateTodoService();
-        this.modal = document.getElementById('modal');;
+        this.modal = document.getElementById('modal');
     }
 
     create() {
