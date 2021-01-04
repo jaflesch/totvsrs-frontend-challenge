@@ -7,8 +7,8 @@ Nesse projeto foi criado uma SPA de Todolist utilizando VanillaJS. Foi utilizado
 
 [Javascript](http://vanilla-js.com)  
 [WebPack](https://webpack.js.org)  
-[Sass](https://styled-components.com)  
-[Jest](https://developer.github.com/v3/)  
+[Sass](https://sass-lang.com)  
+[Jest](https://jestjs.io)  
 
 ### Pré requisitos
 Node.Js 14.x
