@@ -7,7 +7,6 @@
         width: 100%;
         align-items: left;
         button {
-            align-items: left;
             margin: 3rem 0 1rem 0.7rem;
         }
     }
@@ -37,7 +36,23 @@
                 border-top: 1px solid #E4F3FB;
     
             }
+            .openUpdateTodoButton {
+                color: darkblue;
+                font-weight: 500;
+            }
         }
-    
+    @media (min-width: 991px) {
+        width: 55vw;
+        #todoHomeHeader {
+            align-items: center;
+            button {
+                
+                margin: 3rem 0 1rem 0;
+            }   
+        }
+        #todosContainer {
+            width: 100%;
+        }
+    }
     
 }

@@ -6,11 +6,15 @@ $backgroundcolor : #fff;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    width: 90%;
+    width: 80%;
     padding: 1.5rem;
     background-color: $backgroundcolor;
+    box-sizing: content-box;
     #createTodoForm{
-        
+        h1{
+            display: flex;
+            justify-content: center;
+        }
         background-color: $backgroundcolor;
         label {
             display: block;
@@ -42,7 +46,26 @@ $backgroundcolor : #fff;
         }
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
         width: 50%;
+        
+        #submitCreateTodo{
+            input[type=submit] {
+                width: 100%;
+                margin: 1rem 0 0 0;
+            }
+        }
     }
+
+    @media (min-height: 1025px) {
+        width: 35%;
+        height: 45%;
+        #submitCreateTodo{
+            input[type=submit] {
+                width: 100%;
+                margin: 2rem 0 0 0;
+            }
+        }
+    }
+
 }
