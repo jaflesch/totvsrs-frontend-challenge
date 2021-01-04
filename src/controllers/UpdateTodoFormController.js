@@ -27,8 +27,8 @@ class UpdateTodoFormController {
     async _loadTodoData(todoId) {
         const updateTodo = new UpdateTodoService();
         const todo = await updateTodo.findTodo(todoId);
-        todoTitle.value = todo.title;
-        todoDescription.value = todo.description;
+        document.getElementById('todoTitle').value = todo.title;
+        document.getElementById('todoDescription').value = todo.description;
         switch (todo.status) {
             case 0:
                 backlog.checked = true;
