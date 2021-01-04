@@ -1,44 +1,43 @@
 #todoHome {
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
-    h1{
-        text-align: left;
-        margin: 1em 0 1.5em 0;
-    }
-    button {
-        margin-bottom: 1.5em;
-        img {
-            width: 1em;
-            height: 1em;
+    #todoHomeHeader {
+        display: flex;
+        width: 100%;
+        align-items: left;
+        button {
+            align-items: left;
+            margin: 3rem 0 1rem 0.7rem;
         }
     }
-    table {
-        width: 95%;
-        padding: 1em;
-        text-align: left;
-        word-break: keep-all;
-        th {
-            min-width: 25%;
-            padding: 15px;
-            background-color: #fff;
-            border-bottom: 1px solid #dee2e6;
-            color: black;
-            font-weight: 500;
-            text-align: center;
-            vertical-align: middle;
+    #todosContainer {
+            width: 95%;
+            padding: 1rem;
+            text-align: left;
+            word-break: keep-all;
+            th {
+                min-width: 25%;
+                padding: 1rem;
+                background-color: #fff;
+                border-bottom: 1px solid #E4F3FB;
+                color: black;
+                font-weight: 500;
+                text-align: center;
+                vertical-align: middle;
+            }
+            td{
+            
+                width: 25%;
+                font-size: 13px;
+                padding: 1.15em;
+                text-align: center;
+                vertical-align: middle;
+                background-color: #fff;
+                border-top: 1px solid #E4F3FB;
+    
+            }
         }
-        td{
-        
-            width: 25%;
-            font-size: 13px;
-            padding: 1.15em;
-            text-align: center;
-            vertical-align: middle;
-            background-color: #fff;
-            border-top: 1px solid #dee2e6;
-
-        }
-    }
+    
+    
 }
