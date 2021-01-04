@@ -15,7 +15,7 @@ _createUpdateFormBody(todoId)
     const element = document.createElement('div');
     element.id = 'modalContainer'
     element.innerHTML = updateTodoView;
-    rootContainer.appendChild(element);
+    modal.appendChild(element);
     this._loadTodoData(todoId)
     this._handleCancelForm();
     return rootContainer;
@@ -50,6 +50,7 @@ _handleUpdateForm(todoData)
 _handleCancelForm() {
     cancelTodo.addEventListener('click', () => {
         modalContainer.remove();
+        modal.style.display = "none"
     })
 }
 
@@ -59,6 +60,7 @@ _handleDeleteForm(todoData) {
         const deleteTodo = new DeleteTodoService();
         await deleteTodo.execute(todoData)
         modalContainer.remove();
+        modal.style.display = "none"
         return todoViewController.loadTodos(todoData.userId)
     })
 }

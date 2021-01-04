@@ -9,14 +9,13 @@ $backgroundcolor : #fff;
     width: 90%;
     padding: 1.5rem;
     background-color: $backgroundcolor;
-
     #createTodoForm{
         
         background-color: $backgroundcolor;
         label {
             display: block;
             background-color: $backgroundcolor;
-            margin: 1rem 0rem 1rem 1rem;
+            margin: 2rem 0rem 0.3rem 1rem;
         }
         input[type=text], textarea {
             width: 90%;
@@ -27,10 +26,10 @@ $backgroundcolor : #fff;
         flex-direction: column;
         width: 50%;
         background-color: $backgroundcolor;
-        
+        margin-top: 1rem;
         label {
             padding: 0;
-            margin: 1rem 0.5rem 0.5rem 1rem;
+            margin: 1rem 0.5rem 0.2rem 1rem;
         }
     }
     #submitCreateTodo{
@@ -41,5 +40,9 @@ $backgroundcolor : #fff;
             width: 100%;
             margin: 1rem 0 0 0;
         }
+    }
+
+    @media (min-width: 768px) {
+        width: 50%;
     }
 }

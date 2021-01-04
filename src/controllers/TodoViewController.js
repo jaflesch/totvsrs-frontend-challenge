@@ -51,6 +51,7 @@ class TodoViewController {
             title.setAttribute('class', 'openUpdateTodoButton');
             title.addEventListener('click', () => {
                 updateTodoForm.create(element.id)
+                modal.style.display = "flex";
             })
             id.innerText = element.id;
             status.innerText = element.status;
