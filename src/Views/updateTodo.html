@@ -1,0 +1,26 @@
+<form action="" id="updateTodo">
+    <label for="title">Titulo da Tarefa</label>
+    
+    <input type="text" name="title" id="todoTitle">
+        <label for="description">Descrição da Tarefa</label>
+    <textarea name="description" id="todoDescription"> </textarea>
+    <div id="createStatus">
+        <label for="backlog">
+            <input type="radio" name="status" value=0 id="backlog" checked='checked'>
+            Backlog
+        </label>
+        <label for="inProgress">
+            <input type="radio" name="status" value=1 id="inProgress">
+            Em progresso
+        </label>
+        <label for="done">
+            <input type="radio" name="status" value=2 id="done">    
+            Concluído
+        </label>
+    </div>
+    <div id="submitForm">
+        <button id="deleteTodo">Excluir</button>
+        <input type="submit" id="save" value="Salvar">
+        <a id="cancelTodo">X</a>
+    </div>
+</form>

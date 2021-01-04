@@ -1,0 +1,77 @@
+#modalContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 90%;
+    
+    #updateTodo {
+        display:flex;
+        position: relative;
+        flex-direction: column;
+        border-radius: 5px;
+        width: 100%;
+        
+        background-color: $backgroundcolor;
+        padding:1.5rem;
+        label{
+            display: block;
+            background-color: $backgroundcolor;
+            margin: 2rem 0rem 0.3rem 1rem;
+            text-align: left;
+        }
+        
+        #createStatus {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            width: 50%;
+            background-color: $backgroundcolor;
+            margin-top: 1rem;
+            label {
+                padding: 0;
+                margin: 1rem 0.5rem 0.2rem 1rem;
+            }
+        }
+        #submitForm {
+            background-color: $backgroundcolor;
+            display: inline-flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            a{
+                cursor: pointer;
+                background-color: $backgroundcolor;
+                width:fit-content;
+                height: 10%;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            input {
+                box-sizing: border-box;
+                width:40%;
+            }
+            button{
+                margin-right: 1rem;
+                width:40%;
+            }
+        }
+    }
+
+    @media (min-width: 991px) {
+        width: 40%;
+        height: 65%;
+        #submitForm{
+            margin: 2rem 0 0 0;
+            input[type=submit] {
+                width: 100%;
+                
+            }
+        }
+    }
+
+    @media (min-height: 1000px) {
+        width: 40%;
+        height: 40%;
+    }
+}

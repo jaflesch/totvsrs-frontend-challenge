@@ -1,0 +1,14 @@
+$background-color : #fff;
+
+button {
+    border: 1px solid darkblue;
+    background-color: $background-color;
+    color: darkblue;
+    border-radius: 5px;
+    padding: 0.7rem 2rem 0.7rem 2rem;
+    margin: 1rem 0 1rem 0;
+    cursor: pointer;
+    &:hover {
+        background-color: #f6f6f6;
+    }
+}

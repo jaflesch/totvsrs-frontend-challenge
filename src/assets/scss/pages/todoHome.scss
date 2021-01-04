@@ -1,0 +1,58 @@
+#todoHome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    #todoHomeHeader {
+        display: flex;
+        width: 100%;
+        align-items: left;
+        button {
+            margin: 3rem 0 1rem 0.7rem;
+        }
+    }
+    #todosContainer {
+            width: 95%;
+            padding: 1rem;
+            text-align: left;
+            word-break: keep-all;
+            th {
+                min-width: 25%;
+                padding: 1rem;
+                background-color: #fff;
+                border-bottom: 1px solid #E4F3FB;
+                color: black;
+                font-weight: 500;
+                text-align: center;
+                vertical-align: middle;
+            }
+            td{
+            
+                width: 25%;
+                font-size: 13px;
+                padding: 1.15em;
+                text-align: center;
+                vertical-align: middle;
+                background-color: #fff;
+                border-top: 1px solid #E4F3FB;
+    
+            }
+            .openUpdateTodoButton {
+                color: darkblue;
+                font-weight: 500;
+            }
+        }
+    @media (min-width: 991px) {
+        width: 55vw;
+        #todoHomeHeader {
+            align-items: center;
+            button {
+                
+                margin: 3rem 0 1rem 0;
+            }   
+        }
+        #todosContainer {
+            width: 100%;
+        }
+    }
+    
+}

@@ -1,0 +1,42 @@
+$background-color : #fff;
+$box-shadow:  rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+input {
+    width: 90%;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    background-color: $background-color;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid lightgray;
+    margin: 0 1rem 0 1rem;
+    width: 90%;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+}
+
+input[type=submit] {
+    background-color: darkblue;
+    color:#fff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    padding: 0.7rem 2rem 0.7rem 2rem;
+    margin: 1rem 0 1rem 0;
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(5, 5, 65);
+    }
+}
+
+input[type=radio] {
+    background-color: $background-color;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+    border: 1px solid darkblue;
+    &:checked {
+        
+        border: 5px solid darkblue;
+    }
+}

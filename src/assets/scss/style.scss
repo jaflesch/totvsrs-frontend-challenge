@@ -1,0 +1,21 @@
+// Seu código aqui
+* {
+    background-color: #e4f3fb;
+    
+}
+
+#rootContainer{
+    display: flex;
+    
+    height: 90vh;
+    justify-content: center;
+    
+    position: static;
+    
+}
+
+
+@import './typography/typography.scss';
+@import './globalCssReset.scss';
+@import './components/components.scss';
+@import './pages/pages.scss'
