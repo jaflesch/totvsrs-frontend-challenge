@@ -79,10 +79,14 @@ _handleDeleteForm(todoData) {
     deleteTodo.addEventListener('click', async () => {
         const todoViewController = new TodoViewController();
         const deleteTodo = new DeleteTodoService();
-        await deleteTodo.execute(todoData)
-        modalContainer.remove();
-        modal.style.display = "none"
-        return todoViewController.loadTodos(todoData.userId)
+        const confirmDelete = confirm('Deseja excluir essa tarefa?')
+        if(confirmDelete === true) {
+            await deleteTodo.execute(todoData)
+            modalContainer.remove();
+            modal.style.display = "none"
+            return todoViewController.loadTodos(todoData.userId)
+        }
+        
     })
 }
 
