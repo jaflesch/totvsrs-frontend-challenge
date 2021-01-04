@@ -11,7 +11,6 @@ class CreateTodoFormController {
 
     create() {
         const element = document.createElement('div');
-        
         element.innerHTML = createTodoFormView;
         element.id = 'createTodoContainer';
         this.modal.appendChild(element);
@@ -25,12 +24,10 @@ class CreateTodoFormController {
         const createTodoForm = document.getElementById('createTodoForm')
         createTodoForm.addEventListener('submit', async event => {
             event.preventDefault();
-            
             const userId = user.id;
             const title = document.getElementById('todoTitle').value;
             const description = document.getElementById('todoDescription').value;
             const status = parseInt(document.querySelector('input:checked').value);
-
             const todo = await this.createTodoService.execute({userId, title, description, status});
             await todoViewController.loadTodos(userId);
             this._closeModal();

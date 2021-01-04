@@ -31,7 +31,6 @@ class TodoViewController {
     async loadTodos(user) {
         const todo = await this.listTodoService.execute(user);
         const todosCard = await this._todosMount(todo);
-        
         return todosCard;
     }
     async _todosMount(todo) {
@@ -39,18 +38,12 @@ class TodoViewController {
         const todosContainer = document.getElementById('todosContainer')
         todosContainer.innerHTML = ''
         this._mountTodoTable();
-
         const todoCard = todo.forEach(element => {
-            
-
             const container = document.createElement('tr');
-            
             const id = document.createElement('td');
             const title = document.createElement('td');
-            
             const status = document.createElement('td');
             const date = document.createElement('td');
-
             container.setAttribute('id', element.id);
             container.setAttribute('class', 'todoCard');
             title.innerText = element.title;
@@ -59,6 +52,7 @@ class TodoViewController {
                 updateTodoForm.create(element.id)
                 this.modal.style.display = "flex";
             })
+            
             id.innerText = element.id;
             status.innerText = element.status;
             date.innerText = element.date;

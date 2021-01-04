@@ -23,7 +23,6 @@ class SignUpViewController{
             const name = document.getElementById('registerName').value;
             const email = document.getElementById('registerEmail').value;
             const password = document.getElementById('registerPassword').value;
-
             await createUserService.execute({name, email, password});
             await authenticateUserService.execute({email, password})
             window.location.hash = '#todoHome';

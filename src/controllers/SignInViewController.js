@@ -22,7 +22,6 @@ class SignInViewController {
             const authenticateUserService = new AuthenticateUserService();
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
-
             const authenticate = await authenticateUserService.execute({email, password})
             if(authenticate) {
                 window.location.hash = "#todoHome";
