@@ -1,15 +1,129 @@
-<html>
-    <head>
-        <title>Meu projeto To-do list - TOTVS RS</title>
-    </head>
-    <body>
-        <div>
-            <h1>To do list</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. 
-                Dolorum molestiae delectus tempore? Quod.
-            </p>
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>TO-DO LIST</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   
+</head>
+
+<body>
+  <div class="container">
+    <a class="links" id="paracadastro"></a>
+    <a class="links" id="paralogin"></a>
+
+    <div class="content">
+      <!--FORMULÁRIO DE LOGIN-->
+      <div id="login">
+        <form>
+          <h1>Login</h1>
+          <label for="email">Email</label>
+          <input id="email" name="email" required="required" type="email" placeholder="ex. contato@exemplo.com" />
+
+
+          <label for="senha">Senha</label>
+          <input id="senha" name="senha" required="required" type="password" placeholder="ex. senha" />
+
+          <input type="submit" onclick="login()" value="Logar" />
+
+          <p class="link">Ainda não tem conta?
+            <a href="#paracadastro">Cadastre-se</a>
+          </p>
+        </form>
+      </div>
+
+      <!--FORMULÁRIO DE CADASTRO-->
+      <div id="cadastro">
+        <form>
+          <h1>Cadastro</h1>
+
+          <label for="nome_cad">Seu nome</label>
+          <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="Nome" />
+
+          <label for="email_cad">Seu e-mail</label>
+          <input id="email_cad" name="email_cad" required="required" type="email"
+            placeholder="ex. contato@exemplo.com" />
+
+          <label for="senha_cad">Sua senha</label>
+          <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="ex. 1234" />
+
+          <input type="submit" onclick="cadastrar()" value="Cadastrar" />
+
+          <p class="link">Já possui conta?<a href="#paralogin"> Ir para Login </a>
+
+          </p>
+        </form>
+      </div>
+    </div>
+
+
+    <!--TO DO LIST-->
+    <div id="lista">
+
+      <table id="todolist" hidden="true" class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">TÍTULO</th>
+            <th scope="col">DATA</th>
+            <th scope="col">STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    <!-- Button trigger modal -->
+    <button id="editar" type="button" hidden="true" class="btn btn-primary" data-toggle="modal"
+      data-target="#exampleModal">
+      EDITAR
+    </button>
+
+    <!-- Button Sair -->
+    <button type="button" id="sair" hidden="true" onclick="logout()" class="btn btn-danger">Sair da Sessão</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">TO-DO LIST</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input id="id_mod" name="id_mod" type="number" placeholder="id" min="1" max="100" required />
+            <input id="titulo_mod" name="titulo_mod" type="text" placeholder="titulo" required />
+            <input id="data_mod" name="data_mod" type="date" value="2020-01-26" placeholder="data" required />
+            <input id="status_mod" name="status_mod" type="number" min="0" max="2" placeholder="status" required />
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" onclick="adicionaLinha('todolist')" class="btn btn-primary">Salvar</button>
+          </div>
         </div>
-    </body>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="assets/js/app.js"></script>
+
+</body>
+
 </html>
