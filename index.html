@@ -1,15 +1,38 @@
 <html>
-    <head>
-        <title>Meu projeto To-do list - TOTVS RS</title>
-    </head>
-    <body>
-        <div>
-            <h1>To do list</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. 
-                Dolorum molestiae delectus tempore? Quod.
-            </p>
-        </div>
-    </body>
+
+<head>
+    <title>Meu projeto To-do list - TOTVS RS</title>
+    <meta charset="UTF-8" />
+    <meta name=”viewport” content=””>
+    <link rel="stylesheet" type="text/css" href="assets\css\style.css">
+    <script src="assets\js\app.js"></script>
+</head>
+
+<body>
+    <div id="startPage">
+        <h1>start</h1>
+        <form action="" method="post">
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email" value=""><br>
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha" value=""><br><br>
+            <!--<input type="submit" value="Submit"> -->
+            <button type="button" onclick="validateLogin()">Entrar</button>
+            <button type="button" onclick="goToCreateLogin()">Criar Conta</button>
+        </form>
+    </div>
+
+
+    <div id="todolist">
+        <h1>To do list</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. Dolorum molestiae delectus tempore? Quod.
+        </p>
+    </div>
+</body>
+
 </html>
+
+
+<script>
+</script>

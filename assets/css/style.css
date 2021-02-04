@@ -1,1 +1,4 @@
-* { color: #333; }
+@charset "utf=8";
+* {
+    color: #333;
+}
