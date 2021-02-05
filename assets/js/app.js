@@ -1,9 +1,9 @@
 window.onload = function() {
     document.getElementById("startPage").hidden = false;
-    document.getElementById("todolist").hidden = true;
-
+    //document.getElementById("todolist").hidden = true;
 }
 
+//LOGIN PART OF THE CODE
 function validateLogin() {
     if (document.getElementById("email").checkValidity() == false) {
         window.alert("Email invalido");
@@ -80,4 +80,83 @@ function returnEmailPosition(obj, array) {
     }
     //this email doesn't exist
     return -1;
+}
+
+
+//TODO LIST PART OF THE CODE
+function addItem(tableID) {
+    //get the table's body
+    var tbody = document.querySelector("#" + tableID + " tbody");
+
+    var newRow = createNewRow(tbody);
+
+    //get all the new row's td
+    var tds = newRow.getElementsByTagName("td");
+
+    var lastId;
+    //get the list
+    var array = JSON.parse((sessionStorage.getItem("todolist")));
+    if (array == null) {
+        array = new Array();
+        lastId = -1; //so the first id is 0(lastId+1)
+    } else {
+        console.log(array);
+        lastId = array[array.length - 1].id;
+    }
+
+    //change the text
+    tds[0].innerHTML = parseInt(lastId) + 1;
+    tds[1].innerHTML = "new";
+    tds[1].setAttribute("class", "titleClickable");
+    tds[1].setAttribute("onclick", "updateItem('" + tds[0].innerHTML + "')");
+    tds[2].innerHTML = getDataFormatted();
+    tds[3].innerHTML = 0;
+
+    saveNewItem(tds, array);
+}
+
+function createNewRow(tbody) {
+    // Insert a row at the end of the table
+    let newRow = tbody.insertRow(-1);
+
+    // Insert a cell in the row at indexes 0,1,2,3
+    newRow.insertCell(0);
+    newRow.insertCell(1);
+    newRow.insertCell(2);
+    newRow.insertCell(3);
+
+    return newRow;
+}
+
+function saveNewItem(tds, array) {
+    //create the new item
+    obj = new Object();
+    obj = {
+        id: tds[0].innerHTML,
+        userId: sessionStorage.getItem("activeUser"),
+        titulo: tds[1].innerHTML,
+        descricao: "sem descrição",
+        data: tds[2].innerHTML,
+        status: tds[3].innerHTML
+    };
+
+    array.push(obj);
+
+    //save user's array
+    sessionStorage.setItem("todolist", JSON.stringify(array));
+}
+
+function getDataFormatted() {
+    var today = new Date();
+    var hh = String(today.getHours()).padStart(2, '0');
+    var min = String(today.getMinutes()).padStart(2, '0');
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+
+    return hh + ":" + min + " " + dd + '/' + mm + '/' + yyyy;
+}
+
+function updateItem(itemId) {
+    //todo
 }

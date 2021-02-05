@@ -34,6 +34,10 @@ th {
     font-weight: bold;
 }
 
+.textCenter {
+    text-align: center;
+}
+
 
 /*
 tr:nth-child(even) {
