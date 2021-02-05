@@ -2,3 +2,41 @@
 * {
     color: #333;
 }
+
+.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    text-align: left;
+}
+
+td,
+th {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 3px;
+    font-weight: normal;
+}
+
+.titleClickable {
+    cursor: pointer;
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+.titleClickable:hover {
+    font-weight: bold;
+}
+
+.thead {
+    text-align: center;
+    background-color: lightgray;
+    font-weight: bold;
+}
+
+
+/*
+tr:nth-child(even) {
+    background-color: gray;
+}
+*/
