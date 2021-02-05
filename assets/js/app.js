@@ -5,13 +5,17 @@ window.onload = function() {
 }
 
 function validateLogin() {
+    if (document.getElementById("email").checkValidity() == false) {
+        window.alert("Email invalido");
+        return;
+    }
 
     //get all the users
     var array = JSON.parse((sessionStorage.getItem("allUsers")));
     if (array == null) {
         array = new Array();
     }
-    console.log(array);
+    //console.log(array);
 
     //create the user object
     obj = new Object();
@@ -33,7 +37,7 @@ function validateLogin() {
 
         sessionStorage.setItem("activeUser", emailPos);
     } else {
-        window.alert("senha incorreta");
+        window.alert("Senha incorreta");
     }
 }
 
