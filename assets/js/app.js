@@ -25,12 +25,13 @@ function validateLogin() {
     };
 
     var emailPos = returnEmailPosition(obj, array);
-
+    //check if exists an account with this email
     if (emailPos == -1) {
         window.alert("Conta não existente");
         return;
     }
 
+    //check if the password is correct
     if (obj.password == array[emailPos].password) {
         document.getElementById("startPage").hidden = true;
         document.getElementById("todolist").hidden = false;
@@ -42,13 +43,12 @@ function validateLogin() {
 }
 
 function createLogin() {
-
     //get all the users
     var array = JSON.parse((sessionStorage.getItem("allUsers")));
     if (array == null) {
         array = new Array();
     }
-    console.log(array);
+    //console.log(array);
 
     //create the new user
     obj = new Object();
@@ -66,6 +66,7 @@ function createLogin() {
         sessionStorage.setItem("allUsers", JSON.stringify(array));
 
         document.getElementById("startPage").hidden = true;
+        document.getElementById("todolist").hidden = false;
     } else {
         window.alert("Email já existe");
     }
@@ -77,6 +78,6 @@ function returnEmailPosition(obj, array) {
             return i;
         }
     }
-    //dont exist
+    //this email doesn't exist
     return -1;
 }
