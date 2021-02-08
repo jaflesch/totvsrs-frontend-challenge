@@ -1,48 +1,10 @@
 window.onload = function() {
+    //change active page
     document.getElementById("startPage").hidden = false;
-    //document.getElementById("todolist").hidden = true;
+    document.getElementById("todolist").hidden = true;
 }
 
 //LOGIN PART OF THE CODE
-function validateLogin() {
-    if (document.getElementById("email").checkValidity() == false) {
-        window.alert("Email invalido");
-        return;
-    }
-
-    //get all the users
-    var array = JSON.parse((sessionStorage.getItem("allUsers")));
-    if (array == null) {
-        array = new Array();
-    }
-    //console.log(array);
-
-    //create the user object
-    obj = new Object();
-    obj = {
-        email: document.getElementById("email").value,
-        password: document.getElementById("password").value
-    };
-
-    var emailPos = returnEmailPosition(obj, array);
-    //check if exists an account with this email
-    if (emailPos == -1) {
-        window.alert("Conta não existente");
-        return;
-    }
-
-    //check if the password is correct
-    if (obj.password == array[emailPos].password) {
-        document.getElementById("startPage").hidden = true;
-        document.getElementById("todolist").hidden = false;
-
-        sessionStorage.setItem("activeUser", array[emailPos].id);
-        loadTasks(array[emailPos].id);
-    } else {
-        window.alert("Senha incorreta");
-    }
-}
-
 function createLogin() {
     if (document.getElementById("email").checkValidity() == false) {
         window.alert("Email invalido");
@@ -77,6 +39,7 @@ function createLogin() {
         //save user's array
         sessionStorage.setItem("allUsers", JSON.stringify(array));
 
+        //change active page
         document.getElementById("startPage").hidden = true;
         document.getElementById("todolist").hidden = false;
 
@@ -84,6 +47,45 @@ function createLogin() {
         loadTasks(obj.id);
     } else {
         window.alert("Email já existe");
+    }
+}
+
+function validateLogin() {
+    if (document.getElementById("email").checkValidity() == false) {
+        window.alert("Email invalido");
+        return;
+    }
+
+    //get all the users
+    var array = JSON.parse((sessionStorage.getItem("allUsers")));
+    if (array == null) {
+        array = new Array();
+    }
+
+    //create the user object
+    obj = new Object();
+    obj = {
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+    };
+
+    var emailPos = returnEmailPosition(obj, array);
+    //check if exists an account with this email
+    if (emailPos == -1) {
+        window.alert("Conta não existente");
+        return;
+    }
+
+    //check if the password is correct
+    if (obj.password == array[emailPos].password) {
+        //change active page
+        document.getElementById("startPage").hidden = true;
+        document.getElementById("todolist").hidden = false;
+
+        sessionStorage.setItem("activeUser", array[emailPos].id);
+        loadTasks(array[emailPos].id);
+    } else {
+        window.alert("Senha incorreta");
     }
 }
 
