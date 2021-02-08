@@ -2,12 +2,42 @@ window.onload = function() {
     //change active page
     document.getElementById("startPage").hidden = false;
     document.getElementById("todolist").hidden = true;
+
+    document.getElementById("usernameLb").hidden = true;
+    document.getElementById("username").hidden = true;
+    document.getElementById("confirmLoginBtn").hidden = true;
+    document.getElementById("cancelLoginCreationBtn").hidden = true;
 }
 
 //LOGIN PART OF THE CODE
-function createLogin() {
+function startCreateLogin() {
+    document.getElementById("validateLoginBtn").hidden = true;
+    document.getElementById("startCreateLoginBtn").hidden = true;
+
+    document.getElementById("usernameLb").hidden = false;
+    document.getElementById("username").hidden = false;
+    document.getElementById("confirmLoginBtn").hidden = false;
+    document.getElementById("cancelLoginCreationBtn").hidden = false;
+}
+
+function cancelLoginCreation() {
+    document.getElementById("validateLoginBtn").hidden = false;
+    document.getElementById("startCreateLoginBtn").hidden = false;
+
+    document.getElementById("usernameLb").hidden = true;
+    document.getElementById("username").hidden = true;
+    document.getElementById("confirmLoginBtn").hidden = true;
+    document.getElementById("cancelLoginCreationBtn").hidden = true;
+
+}
+
+function confirmLogin() {
     if (document.getElementById("email").checkValidity() == false) {
         window.alert("Email invalido");
+        return;
+    }
+    if (document.getElementById("username").value == "") {
+        window.alert("Digite o seu nome");
         return;
     }
 
@@ -26,7 +56,7 @@ function createLogin() {
     obj = new Object();
     obj = {
         id: parseInt(lastId) + 1,
-        nome: "sem nome",
+        nome: document.getElementById("username").value,
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
     };
