@@ -238,3 +238,24 @@ function loadTasks(activeUser) {
 function updateItem(itemId) {
     //todo
 }
+
+function logout() {
+    //change active page
+    document.getElementById("startPage").hidden = false;
+    document.getElementById("todolist").hidden = true;
+
+    document.getElementById("usernameLb").hidden = true;
+    document.getElementById("username").hidden = true;
+    document.getElementById("confirmLoginBtn").hidden = true;
+    document.getElementById("cancelLoginCreationBtn").hidden = true;
+
+    //remove active user id
+    sessionStorage.setItem("activeUser", -1);
+
+    //reset the table
+    var tableID = "table";
+    var tbody = document.querySelector("#" + tableID + " tbody");
+    while (tbody.childElementCount > 0) {
+        tbody.removeChild(tbody.childNodes[0]);
+    }
+}
