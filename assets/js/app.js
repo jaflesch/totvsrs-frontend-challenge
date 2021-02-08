@@ -37,6 +37,7 @@ function validateLogin() {
         document.getElementById("todolist").hidden = false;
 
         sessionStorage.setItem("activeUser", array[emailPos].id);
+        loadTasks(array[emailPos].id);
     } else {
         window.alert("Senha incorreta");
     }
@@ -80,6 +81,7 @@ function createLogin() {
         document.getElementById("todolist").hidden = false;
 
         sessionStorage.setItem("activeUser", obj.id);
+        loadTasks(obj.id);
     } else {
         window.alert("Email já existe");
     }
@@ -168,6 +170,37 @@ function getDataFormatted() {
     var yyyy = today.getFullYear();
 
     return hh + ":" + min + " " + dd + '/' + mm + '/' + yyyy;
+}
+
+function loadTasks(activeUser) {
+    //get all tasks from all the users
+    var array = JSON.parse((sessionStorage.getItem("todolist")));
+    if (array == null) {
+        return;
+    }
+
+    //get the table's body
+    var tableID = "table";
+    var tbody = document.querySelector("#" + tableID + " tbody");
+
+    //find each task that is from current user
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].userId == activeUser) {
+            //create the row for this task
+            var newRow = createNewRow(tbody);
+
+            //get all the new row's td
+            var tds = newRow.getElementsByTagName("td");
+
+            //change the text 
+            tds[0].innerHTML = array[i].id;
+            tds[1].innerHTML = array[i].titulo;
+            tds[1].setAttribute("class", "titleClickable");
+            tds[1].setAttribute("onclick", "updateItem('" + tds[0].innerHTML + "')");
+            tds[2].innerHTML = array[i].data;
+            tds[3].innerHTML = array[i].status;
+        }
+    }
 }
 
 function updateItem(itemId) {
