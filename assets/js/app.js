@@ -36,23 +36,34 @@ function validateLogin() {
         document.getElementById("startPage").hidden = true;
         document.getElementById("todolist").hidden = false;
 
-        sessionStorage.setItem("activeUser", emailPos);
+        sessionStorage.setItem("activeUser", array[emailPos].id);
     } else {
         window.alert("Senha incorreta");
     }
 }
 
 function createLogin() {
+    if (document.getElementById("email").checkValidity() == false) {
+        window.alert("Email invalido");
+        return;
+    }
+
+    var lastId;
     //get all the users
-    var array = JSON.parse((sessionStorage.getItem("allUsers")));
+    var array = JSON.parse(sessionStorage.getItem("allUsers"));
+
     if (array == null) {
         array = new Array();
+        lastId = -1; //so the first id is 0(lastId+1)
+    } else {
+        lastId = array[array.length - 1].id;
     }
-    //console.log(array);
 
     //create the new user
     obj = new Object();
     obj = {
+        id: parseInt(lastId) + 1,
+        nome: "sem nome",
         email: document.getElementById("email").value,
         password: document.getElementById("password").value
     };
@@ -67,6 +78,8 @@ function createLogin() {
 
         document.getElementById("startPage").hidden = true;
         document.getElementById("todolist").hidden = false;
+
+        sessionStorage.setItem("activeUser", obj.id);
     } else {
         window.alert("Email já existe");
     }
@@ -119,7 +132,7 @@ function createNewRow(tbody) {
     // Insert a row at the end of the table
     let newRow = tbody.insertRow(-1);
 
-    // Insert a cell in the row at indexes 0,1,2,3
+    // Insert a cell in the row at indexes 0,1,2,3 (insert a new line)
     newRow.insertCell(0);
     newRow.insertCell(1);
     newRow.insertCell(2);
