@@ -3,6 +3,21 @@
     color: #333;
 }
 
+#all {
+    background-image: url('../images/bgTotvs.png');
+    height: 100%;
+    width: 100%;
+}
+
+#logo {
+    width: max-content;
+    height: max-content;
+}
+
+.login {
+    color: wheat;
+}
+
 #startPage {
     border-color: blue;
     border-style: solid;
