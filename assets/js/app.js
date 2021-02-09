@@ -1,3 +1,4 @@
+var createAccElements;
 var tableID;
 var modal;
 var openedIdModal;
@@ -6,10 +7,10 @@ window.onload = function() {
     document.getElementById("startPage").hidden = false;
     document.getElementById("todolist").hidden = true;
 
-    document.getElementById("usernameLb").hidden = true;
-    document.getElementById("username").hidden = true;
-    document.getElementById("confirmLoginBtn").hidden = true;
-    document.getElementById("cancelLoginCreationBtn").hidden = true;
+    createAccElements = document.getElementsByClassName("createAccount");
+    for (let i = 0; i < createAccElements.length; i++) {
+        createAccElements[i].hidden = true;
+    }
 
     //set variable 
     tableID = "table";
@@ -21,21 +22,18 @@ function startCreateLogin() {
     document.getElementById("validateLoginBtn").hidden = true;
     document.getElementById("startCreateLoginBtn").hidden = true;
 
-    document.getElementById("usernameLb").hidden = false;
-    document.getElementById("username").hidden = false;
-    document.getElementById("confirmLoginBtn").hidden = false;
-    document.getElementById("cancelLoginCreationBtn").hidden = false;
+    for (let i = 0; i < createAccElements.length; i++) {
+        createAccElements[i].hidden = false;
+    }
 }
 
 function cancelLoginCreation() {
     document.getElementById("validateLoginBtn").hidden = false;
     document.getElementById("startCreateLoginBtn").hidden = false;
 
-    document.getElementById("usernameLb").hidden = true;
-    document.getElementById("username").hidden = true;
-    document.getElementById("confirmLoginBtn").hidden = true;
-    document.getElementById("cancelLoginCreationBtn").hidden = true;
-
+    for (let i = 0; i < createAccElements.length; i++) {
+        createAccElements[i].hidden = true;
+    }
 }
 
 function confirmLogin() {
@@ -77,6 +75,7 @@ function confirmLogin() {
         sessionStorage.setItem("allUsers", JSON.stringify(array));
 
         //change active page
+        cancelLoginCreation();
         document.getElementById("startPage").hidden = true;
         document.getElementById("todolist").hidden = false;
 

@@ -10,7 +10,6 @@
 
 <body>
     <div id="startPage">
-        <h1>start</h1>
         <form>
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email" required="required"><br><br>
@@ -19,10 +18,10 @@
             <button type="button" id="validateLoginBtn" onclick="validateLogin()">Entrar</button>
             <button type="button" id="startCreateLoginBtn" onclick="startCreateLogin()">Criar Conta</button>
 
-            <label for="username" id="usernameLb">Nome:</label><br>
-            <input type="text" id="username" name="username" required="required" value=""><br><br>
-            <button type="button" id="confirmLoginBtn" onclick="confirmLogin()">Confirmar</button>
-            <button type="button" id="cancelLoginCreationBtn" onclick="cancelLoginCreation()">Cancelar</button>
+            <label for="username" id="usernameLb" class="createAccount">Nome:</label><br class="createAccount">
+            <input type="text" id="username" name="username" required="required" value="" class="createAccount"><br class="createAccount"><br class="createAccount">
+            <button type="button" id="confirmLoginBtn" onclick="confirmLogin()" class="createAccount">Confirmar</button>
+            <button type="button" id="cancelLoginCreationBtn" onclick="cancelLoginCreation()" class="createAccount">Cancelar</button>
             <!--<input type="submit" value="Submit"> -->
         </form>
     </div>
