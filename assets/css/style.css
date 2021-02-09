@@ -31,7 +31,23 @@ body {
 
 #startPage {
     text-align: center;
-    padding-top: 10;
+    border: rgb(150, 0, 0);
+    border-style: solid;
+    width: 40%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#loginHeader {
+    background-color: rgb(150, 0, 0);
+    padding-top: 0;
+    border: rgb(150, 0, 0);
+    border-style: solid;
+}
+
+#h2 {
+    color: wheat;
 }
 
 
