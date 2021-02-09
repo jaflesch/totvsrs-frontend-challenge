@@ -1,13 +1,19 @@
-var tableID = "table";
+var tableID;
+var modal;
+var openedIdModal;
 window.onload = function() {
     //change active page
     document.getElementById("startPage").hidden = false;
-    document.getElementById("todolist").hidden = true;
+    //document.getElementById("todolist").hidden = true;
 
     document.getElementById("usernameLb").hidden = true;
     document.getElementById("username").hidden = true;
     document.getElementById("confirmLoginBtn").hidden = true;
     document.getElementById("cancelLoginCreationBtn").hidden = true;
+
+    //set variable 
+    tableID = "table";
+    modal = document.getElementById("myModal");
 }
 
 //LOGIN PART OF THE CODE
@@ -156,7 +162,7 @@ function addItem() {
     tds[0].innerHTML = parseInt(lastId) + 1;
     tds[1].innerHTML = "new";
     tds[1].setAttribute("class", "titleClickable");
-    tds[1].setAttribute("onclick", "updateItem('" + tds[0].innerHTML + "')");
+    tds[1].setAttribute("onclick", "openModal('" + tds[0].innerHTML + "')");
     tds[2].innerHTML = getDataFormatted();
     tds[3].innerHTML = 0;
 
@@ -213,7 +219,6 @@ function loadTasks(activeUser) {
     }
 
     //get the table's body
-    var tableID = "table";
     var tbody = document.querySelector("#" + tableID + " tbody");
 
     //find each task that is from current user
@@ -229,11 +234,47 @@ function loadTasks(activeUser) {
             tds[0].innerHTML = array[i].id;
             tds[1].innerHTML = array[i].titulo;
             tds[1].setAttribute("class", "titleClickable");
-            tds[1].setAttribute("onclick", "updateItem('" + tds[0].innerHTML + "')");
+            tds[1].setAttribute("onclick", "openModal('" + tds[0].innerHTML + "')");
             tds[2].innerHTML = array[i].data;
             tds[3].innerHTML = array[i].status;
         }
     }
+}
+
+function openModal(itemId) {
+    openedIdModal = itemId;
+    modal.style.display = "block";
+
+    //get all tasks from all the users
+    var array = JSON.parse((sessionStorage.getItem("todolist")));
+
+    //find the task that the user has opened
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].id == openedIdModal) {
+            document.getElementById("tituloModal").value = array[i].titulo;
+            document.getElementById("statusModal").value = array[i].status;
+            document.getElementById("descricaoModal").value = array[i].descricao;
+        }
+    }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
+function saveModal() {
+    //openedIdModal
+}
+
+function deleteModal() {
+
 }
 
 function updateItem(itemId) {
@@ -254,7 +295,6 @@ function logout() {
     sessionStorage.setItem("activeUser", -1);
 
     //reset the table
-    var tableID = "table";
     var tbody = document.querySelector("#" + tableID + " tbody");
     while (tbody.childElementCount > 0) {
         tbody.removeChild(tbody.childNodes[0]);

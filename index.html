@@ -52,6 +52,23 @@
         <br>
         <button type="button" id="logoutBtn" onclick="logout()">Sair</button>
     </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <label for="tituloModal" id="tituloLb">TITULO:</label><br>
+            <input type="text" id="tituloModal" name="tituloModal"><br><br>
+            <label for="statusModal" id="statusLb">STATUS:</label><br>
+            <input type="number" id="statusModal" name="statusModal"><br><br>
+            <label for="descricaoModal" id="descricaoLb">DESCRIÇÃO:</label><br>
+            <input type="text" id="descricaoModal" name="descricaoModal"><br><br>
+
+            <button type="button" id="cancelModalBtn" onclick="closeModal()">Cancelar</button>
+            <button type="button" id="saveModalBtn" onclick="saveModal()">Salvar</button>
+            <button type="button" id="deleteModalBtn" onclick="deleteModal()">Excluir</button>
+        </div>
+
+    </div>
 </body>
 
 </html>
