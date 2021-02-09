@@ -278,12 +278,20 @@ function updateTable() {
     //get the table's body
     var tbody = document.querySelector("#" + tableID + " tbody");
 
-    //get the row to update
-    var row = tbody.children[openedIdModal];
+    //loop the id's from each row of the table
+    for (let i = 0; i < tbody.children.length; i++) {
+        //check if the id in the cell is equal to the saved one from "openedIdModal"
+        if (tbody.children[i].children[0].innerHTML == openedIdModal) {
+            //get the row to update
+            var row = tbody.children[i];
 
-    //update the row's text
-    row.children[1].innerHTML = document.getElementById("tituloModal").value;
-    row.children[3].innerHTML = document.getElementById("statusModal").value;
+            //update the row's text
+            row.children[1].innerHTML = document.getElementById("tituloModal").value;
+            row.children[3].innerHTML = document.getElementById("statusModal").value;
+
+            return;
+        }
+    }
 }
 
 function updateSessionStorage() {
@@ -308,10 +316,6 @@ function updateSessionStorage() {
 
 function deleteModal() {
 
-}
-
-function updateItem(itemId) {
-    //todo
 }
 
 function logout() {
