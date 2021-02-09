@@ -3,6 +3,13 @@
     color: #333;
 }
 
+#startPage {
+    border-color: blue;
+    border-style: solid;
+    text-align: center;
+    padding-top: 10;
+}
+
 
 /*the table*/
 
