@@ -4,7 +4,7 @@ var openedIdModal;
 window.onload = function() {
     //change active page
     document.getElementById("startPage").hidden = false;
-    //document.getElementById("todolist").hidden = true;
+    document.getElementById("todolist").hidden = true;
 
     document.getElementById("usernameLb").hidden = true;
     document.getElementById("username").hidden = true;
@@ -315,7 +315,49 @@ function updateSessionStorage() {
 }
 
 function deleteModal() {
+    // uma mensagem de confirmação deve aparecer
+    var confirmation = confirm("Tem certeza que deseja excluir essa tarefa?");
 
+    if (confirmation) {
+        deleteFromTable();
+
+        deleteFromSessionStorage();
+
+        closeModal();
+    }
+}
+
+function deleteFromTable() {
+    //get the table's body
+    var tbody = document.querySelector("#" + tableID + " tbody");
+
+    //loop the id's from each row of the table
+    for (let i = 0; i < tbody.children.length; i++) {
+        //check if the id in the cell is equal to the saved one from "openedIdModal"
+        if (tbody.children[i].children[0].innerHTML == openedIdModal) {
+            tbody.remo
+            tbody.children[i].remove();
+            return;
+        }
+    }
+}
+
+function deleteFromSessionStorage() {
+    //get all tasks from all the users
+    var array = JSON.parse((sessionStorage.getItem("todolist")));
+
+    //find the task that the user has opened
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].id == openedIdModal) {
+            //remove from array starting from position "i", remove only 1 item
+            array.splice(i, 1);
+
+            //save in the array
+            sessionStorage.setItem("todolist", JSON.stringify(array));
+
+            return;
+        }
+    }
 }
 
 function logout() {
