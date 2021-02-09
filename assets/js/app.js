@@ -270,7 +270,40 @@ function closeModal() {
 }
 
 function saveModal() {
-    //openedIdModal
+    updateTable();
+    updateSessionStorage();
+}
+
+function updateTable() {
+    //get the table's body
+    var tbody = document.querySelector("#" + tableID + " tbody");
+
+    //get the row to update
+    var row = tbody.children[openedIdModal];
+
+    //update the row's text
+    row.children[1].innerHTML = document.getElementById("tituloModal").value;
+    row.children[3].innerHTML = document.getElementById("statusModal").value;
+}
+
+function updateSessionStorage() {
+    //get all tasks from all the users
+    var array = JSON.parse((sessionStorage.getItem("todolist")));
+
+    //find the task that the user has opened
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].id == openedIdModal) {
+            //update the object in the array
+            array[i].titulo = document.getElementById("tituloModal").value;
+            array[i].status = document.getElementById("statusModal").value;
+            array[i].descricao = document.getElementById("descricaoModal").value;
+
+            //save in the array
+            sessionStorage.setItem("todolist", JSON.stringify(array));
+
+            return;
+        }
+    }
 }
 
 function deleteModal() {
