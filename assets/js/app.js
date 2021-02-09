@@ -1,3 +1,4 @@
+var tableID = "table";
 window.onload = function() {
     //change active page
     document.getElementById("startPage").hidden = false;
@@ -131,7 +132,7 @@ function returnEmailPosition(obj, array) {
 
 
 //TODO LIST PART OF THE CODE
-function addItem(tableID) {
+function addItem() {
     //get the table's body
     var tbody = document.querySelector("#" + tableID + " tbody");
 
