@@ -3,6 +3,9 @@
     color: #333;
 }
 
+
+/*the table*/
+
 .table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -11,12 +14,18 @@
     text-align: left;
 }
 
+
+/*the table's rows(lines)*/
+
 td,
 th {
     border: 1px solid rgb(0, 0, 0);
     padding: 3px;
     font-weight: normal;
 }
+
+
+/*the row's title cell*/
 
 .titleClickable {
     cursor: pointer;
@@ -28,11 +37,17 @@ th {
     font-weight: bold;
 }
 
+
+/*the table's head*/
+
 .thead {
     text-align: center;
     background-color: lightgray;
     font-weight: bold;
 }
+
+
+/*class to align the text to center*/
 
 .textCenter {
     text-align: center;
