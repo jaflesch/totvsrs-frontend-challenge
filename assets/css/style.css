@@ -40,9 +40,11 @@ body {
 .table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
     background-color: white;
-    text-align: left;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 80%;
 }
 
 
@@ -84,12 +86,11 @@ th {
     text-align: center;
 }
 
-
-/*
-tr:nth-child(even) {
-    background-color: gray;
+.logoutBtn {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
-*/
 
 
 /* The Modal's background */
