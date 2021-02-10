@@ -1,3 +1,5 @@
+/*GENERAL*/
+
 @charset "utf=8";
 * {
     color: #333;
@@ -21,7 +23,7 @@ body {
 }
 
 
-/*login*/
+/*LOGIN*/
 
 #startPage {
     text-align: center;
@@ -29,6 +31,7 @@ body {
     border-style: solid;
     background-color: #fff;
     width: 30%;
+    /*to make sure it stays in the middle*/
     position: relative;
     left: 50%;
     transform: translate(-50%);
@@ -40,7 +43,7 @@ body {
     border-style: solid;
 }
 
-#h2 {
+.h2 {
     color: #FFF;
 }
 
@@ -49,17 +52,34 @@ body {
 }
 
 
-/*the table*/
+/*THE TO DO LIST*/
 
-.table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
+#todolist {
+    text-align: center;
     background-color: #FFF;
+    width: 80%;
     /*to make sure it stays in the middle*/
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    width: 80%;
+}
+
+#todolistHeader {
+    background-color: #DF4A4A;
+    border: #DF4A4A;
+    border-style: solid;
+}
+
+.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    background-color: #F0F0F0;
+    width: 95%;
+    margin-top: 2%;
+    /*to make sure it stays in the middle*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 
@@ -104,10 +124,6 @@ th {
 .logoutBtn {
     margin-top: 2%;
     margin-bottom: 2%;
-    /*to make sure it stays in the middle*/
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
     /*size*/
     width: 10%;
     height: 5%;
@@ -117,7 +133,7 @@ th {
 
 /* The Modal's background */
 
-.modal {
+#myModal {
     /* start hidden */
     display: none;
     /* is on the top most layer*/
@@ -125,7 +141,7 @@ th {
     /* bg color=Black with opacity */
     background-color: rgba(0, 0, 0, 0.4);
     /* Position in the top portion of the screen*/
-    top: 5;
+    top: 0%;
     /* Position=Stay in place */
     position: fixed;
     /* Full width and height*/
@@ -133,16 +149,28 @@ th {
     height: 100%;
     /* Enable scroll if needed */
     overflow: auto;
+    text-align: center;
 }
 
 
 /* Modal's Content */
 
-.modal-content {
+#modalContent {
+    background-color: #DF4A4A;
+    border-radius: 25px;
+    width: 30%;
+    /*to make sure it stays in the middle*/
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 5px;
+}
+
+#modalInformations {
     background-color: #FFF;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 40%;
-    text-align: center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding-top: 15px;
+    padding-bottom: 25px;
 }

@@ -9,58 +9,63 @@
 </head>
 
 <body>
-    <div id="all">
-        <div id="divLogo">
-            <img id="logo" src="assets\images\logo-totvs-rs.png" alt="Girl in a jacket">
-        </div>
+    <div id="divLogo">
+        <img id="logo" src="assets\images\logo-totvs-rs.png" alt="Girl in a jacket">
+    </div>
 
-        <div id="startPage">
-            <div id="loginHeader">
-                <h2 id="h2">Login</h2>
+    <div id="startPage">
+        <div id="loginHeader">
+            <h2 class="h2">Login</h2>
+        </div>
+        <form id="form">
+            <label for="email" class="login">Email:</label><br>
+            <input type="email" id="email" name="email" required="required"><br><br>
+            <label for="password" class="login">Senha:</label><br>
+            <input type="password" id="password" name="password" required="required"><br><br>
+            <button type="button" id="validateLoginBtn" onclick="validateLogin()">Entrar</button>
+            <button type="button" id="startCreateLoginBtn" onclick="startCreateLogin()">Criar Conta</button>
+
+            <label for="username" id="usernameLb" class="createAccount login">Nome:</label><br class="createAccount">
+            <input type="text" id="username" name="username" required="required" value="" class="createAccount"><br class="createAccount"><br class="createAccount">
+            <button type="button" id="confirmLoginBtn" onclick="confirmLogin()" class="createAccount">Confirmar</button>
+            <button type="button" id="cancelLoginCreationBtn" onclick="cancelLoginCreation()" class="createAccount">Cancelar</button>
+            <!--<input type="submit" value="Submit"> -->
+        </form>
+    </div>
+
+    <div id="todolist">
+        <div id="todolistHeader">
+            <h2 class="h2">TO DO LIST</h2>
+        </div>
+        <table id="table" class="table">
+            <thead class="thead">
+                <tr>
+                    <th class="thead">ID</th>
+                    <th class="thead">TITULO</th>
+                    <th class="thead">DATA</th>
+                    <th class="thead">STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="titleClickable textCenter" onclick="addItem()">Adicionar nova tarefa
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <br>
+        <button type="button" id="logoutBtn" class="logoutBtn" onclick="logout()">Sair</button>
+    </div>
+
+    <div id="myModal">
+        <div id="modalContent">
+            <div id="modalHeader">
+                <h2 class="h2">Alterar</h2>
             </div>
-            <form id="form">
-                <label for="email" class="login">Email:</label><br>
-                <input type="email" id="email" name="email" required="required"><br><br>
-                <label for="password" class="login">Senha:</label><br>
-                <input type="password" id="password" name="password" required="required"><br><br>
-                <button type="button" id="validateLoginBtn" onclick="validateLogin()">Entrar</button>
-                <button type="button" id="startCreateLoginBtn" onclick="startCreateLogin()">Criar Conta</button>
-
-                <label for="username" id="usernameLb" class="createAccount login">Nome:</label><br class="createAccount">
-                <input type="text" id="username" name="username" required="required" value="" class="createAccount"><br class="createAccount"><br class="createAccount">
-                <button type="button" id="confirmLoginBtn" onclick="confirmLogin()" class="createAccount">Confirmar</button>
-                <button type="button" id="cancelLoginCreationBtn" onclick="cancelLoginCreation()" class="createAccount">Cancelar</button>
-                <!--<input type="submit" value="Submit"> -->
-            </form>
-        </div>
-
-        <div id="todolist">
-            <table id="table" class="table">
-                <thead class="thead">
-                    <tr>
-                        <th class="thead">ID</th>
-                        <th class="thead">TITULO</th>
-                        <th class="thead">DATA</th>
-                        <th class="thead">STATUS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="4" class="titleClickable textCenter" onclick="addItem()">Adicionar nova tarefa
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <br>
-            <button type="button" id="logoutBtn" class="logoutBtn" onclick="logout()">Sair</button>
-        </div>
-
-        <div id="myModal" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
+            <div id="modalInformations">
                 <label for="tituloModal" id="tituloLb">TITULO:</label><br>
                 <input type="text" id="tituloModal" name="tituloModal"><br><br>
                 <label for="statusModal" id="statusLb">STATUS:</label><br>
@@ -72,7 +77,6 @@
                 <button type="button" id="saveModalBtn" onclick="saveModal()">Salvar</button>
                 <button type="button" id="deleteModalBtn" onclick="deleteModal()">Excluir</button>
             </div>
-
         </div>
     </div>
 </body>
