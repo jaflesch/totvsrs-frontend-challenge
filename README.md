@@ -1,85 +1,15 @@
-# Teste para candidatos à vaga de desenvolvedor Front-end
+*Passo de como rodar a aplicação*
+Para abrir a aplicação simplesmente clique no arquivo index.html, ele te levara para a pagina inicial da aplicação.
+Ao acessar a página inicial você deve criar uma conta, caso não tenha uma, ou fazer o login.
+Após feito o login você poderá ver a lista de tarefas existentes no seu usuario.
+Para criar uma nova tarefa clique em "Adicionar nova tarefa".
+Para editar ou deletar clique no titulo da tarefa selecionada, isso criará a janela de Alterações.
+Na janela de alterações voce pode sobrescrever o titulo, status e descrição da tarefa escolhida, então deve clicar no botão "Salvar" para que a alteração seja salva.
+Para fechar a janela de alterações, clique no botão "Cancelar".
+Para excluir uma tarefa, clique no botão "Excluir" na janela de alterações.
+Ao terminar o uso do sistema, simplesmente clique no botão "Sair" na pagina de tarefas.
 
-[![TOTVS RS](https://i.imgur.com/PXpCoIl.png)](https://br.linkedin.com/company/totvsrs)
-> TOTVS - A maior empresa de tecnologia do Brasil
-
-## Instruções:
-
-1. Faça um *fork* deste repositório;
-2. Leia todo este arquivo `README.md` para entender o que será avaliado e a metodologia do teste
-3. Leia o arquivo `REQUISITOS.md` para entender os requisitos funcionais deste teste
-4. Elabore um layout para seu projeto;
-5. Se você utilizar algum pré-processador como SASS ou LESS, use apenas o `css` minificado no site, mas deixe os arquivos fontes no seu repositório;
-6. Para a interação dos componentes da página utilize jQuery ou Javascript nativo;
-7. Após terminar seu teste submeta um *pull request* e aguarde o feedback de nosso time de desenvolvedores.
-
-* **Importante:** O formulário de cadastro não deve fazer requisições para nenhuma url.
-* **Importante:** A url da página não pode ser recarregada em momento algum.
-
-### Você pode:
-
-* Utilizar qualquer linguagem de preprocessador css ou css puro;
-* Utilizar um task runner de sua preferência;
-* Utilizar bibliotecas css como compass, bourbon, animatecss ou outras. Apenas, ao organizar o projeto, coloque todas as bibliotecas que não forem de sua autoria dentro de uma subpasta `vendor/`
-
-### Esperamos que você:
-
-* Crie um passo a passo de como rodar sua aplicação;
-* Crie uma breve descrição da solução utilizada;
-* Adote um design resposivo de acordo com os breakpoints definidos pelo design;
-* Respeite a estrutura de pastas sugerida no repositório
-* Faça commits consistentes de acordo com cada funcionalidade implementada;
-* Faça commit também dos arquivos não minificados;
-* Siga o fluxograma de execução proposta pelo diagrama do projeto
-* Desenvolva um código legível, modularizado e que obedeça às boas práticas de programação
-* Trabalhe com manipulação de elementos DOM da página para exibição de várias informações em uma SPA (*Single Page Application*)
-
-* **Importante:** Usamos o mesmo teste para todos os níveis de front: **junior**, **pleno** ou **senior**, mas procuramos adequar nossa exigência na avaliação com cada um desses níveis sem, por exemplo, exigir excelência de quem está começando :-)
-
-### Ganhe pontos extras por:
-
-* Desenvolver HTML semântico;
-* Utilizar boas práticas de SEO;
-* Componentizar seu css;
-* Design elegante, minimalista e com alta usabilidade
-* Validações básicas de campos ao realizar eventos de submissão
-* Sobrescrever o README do projeto de maneira estruturada e objetiva
-
-### O que não gostaríamos:
-* Descobrir que não foi você quem fez seu teste
-* Ver *commits* grandes, sem muita explicação nas mensagens em seu repositório
-* Encontrar um um commit com as dependências de NPM e do Bower
-
-### Breakpoints:
-
-| Nome do breakpoint | Largura mínima | Descrição                         |
-|--------------------|----------------|-----------------------------------|
-| phone              | 768px          | Breakpoint para smartphones       |
-| tablet             | 991px          | Breakpoint para tablets           |
-| desktop            | 1199px         | Breakpoint para desktops comuns   |
-
-### Estrutura de pastas:
-```
-|- assets/
-|---- css/
-|---- fonts/
-|---- images/
-|---- js/ 
-|---- scss/ (pasta para organizar assets de SASS ou LESS: não é obrigatório!)
-|- index.html
-```
-
-## O que avaliaremos de seu teste
-* Histórico de commits do git
-* As instruções de como rodar o projeto
-* Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
-* Alcance dos objetivos propostos
-* Adaptação mobile (layout responsivo)
-* Componentização e extensibilidade dos componentes Javascript
-
-
-## Submissão
-
-Para iniciar o teste, faça um *fork* deste repositório, crie uma **branch com o seu nome** e depois envie-nos o pull request.
-
-Boa sorte!
+*Breve descrição da solução utilizada*
+Como não possui muita experiencia com Front End acabei por fazer o sistema bem simples, apenas usando javascript puro.
+Deixei as divs das páginas prontas e escondi elas quando a janela carrega, e apenas mudo qual div deixo aparecendo conforme o usuario "troca de tela".
+Usei a sessão do navegador para salvar as informações, como solicitado, e carrego as informaçoes na tabela criando novas linhas e colocando as informações salvas.
