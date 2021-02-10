@@ -401,4 +401,9 @@ function logout() {
     while (tbody.childElementCount > 0) {
         tbody.removeChild(tbody.childNodes[0]);
     }
+
+    //reset the inputs
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("username").value = "";
 }
