@@ -1,1 +1,318 @@
-* { color: #333; }
+/*GENERAL*/
+
+@charset "utf=8";
+* {
+    color: #333;
+}
+
+body {
+    margin: 0px;
+    background-image: url('../images/bgTotvs.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#divLogo {
+    text-align: center;
+}
+
+
+/*LOGIN*/
+
+#startPage {
+    text-align: center;
+    border: #DF4A4A;
+    border-style: solid;
+    background-color: #fff;
+    margin-bottom: 20px;
+    /*to make sure it stays in the middle*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#loginHeader {
+    background-color: #DF4A4A;
+    border: #DF4A4A;
+    border-style: solid;
+}
+
+.h2 {
+    color: #FFF;
+}
+
+#form {
+    margin-top: 3%;
+}
+
+input {
+    max-width: 100%;
+    border-color: black;
+}
+
+
+/*THE TO DO LIST*/
+
+#todolist {
+    text-align: center;
+    background-color: #FFF;
+    width: 80%;
+    /*to make sure it stays in the middle*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#todolistHeader {
+    background-color: #DF4A4A;
+    border: #DF4A4A;
+    border-style: solid;
+}
+
+.table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    background-color: #F0F0F0;
+    width: 95%;
+    margin-top: 2%;
+    /*to make sure it stays in the middle*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+
+/*the table's rows(lines)*/
+
+td,
+th {
+    font-weight: normal;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+
+/*the row's title cell*/
+
+.titleClickable {
+    cursor: pointer;
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+.titleClickable:hover {
+    font-weight: bold;
+}
+
+
+/*the table's head*/
+
+.thead {
+    text-align: center;
+    background-color: lightgray;
+    font-weight: bold;
+}
+
+
+/*class to align the text to center*/
+
+.textCenter {
+    text-align: center;
+}
+
+
+/* The Modal's background */
+
+#myModal {
+    /* start hidden */
+    display: none;
+    /* is on the top most layer*/
+    z-index: 1;
+    /* bg color=Black with opacity */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Position in the top portion of the screen*/
+    top: 0%;
+    /* Position=Stay in place */
+    position: fixed;
+    /* Full width and height*/
+    width: 100%;
+    height: 100%;
+    /* Enable scroll if needed */
+    overflow: auto;
+    text-align: center;
+}
+
+
+/* Modal's Content */
+
+#modalContent {
+    background-color: #DF4A4A;
+    border-radius: 25px;
+    /*to make sure it stays in the middle*/
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 5px;
+}
+
+#modalInformations {
+    background-color: #FFF;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+
+/* BREAKPOINTS */
+
+@media only screen and (min-width: 768px) {
+    /* Breakpoint for smartphones: */
+    #logo {
+        max-width: 50%;
+    }
+    #divLogo {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    /*LOGIN*/
+    #startPage {
+        max-width: 60%;
+    }
+    .h2 {
+        font-size: 35px;
+        margin: 8px;
+    }
+    #form {
+        font-size: 28px;
+    }
+    input {
+        height: 28px;
+        font-size: 28px;
+    }
+    button {
+        width: 250px;
+        height: 35px;
+        font-size: 25px;
+    }
+    /*THE TO DO LIST*/
+    #todolist {
+        margin-bottom: 40px;
+    }
+    .table {
+        font-size: 28px;
+    }
+    .logoutBtn {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    /* Modal */
+    #modalContent {
+        width: 75%;
+    }
+    #modalInformations {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    /* Breakpoint for tablets: */
+    #logo {
+        max-width: 70%;
+    }
+    #divLogo {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    /*LOGIN*/
+    #startPage {
+        max-width: 70%;
+    }
+    .h2 {
+        font-size: 40px;
+        margin: 10px;
+    }
+    #form {
+        font-size: 35px;
+    }
+    input {
+        /*width: 500px;*/
+        height: 35px;
+        font-size: 35px;
+    }
+    button {
+        width: 250px;
+        height: 40px;
+        font-size: 25px;
+    }
+    /*THE TO DO LIST*/
+    #todolist {
+        margin-bottom: 20px;
+    }
+    .table {
+        font-size: 28px;
+    }
+    .logoutBtn {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    /* Modal */
+    #modalContent {
+        width: 78%;
+    }
+    #modalInformations {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 1199px) {
+    /* Breakpoint for desktops: */
+    #logo {
+        max-width: 40%;
+    }
+    #divLogo {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    /*LOGIN*/
+    #startPage {
+        max-width: 40%;
+    }
+    .h2 {
+        font-size: 30px;
+        margin: 10px;
+    }
+    #form {
+        font-size: 25px;
+    }
+    input {
+        max-height: 25px;
+        font-size: 25px;
+    }
+    button {
+        width: 200px;
+        height: 30px;
+        font-size: 20px;
+    }
+    /*THE TO DO LIST*/
+    #todolist {
+        margin-bottom: 30px;
+    }
+    .table {
+        font-size: 20px;
+    }
+    .logoutBtn {
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    /* Modal */
+    #modalContent {
+        max-width: 50%;
+    }
+    #modalInformations {
+        font-size: 25px;
+    }
+}
