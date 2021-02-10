@@ -41,6 +41,10 @@ function confirmLogin() {
         window.alert("Email invalido");
         return;
     }
+    if (document.getElementById("password").value == "") {
+        window.alert("Digite a sua senha");
+        return;
+    }
     if (document.getElementById("username").value == "") {
         window.alert("Digite o seu nome");
         return;
@@ -89,6 +93,10 @@ function confirmLogin() {
 function validateLogin() {
     if (document.getElementById("email").checkValidity() == false) {
         window.alert("Email invalido");
+        return;
+    }
+    if (document.getElementById("password").value == "") {
+        window.alert("Digite a sua senha");
         return;
     }
 
@@ -153,7 +161,6 @@ function addItem() {
         array = new Array();
         lastId = -1; //so the first id is 0(lastId+1)
     } else {
-        console.log(array);
         lastId = array[array.length - 1].id;
     }
 
@@ -269,6 +276,23 @@ function closeModal() {
 }
 
 function saveModal() {
+    //check if status is valid
+    var s = document.getElementById("statusModal").value;
+    if (s == "") {
+        window.alert("Por favor digite o status");
+        return;
+    }
+    s = parseInt(s);
+    if (s < 0 || s > 2) {
+        window.alert("Status invalido \n0: backlog; 1: em andamento; 2: finalizado");
+        return;
+    }
+    //check if the title is valid
+    if (document.getElementById("tituloModal").value == "") {
+        window.alert("Por favor digite o titulo");
+        return;
+    }
+
     updateTable();
     updateSessionStorage();
 }
