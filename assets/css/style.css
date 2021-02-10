@@ -14,12 +14,6 @@ body {
 
 #divLogo {
     text-align: center;
-    margin-top: 5%;
-    margin-bottom: 3%;
-}
-
-#logo {
-    max-width: 30%;
 }
 
 
@@ -30,7 +24,7 @@ body {
     border: #DF4A4A;
     border-style: solid;
     background-color: #fff;
-    width: 30%;
+    margin-bottom: 20px;
     /*to make sure it stays in the middle*/
     position: relative;
     left: 50%;
@@ -49,6 +43,11 @@ body {
 
 #form {
     margin-top: 3%;
+}
+
+input {
+    max-width: 100%;
+    border-color: black;
 }
 
 
@@ -87,9 +86,11 @@ body {
 
 td,
 th {
-    border: 1px solid rgb(0, 0, 0);
-    padding: 3px;
     font-weight: normal;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px solid rgb(0, 0, 0);
 }
 
 
@@ -121,15 +122,6 @@ th {
     text-align: center;
 }
 
-.logoutBtn {
-    margin-top: 2%;
-    margin-bottom: 2%;
-    /*size*/
-    width: 10%;
-    height: 5%;
-    font-size: 100%;
-}
-
 
 /* The Modal's background */
 
@@ -158,7 +150,6 @@ th {
 #modalContent {
     background-color: #DF4A4A;
     border-radius: 25px;
-    width: 30%;
     /*to make sure it stays in the middle*/
     position: relative;
     left: 50%;
@@ -173,4 +164,155 @@ th {
     border-bottom-right-radius: 25px;
     padding-top: 15px;
     padding-bottom: 25px;
+}
+
+
+/* BREAKPOINTS */
+
+@media only screen and (min-width: 768px) {
+    /* Breakpoint for smartphones: */
+    #logo {
+        max-width: 50%;
+    }
+    #divLogo {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    /*LOGIN*/
+    #startPage {
+        max-width: 60%;
+    }
+    .h2 {
+        font-size: 35px;
+        margin: 8px;
+    }
+    #form {
+        font-size: 28px;
+    }
+    input {
+        height: 28px;
+        font-size: 28px;
+    }
+    button {
+        width: 250px;
+        height: 35px;
+        font-size: 25px;
+    }
+    /*THE TO DO LIST*/
+    #todolist {
+        margin-bottom: 40px;
+    }
+    .table {
+        font-size: 28px;
+    }
+    .logoutBtn {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    /* Modal */
+    #modalContent {
+        width: 75%;
+    }
+    #modalInformations {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    /* Breakpoint for tablets: */
+    #logo {
+        max-width: 70%;
+    }
+    #divLogo {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    /*LOGIN*/
+    #startPage {
+        max-width: 70%;
+    }
+    .h2 {
+        font-size: 40px;
+        margin: 10px;
+    }
+    #form {
+        font-size: 35px;
+    }
+    input {
+        /*width: 500px;*/
+        height: 35px;
+        font-size: 35px;
+    }
+    button {
+        width: 250px;
+        height: 40px;
+        font-size: 25px;
+    }
+    /*THE TO DO LIST*/
+    #todolist {
+        margin-bottom: 20px;
+    }
+    .table {
+        font-size: 28px;
+    }
+    .logoutBtn {
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    /* Modal */
+    #modalContent {
+        width: 78%;
+    }
+    #modalInformations {
+        font-size: 28px;
+    }
+}
+
+@media only screen and (min-width: 1199px) {
+    /* Breakpoint for desktops: */
+    #logo {
+        max-width: 40%;
+    }
+    #divLogo {
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    /*LOGIN*/
+    #startPage {
+        max-width: 40%;
+    }
+    .h2 {
+        font-size: 30px;
+        margin: 10px;
+    }
+    #form {
+        font-size: 25px;
+    }
+    input {
+        max-height: 25px;
+        font-size: 25px;
+    }
+    button {
+        width: 200px;
+        height: 30px;
+        font-size: 20px;
+    }
+    /*THE TO DO LIST*/
+    #todolist {
+        margin-bottom: 30px;
+    }
+    .table {
+        font-size: 20px;
+    }
+    .logoutBtn {
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    /* Modal */
+    #modalContent {
+        max-width: 50%;
+    }
+    #modalInformations {
+        font-size: 25px;
+    }
 }
