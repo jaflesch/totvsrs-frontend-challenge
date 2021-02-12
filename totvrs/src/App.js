@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import Header from './Components/Header'
-import Login from './Components/Login'
-import SignIn from './Components/SignIn'
-import MainTable from './Components/MainTable'
-import Adm from './Components/Adm'
+import Header from './Components/Header/Header'
+import Login from './Components/Login/Login'
+import SignIn from './Components/SignIn/SignIn'
+import MainTable from './Components/MainTable/MainTable'
+import Adm from './Components/Adm/Adm'
 import GlobalState from './Global/GlobalState';
 import styled from 'styled-components'
 
