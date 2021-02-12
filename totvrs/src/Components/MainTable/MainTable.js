@@ -1,6 +1,6 @@
-import GlobalStateContext from '../Global/GlobalStateContext'
+import GlobalStateContext from '../../Global/GlobalStateContext'
 import {useContext, useState} from 'react'
-import Modal from './Modal'
+import Modal from '../Modal/Modal'
 import {MainContainer, ItemContainer, TitleActivity} from './Styled-MainTable'
 
 function MainTable() {
