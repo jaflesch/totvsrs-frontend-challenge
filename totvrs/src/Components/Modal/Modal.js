@@ -13,14 +13,12 @@ const cancelModal = () => {
 
 const deleteActivity = () => {
     const index =  activities.findIndex((activity) => activity.title === props.modalActivity.title)
-    console.log(index)
 
     activities.splice(index, 1)
     sessionStorage.setItem('activities', JSON.stringify(activities))
     cancelModal()
 }
 
-console.log(props.modalActivity)
     return (
         <MainContainer>
           <Title>{props.modalActivity.title && props.modalActivity.title}</Title>
