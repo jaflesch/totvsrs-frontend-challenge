@@ -1,15 +1,115 @@
+﻿<!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Meu projeto To-do list - TOTVS RS</title>
-    </head>
-    <body>
-        <div>
-            <h1>To do list</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. 
-                Dolorum molestiae delectus tempore? Quod.
-            </p>
+<head>
+<meta charset="UTF-8">
+<title>ToDo - Totvsrs</title>
+<meta name= "viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="column column-8">
+        <div id="logo"></div>
+        <div class="content-menu">
+          <nav>
+            <ul>
+              <li><a href="javascript: scrollToLogin()">fazer login</a></li>
+              <li><a class="btn fade" id="btn-modal">cadastrar-se</a></li>
+            </ul>
+          </nav>
         </div>
-    </body>
+      </div>
+    </div>
+  </div>
+</header>
+<section id="spotlight">
+  <div class="container">
+    <div class="row">
+      <div class="column column-4">
+        <h1>O ToDo ajuda você a organizar suas tarefas 
+          e a trabalhar com maior produtividade.</h1>
+        <p>Organize e priorize seus projetos de um jeito divertido, flexível e gratificante.</p>
+      </div>
+      <div class="column column-4"><img src="assets/images/ToDo_totvs_img_fig_top_01.png"></div>
+    </div>
+  </div>
+</section>
+<section id="login">
+  <div class="container">
+    <div class="row">
+      <div class="column column-8">
+        <h1>Vamos começar?</h1>
+      </div>
+    </div>
+    <div clas="row">
+      <div class="column column-8">
+        <div class="content-form">
+          <form action="">
+            <input type="email" required="required" id="email" name="email"  placeholder="E-MAIL">
+            <input type="password" required="required" id="pwd" name="pwd" placeholder="SENHA">
+            <button class="entrar" value="Login" onclick="login()">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column column-8">
+        <p>Ainda não tem cadastro, faça agora. É rápido, fácil e gratuito. <a href="#cadastro-modal">Cadastre-se</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="infos">
+  <div class="container">
+    <div class="row">
+      <div class="column column-4"><img src="assets/images/ToDo_totvs_img_fig_moddle_02.png"></div>
+      <div class="column column-4">
+        <h1>Informações em uma só consulta</h1>
+        <p>Veja todas as tarefas atribuidas ao seu usuário.
+          Crie e salve novas, adicionando datas e status de
+          entrega no ToDo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="experience">
+  <div class="container">
+    <div class="row">
+      <div class="column column-3">
+        <h1>Relaxe e nunca mais perca prazos de entrega ou esqueça
+          de fazer algo </h1>
+        <p>Experimente o ToDo e mude a forma como você organiza as suas tarefas.</p>
+      </div>
+      <div class="column column-5"><img src="assets/images/ToDo_totvs_img_fig_bottom_03.png"></div>
+    </div>
+  </div>
+</section>
+<section id="modal-cadastro" class="modal"> 
+  
+  <!-- Modal content -->
+  <div class="modal-content"> <span class="close">&times;</span>
+    <div class="container">
+      <h1>Ainda não possui cadastro? É fácil, vamos lá:</h1>
+      <br>
+      <div class="content-form">
+        <form action="">
+          <input type="email" required="required" id="emailCadastrado" name="emailCadastrado"  placeholder="E-MAIL">
+          <input type="password" required="required" id="senhaCadastrada" name="senhaCadastrada" placeholder="SENHA">
+          <button class="entrar" value="Cadastrar" onclick="cadastrarUsuario()">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+	function scrollToLogin() {
+  		document.querySelector('#login').scrollIntoView({behavior: 'smooth'});
+}
+</script> 
+<script type="text/javascript" src="assets/js/main.js"></script> 
+<script type="text/javascript" src="assets/js/modal.js"></script>
+</body>
 </html>

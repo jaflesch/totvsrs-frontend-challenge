@@ -1,1 +1,600 @@
-* { color: #333; }
+@charset "UTF-8";
+/* CSS Document */
+
+/* RESET */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:100%;
+	font-family:inherit;
+	vertical-align:baseline;
+}
+/* FONTES */
+
+@font-face {
+ 	font-family:Lato Bold Italic;
+ 	src:url(../fonts/Lato-Bold-Italic.eot);
+ 	src:url(../fonts/Lato-Bold-Italic.ttf) format('truetype');
+ 	font-weight:normal;
+ 	font-style:normal;
+}
+@font-face {
+ 	font-family:Lato Bold;
+ 	src:url(../fonts/Lato-Bold.eot);
+ 	src:url(../fonts/Lato-Bold.ttf) format('truetype');
+ 	font-weight:normal;
+ 	font-style:normal;
+}
+@font-face {
+ 	font-family:Lato Regular;
+ 	src:url(../fonts/Lato-Regular.eot);
+ 	src:url(../fonts/Lato-Regular.ttf) format('truetype');
+ 	font-weight:normal;
+ 	font-style:normal;
+}
+@font-face {
+ 	font-family:Ubuntu Bold;
+ 	src:url(../fonts/Ubuntu-Bold.eot);
+ 	src:url(../fonts/Ubuntu-Bold.ttf) format('truetype');
+ 	font-weight:normal;
+ 	font-style:normal;
+}
+@font-face {
+ 	font-family:Ubuntu Regular;
+ 	src:url(../fonts/Ubuntu-Regular.eot);
+ 	src:url(../fonts/Ubuntu-Regular.ttf) format('truetype');
+ 	font-weight:normal;
+ 	font-style:normal;
+}
+/* TÍTULOS, PARÁGRAFOS E LINKS */
+
+h1 {
+	font-family:Lato Bold;
+	font-size:2.5em;
+	color:#B2C3FB;
+	text-align:left;
+	line-height:1.2em;
+}
+p {
+	font-family:Ubuntu Regular;
+	font-size:1.5em;
+	color:#6F6F6E;
+	text-align:left;
+	line-height:1.5em;
+}
+a {
+	font-family:Ubuntu Bold;
+	color:#1B3C87;
+	text-decoration:none;
+	cursor:pointer;
+}
+/* COLUMNS, CONTAINER E ROW */
+
+.column {
+	position:relative;
+	float:left;
+}
+.column + .column {
+	margin-left:2.5%;
+}
+.column-1 {
+	width:10.3125%;
+}
+.column-2 {
+	width:23.125%;
+}
+.column-3 {
+	width:35.9375%;
+}
+.column-4 {
+	width:48.75%;
+}
+.column-5 {
+	width:61.5625%;
+}
+.column-6 {
+	width:74.375%;
+}
+.column-7 {
+	width:87.1875%;
+}
+.column-8 {
+	width:100%;
+}
+body {
+	overflow-x:hidden;
+}
+.container {
+	max-width:1040px;
+	min-width:940px;
+	margin:0 auto;
+}
+.row:after {
+	clear:both;
+}
+/* HEADER */
+
+header {
+	width:100%;
+}
+header #logo {
+	background-image:url(../images/ToDo_totvs_lgo.png);
+	width:126px;
+	height:74px;
+	float:left;
+	margin:1% 0 0 0;
+}
+/* NAVEGAÇÃO */
+.content-menu {
+	position:relative;
+}
+nav {
+	position:absolute;
+	float:left;
+	width:100%;
+	display:block;
+	margin:3% 0 0 0;
+	text-align:right;
+}
+nav li {
+	display:inline-block;
+	margin:0 1% 0 1%;
+	text-transform:uppercase;
+	color:#B2C3FB;
+	font-family:Ubuntu Bold;
+}
+nav li a {
+	text-decoration:none;
+	text-transform:uppercase;
+	color:#B2C3FB;
+	font-family:Ubuntu Bold;
+	font-size:1em;
+	display:block;
+	cursor:pointer;
+}
+/* BOTÃO */
+.btn {
+	color:#FFFFFF;
+	background-color:#B2C3FB;
+	font-family:Ubuntu Bold;
+	font-size:1em;
+	display:block;
+	padding:1em 1em;
+	text-align:center;
+	text-transform:uppercase;
+	text-decoration:none;
+	border-radius:8px;
+	cursor:pointer;
+}
+.fade {
+	transition:all 0.3s ease;
+	opacity:1;
+}
+.fade:hover {
+	transition:all 0.3s ease;
+	opacity:0.5;
+}
+
+/* SEÇÕES */
+#spotlight {
+	width:100%;
+	min-height:470px;
+	position:relative;
+	float:left;
+	margin:5% 0 0 0;
+}
+#spotlight h1 {
+	margin:15% 0 5% 0;
+}
+.content-form {
+	position:relative;
+}
+#login {
+	width:100%;
+	min-height:280px;
+	position:relative;
+	float:left;
+	background-color:#EAF0FF;
+}
+#login h1 {
+	margin:2% 0 2% 0;
+}
+#login p {
+	margin:2% 0 0 0;
+}
+
+#infos {
+	width:100%;
+	min-height:470px;
+	position:relative;
+	float:left;
+	margin:5% 0 0 0;
+}
+#infos h1 {
+	margin:15% 0 5% 0;
+}
+#infos p {
+	margin: 0;
+}
+#experience {
+	width:100%;
+	min-height:570px;
+	position:relative;
+	float:left;
+	margin:5% 0 0 0;
+}
+#experience h1 {
+	margin:15% 0 5% 0;
+}
+#cadastro {
+	width:100%;
+	min-height:450px;
+	position:relative;
+	float:left;
+	margin:5% 0 0 0;	
+	background-color:#EAF0FF;	
+}
+#cadastro h1 {
+	margin:5% 0 5% 0;
+}
+#minhas-tarefas {
+	width:100%;
+	min-height:570px;
+	position:relative;
+	float:left;
+	margin:5% 0 0 0;
+	background-color:#EAF0FF;	
+}
+#minhas-tarefas h1 {
+	margin:5% 0 5% 0;
+}
+
+/* LISTA DE TAREFAS */
+#lista-tarefas {
+	width:100%;
+	position:relative;
+	float:left;	
+	display:inline-block;
+}
+.task {
+	list-style:none;
+}
+.task-description {
+	font-family:Ubuntu Bold;
+	font-size:1em;	
+	color:#1B3C87;	
+}
+.list li:nth-child(2n+1) {
+	background-color:#BED1F4;	
+}
+.list li {
+	padding:2% 0 2% 1%;
+	list-style:none;	
+}
+/* FORMULÁRIO */
+#cadastro-tarefas label {
+	font-family:Ubuntu Bold; 
+	font-size:1em;	
+	color:#1B3C87;
+}
+#cadastro-tarefas #id-tarefa {
+	width:5%;
+	margin:15% 0 0 0;	
+}
+#cadastro-tarefas #descricao-tarefa {
+	width:80%;
+	margin:9% 0 0 0;	
+}
+#cadastro-tarefas #data-hora {
+	width:70%;
+	margin:12% 0 0 0;	
+}
+#cadastro-tarefas #status {
+	width:100%;
+	margin:12% 0 0 0;	
+}
+input[type=text], input[type=password], input[type=datetime-local], input[type=number], input[type=email], select {
+	border-radius: 8px;
+	background-color:#FFFFFF;
+	border:solid 2px #B2C3FB;
+	padding:1.2em 1.2em;
+	min-width:32%;
+	margin:0 3% 0 0;
+	outline:none;
+	font-family:Ubuntu Bold;
+	font-size:1em;	
+	color:#1B3C87;
+	text-align:left;
+	display:inline;
+}
+::-webkit-input-placeholder {
+ 	color:#1B3C87;
+}
+:-moz-placeholder {
+ 	color:#1B3C87;
+}
+::-moz-placeholder {
+ 	color:#1B3C87;
+}
+
+:-ms-input-placeholder {
+ 	color:#1B3C87;
+}
+.entrar {
+	background: #46DBC9;
+	font-family:Ubuntu Bold;
+	font-size:1em;
+	position:absolute;
+	display:inline-block;
+	min-width:21%;
+	padding:1.2em 2em;
+	text-align:center;
+	text-transform:uppercase;
+	border-radius:8px;
+	cursor:pointer;
+	color:#FFFFFF;
+}
+.cadastrar {
+	color:#FFFFFF;
+	background-color:#B2C3FB;
+	font-family:Ubuntu Bold;
+	font-size:1em;
+	display:block;
+	padding:1em 1em;
+	min-width:10%;
+	text-align:center;
+	float:right;
+	text-transform:uppercase;
+	text-decoration:none;
+	border-radius:8px;
+	cursor:pointer;
+	margin:3% 0 0 0;	
+}
+
+/* MODAL COM FORMULÁRIO DE CADASTRO */
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); /* COR E OPACIDADE DO FUNDO */
+}
+
+/*CONTEÚDO DO MODAL */
+.modal-content {
+  background-color:#EAF0FF;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  border-radius:8px;
+  opacity:1;
+}
+
+/* BOTÃO FECHAR */
+.close {
+  color: #B2C3FB;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #1B3C87;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* MEDIA QUERIE */
+@media screen and (max-width:1199px) and (min-width:991px) {
+.container {
+	max-width:1199px;
+	min-width:991px;
+}
+header .container, #spotlight .container, #login .container, #infos .container, #experience .container, #cadastro .container, #minhas-tarefas .container {
+	padding:0 5% 0 5%;
+}
+nav {
+	margin:3% 0 0 0%;	
+}
+img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	max-width:70%;
+	max-height:70%;	
+}
+h1 {
+	font-size:2em;
+	line-height:1.2em;
+}
+p {
+	font-size:1.2em;
+	line-height:1.5em;
+}
+#spotlight h1 {
+	margin: 10% 0 3% 0;	
+}
+#spotlight {
+	min-height:265px;	
+}
+#login {
+	min-height:220px;
+	width:110%;
+}
+#infos {
+	min-height:220px;
+}
+#experience {
+	min-height:220px;	
+}
+
+input[type=text], input[type=password], input[type=datetime-local], input[type=number], input[type=email], select {
+	padding:1em 1em;
+	min-width:28%;
+}
+.entrar {
+	padding:1em 1em;
+}
+}
+@media screen and (max-width:990px) and (min-width:768px) {
+.container {
+	max-width:990px;
+	min-width:768px;
+}
+header .container, #spotlight .container, #login .container, #infos .container, #experience .container, #cadastro .container, #minhas-tarefas .container {
+	padding:0 5% 0 5%;
+}	
+nav {
+	margin:3% 0 0 0;	
+}
+img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	max-width:70%;
+	max-height:70%;	
+}
+h1 {
+	font-size:1.5em;
+	line-height:1.2em;
+}
+p {
+	font-size:1em;
+	line-height:1.5em;
+}
+#spotlight {
+	min-height:225px;	
+}
+#spotlight h1 {
+	margin:10% 0 3% 0;	
+}
+#login {
+	width:110%;
+	min-height:185px;	
+}
+#infos {
+	min-height:200px;	
+}
+#experience {
+	min-height:250px;	
+}
+input[type=text], input[type=password], input[type=datetime-local], input[type=number], input[type=email], select {
+	padding:0.8em 1.5em;;
+	font-size:1em;	
+	min-width:25%;
+}
+.entrar {
+	padding:0.8em 1.5em;	
+}
+.btn {
+	padding:0.8em 0.8em;
+}
+}
+@media screen and (max-width:767px) and (min-width:420px){
+.container {
+	max-width:767px;
+	min-width:420px;
+}	
+.column {
+	position:relative;
+	float:left;
+}
+.column + .column {
+	margin-left:0;
+}
+.column-1 {
+	width:100%;
+}
+.column-2 {
+	width:100%;
+}
+.column-3 {
+	width:100%;
+}
+.column-4 {
+	width:100%;
+}
+.column-5 {
+	width:100%;
+}
+.column-6 {
+	width:100%;
+}
+.column-7 {
+	width:100%;
+}
+.column-8 {
+	width:100%;
+}
+header .container, #spotlight .container, #login .container, #infos .container, #experience .container, #cadastro .container, #minhas-tarefas .container {
+	padding:0 5% 0 5%;
+}
+h1, p {
+	text-align:center;
+}
+img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	max-width:50%;
+	max-height:50%;	
+}
+#cadastro-tarefas #id-tarefa {
+	float:left;
+	width:94%;
+	margin:3% 0 3% 0;
+}
+#cadastro-tarefas #descricao-tarefa {
+	float:left;
+	width:94%;
+	margin:3% 0 3% 0;
+}
+#cadastro-tarefas #data-hora {
+	float:left;
+	width:94%;
+	margin:3% 0 3% 0;
+}
+#cadastro-tarefas #status {
+	float:left;
+	width:100%;
+	margin:3% 0 3% 0;
+}
+input[type=text], input[type=password], input[type=datetime-local], input[type=number], input[type=email], selec {
+	float:left;
+	width:94%;
+	margin:0 0 3% 0;
+}
+.entrar {
+	margin:180px 0 0 0;
+	left: 50%;
+	position: absolute;
+	transform: translateX(-50%);
+}
+.cadastrar {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -20%)	
+}
+#cadastro-tarefas {
+    min-height: 720px;
+}
+#login p {
+	margin:15% 0 5% 0;	
+}
+#spotlight h1, #login h1, #infos h1, #experience h1 {
+	margin:5% 0 3%;	
+}
+}
