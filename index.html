@@ -1,15 +1,81 @@
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Meu projeto To-do list - TOTVS RS</title>
+        <script src="./assets/js/app.js" defer ></script>
+        <link rel="stylesheet" href="./assets/css/style.css">
+        
     </head>
     <body>
-        <div>
-            <h1>To do list</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsum voluptatibus nihil necessitatibus porro numquam enim consectetur beatae sit, eveniet quibusdam saepe omnis ex molestias a. 
-                Dolorum molestiae delectus tempore? Quod.
-            </p>
-        </div>
+        <p>To Do List Totvs</p>
+        <section class="main-content">
+            <form action="" id="Cad_form" >
+                <label for="cad_titilo">Título</label><br>
+                <input type="text" id="cad_titilo" name="cad_titilo"><br>
+                <label for="cad_descricao">Descrição</label><br>
+                <textarea rows="5"  id="cad_descricao" name="cad_descricao">
+                </textarea>
+                <!-- <input type="text" id="cad_descricao" name="cad_descricao"><br> -->
+                <label for="cad_date">Data</label><br>
+                <input type="date" id="cad_date" name="cad_date"><br>
+                <label for="cad_status">Status</label><br>
+                <select id="cad_status" name="cad_status">
+                    <option value="0">Backlog</option>
+                    <option value="1">Em andamento</option>
+                    <option value="2">Finalizado</option>
+                </select>  
+                <br>
+                <button type="submit" id="enviar">Cadastrar</button>
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Descrição</th>
+                        <th>Data</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section>
+            <div id="myModal" class="modal">
+    
+                <div class="modal-content">
+                    <form action="" id="edit_form" >
+                        <label for="edit_titilo">Título</label><br>
+                        <input type="text" id="edit_titulo" name="edit_titilo"><br>
+                        <label for="edit_descricao">Descrição</label><br>
+                        <textarea rows="5"  id="edit_descricao" name="edit_descricao">
+                        </textarea>
+                        <!-- <input type="text" id="cad_descricao" name="cad_descricao"><br> -->
+                        <label for="edit_date">Data</label><br>
+                        <input type="date" id="edit_date" name="edit_date"><br>
+                        <label for="edit_status">Status</label><br>
+                        <select id="edit_status" name="edit_status">
+                            <option value="0">Backlog</option>
+                            <option value="1">Em andamento</option>
+                            <option value="2">Finalizado</option>
+                        </select>  
+                        <br>
+                        <div class="hug_buttons">
+                            <button type="button" id="cancelar" onclick="closeModal()" >Cancelar</button>
+                            <button type="button" id="salvar"   onclick="salvaDados()">Salvar</button>
+                            <button type="button" id="Excluir"   onclick="excluirDados()">Excluir</button>
+                        </div>
+                    </form>
+                </div>
+            
+            </div>
+        </section>
     </body>
 </html>
