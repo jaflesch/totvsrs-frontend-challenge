@@ -1,31 +1,33 @@
 <div id="signUpContent">
   <div id="signUpCard">
     <h1>Crie sua conta</h1>
-    <strong>Para acessar a plataforma é necessário criar a sua conta</strong>
+    <p id="greetingText">Para acessar a plataforma é necessário criar a sua conta</p>
     <form action="submit" id="signUpForm">
-      <label for="userName">
+      <label for="userNameInput">
         <div class="labelContainer">
-          <img src="" alt="">
+          <img src="../../assets/images/fi-user.svg" alt="">
           Nome
         </div>
       </label>
-      <input type="text" name="userName" id="userNameInput" placeholder="Fulano da Silva">
-      <label for="userEmail">
+      <input type="text" name="userName" id="userNameInput" placeholder="Fulano da Silva" required>
+      <label for="userEmailInput">
         <div class="labelContainer">
-          <img src="" alt="">
+          <img src="../../assets/images/fi-mail.svg" alt="">
           E-Mail
         </div>
       </label>
-      <input type="email" name="userEmail" id="userEmailInput" placeholder="fulano@teste.com">
-      <label for="userPassword">
+      <input type="email" name="userEmail" id="userEmailInput" placeholder="fulano@teste.com" required>
+      <label for="userPasswordInput">
         <div class="labelContainer">
-          <img src="" alt="">
+          <img src="../../assets/images/fi-lock.svg" alt="">
           Senha
         </div>
       </label>
-      <input type="password" name="userPassword" id="userPasswordInput">
-      <input type="submit" value="Criar Conta">
+      <input type="password" name="userPassword" id="userPasswordInput" required>
+      <input type="submit" value="Criar Conta" id="submitButton">
+
     </form>
+    <p id="logInText">Já tem uma conta? <a href="#">Clique aqui para fazer login!</a></p>
   </div>
 
 </div>
