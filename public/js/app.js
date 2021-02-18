@@ -24,9 +24,10 @@ function loadPage(pageName) {
       console.warn('Error loading page content')
     }
   }
-  xhr.open('GET', `../../src/views/${pageName}.html`)
+  xhr.open('GET', `/${pageName}.html`)
   xhr.send()
 }
+
 function setupSignUpForm() {
   console.log('Visitando página de Registro')
 
@@ -82,6 +83,12 @@ function handleCreateUser({ userName, userEmail, userPassword }) {
     users = new Array(user)
 
     sessionStorage.setItem('users', JSON.stringify(users))
+
+    const authenticatedUser = user
+    sessionStorage.setItem(
+      'authenticatedUser',
+      JSON.stringify(authenticatedUser)
+    )
   } else {
     if (users.find(user => user.userEmail === userEmail.value)) {
       alert('Esse email já está registrado')
@@ -94,8 +101,32 @@ function handleCreateUser({ userName, userEmail, userPassword }) {
       }
       users.push(user)
       sessionStorage.setItem('users', JSON.stringify(users))
+      const authenticatedUser = user
+      sessionStorage.setItem(
+        'authenticatedUser',
+        JSON.stringify(authenticatedUser)
+      )
     }
   }
 }
 
-function handleLoginUser({ userEmail, userPassword }) {}
+function handleLoginUser({ userEmail, userPassword }) {
+  let users = []
+  users = JSON.parse(sessionStorage.getItem('users'))
+  const foundUser = users.find(user => user.userEmail === userEmail.value)
+
+  if (foundUser) {
+    if (foundUser.userPassword === userPassword.value) {
+      const authenticatedUser = foundUser
+      sessionStorage.setItem(
+        'authenticatedUser',
+        JSON.stringify(authenticatedUser)
+      )
+      alert('Login')
+    } else {
+      alert('A senha informada está incorreta')
+    }
+  } else {
+    alert('Não foi encontrado um usuário com o e-mail fornecido')
+  }
+}
