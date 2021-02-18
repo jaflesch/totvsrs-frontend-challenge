@@ -1,9 +1,10 @@
 
+
 window.onload = () => {
-   loadPage('signUp')
+  loadPage('signUp')
 }
 
-async function loadPage (pageName) {
+function loadPage (pageName) {
   xhr = new XMLHttpRequest();
 
   const contentContainer = document.getElementById('contentContainer')
@@ -17,6 +18,7 @@ async function loadPage (pageName) {
         break
         case 'signIn':
         setupSignInForm()
+        break
         case 'dashboard':
         setupTodos()
 
@@ -37,7 +39,6 @@ function setupSignUpForm () {
     userName : document.getElementById('userNameInput'),
     userEmail : document.getElementById('userEmailInput'),
     userPassword : document.getElementById('userPasswordInput'),
-    submit : document.getElementById('submitButton'),
   }
 
   signUpForm.form.addEventListener('submit', (event) => {
@@ -45,19 +46,64 @@ function setupSignUpForm () {
     handleCreateUser( signUpForm )
   })
 
-  console.log(signUpForm)
+  document.getElementById('logInPageLink').addEventListener('click', (event) => {
+    event.preventDefault()
+    loadPage('signIn')
+  })
+
 }
 
-function handleCreateUser ( signUpForm ) {
-  function validateData () {
-
-  }
-  const createdUser = {
-    userName:  signUpForm.userName.value,
-    userEmail: signUpForm.userEmail.value,
-    userPassword: signUpForm.userPassword.value,
+function setupSignInForm ( ) {
+  const signInForm = {
+    form: document.getElementById('signInForm'),
+    userEmail : document.getElementById('userEmailInput'),
+    userPassword : document.getElementById('userPasswordInput'),
   }
 
-  console.log(createdUser)
+  document.getElementById('signUpPageLink').addEventListener('click', (event) => {
+    event.preventDefault()
+    loadPage('signUp')
+  })
 }
 
+function handleCreateUser ( {userName, userEmail, userPassword} ) {
+  let users = new Array();
+  users = JSON.parse(sessionStorage.getItem("users"))
+
+  if (!users ) {
+    const user = {
+      id: 1,
+      userName : userName.value,
+      userEmail : userEmail.value,
+      userPassword : userPassword.value,
+    }
+
+    users = new Array(user)
+
+    sessionStorage.setItem("users",JSON.stringify(users))
+  } else {
+
+    if (users.find(user => user.userEmail === userEmail.value)) {
+      alert('Esse email já está registrado')
+
+    } else {
+      const user = {
+        id: users.length+1,
+        userName : userName.value,
+        userEmail : userEmail.value,
+        userPassword : userPassword.value,
+      }
+      users.push(user);
+      sessionStorage.setItem("users",JSON.stringify(users))
+
+
+    }
+  }
+
+
+
+}
+
+function handleLoginUser ({userEmail, userPassword}) {
+
+}

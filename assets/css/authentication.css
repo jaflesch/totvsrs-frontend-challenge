@@ -1,4 +1,5 @@
-div#signUpContent {
+div#signUpContent,
+div#signInContent {
   background: url(../images/todosapp-signin-bg.jpg) no-repeat;
   background-size: cover;
   min-height: 90vh;
@@ -7,7 +8,8 @@ div#signUpContent {
   align-items: center;
 }
 
-div#signUpCard{
+div#signUpCard,
+div#signInCard{
   background: #F4F4F4;
   border-radius: 10px;
   padding: 3rem 2rem;
@@ -18,13 +20,14 @@ div#signUpCard{
   min-width: 500px;
 }
 
-div#signUpCard h1{
+div#signUpCard h1,
+div#signInCard h1{
   font-size: 48px;
   text-align: center;
   margin-bottom: 1rem;
 }
 
-div#signUpCard p#greetingText{
+p#greetingText {
   font-size: 18px;
   font-weight: 400;
   display: inline-block;
@@ -33,15 +36,13 @@ div#signUpCard p#greetingText{
   margin-bottom: 1rem;
 }
 
-div#signUpCard form#signUpForm{
+form#signUpForm,
+form#signInForm{
   width: 100%;
 }
 
-div#signUpCard form#signUpForm{
-  width: 100%;
-}
 
-div#signUpCard div.labelContainer {
+div.labelContainer {
   display: flex;
   font-size: 18px;
   font-weight: 400;
@@ -50,11 +51,11 @@ div#signUpCard div.labelContainer {
 
 }
 
-div#signUpCard div.labelContainer img {
+div.labelContainer img {
   margin-right: 0.5rem;
 }
 
-div#signUpCard form#signUpForm
+form#signUpForm
 input[type="text"],
 input[type="password"],
 input[type="email"]{
@@ -65,7 +66,8 @@ input[type="email"]{
   margin-bottom: 1rem;
 }
 
-div#signUpCard form#signUpForm input[type="submit"]{
+form#signUpForm input[type="submit"],
+form#signInForm input[type="submit"]{
   display: block;
   width: 100%;
   min-height: 50px;
@@ -81,20 +83,21 @@ div#signUpCard form#signUpForm input[type="submit"]{
 
 }
 
-div#signUpCard form#signUpForm input[type="submit"]:hover {
+form#signUpForm input[type="submit"]:hover,
+form#signInForm input[type="submit"]:hover {
   cursor: pointer;
   background: #4fb6ff;
 
 }
 
-div#signUpCard p#logInText a {
+p#logInText a {
   color: #33A2F3;
   text-decoration: none;
 
   transition: all 0.2s;
 }
 
-div#signUpCard p#logInText a:hover {
+p#logInText a:hover {
   color: #4fb6ff;
 }
 

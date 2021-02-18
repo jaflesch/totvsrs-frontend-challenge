@@ -9,25 +9,25 @@
           Nome
         </div>
       </label>
-      <input type="text" name="userName" id="userNameInput" placeholder="Fulano da Silva" required>
+      <input type="text" name="userName" id="userNameInput" placeholder="Fulano da Silva" required minlength="5" >
       <label for="userEmailInput">
         <div class="labelContainer">
           <img src="../../assets/images/fi-mail.svg" alt="">
           E-Mail
         </div>
       </label>
-      <input type="email" name="userEmail" id="userEmailInput" placeholder="fulano@teste.com" required>
+      <input type="email" name="userEmail" id="userEmailInput" placeholder="fulano@teste.com" required >
       <label for="userPasswordInput">
         <div class="labelContainer">
           <img src="../../assets/images/fi-lock.svg" alt="">
           Senha
         </div>
       </label>
-      <input type="password" name="userPassword" id="userPasswordInput" required>
+      <input type="password" name="userPassword" id="userPasswordInput" required minlength="6" maxlength="16">
       <input type="submit" value="Criar Conta" id="submitButton">
 
     </form>
-    <p id="logInText">Já tem uma conta? <a href="#">Clique aqui para fazer login!</a></p>
+    <p id="logInText">Já tem uma conta? <a href="" id='logInPageLink'>Clique aqui para fazer login!</a></p>
   </div>
 
 </div>
