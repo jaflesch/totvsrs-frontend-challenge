@@ -1,0 +1,77 @@
+div#dashboardContent {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+div#dashboardCard {
+  background: #F4F4F4;
+  border-radius: 10px;
+  margin-top: 10vh;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 90%;
+  min-height: 70vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#addTodoButton {
+  display: block;
+  padding: 0.5rem 1rem;
+  min-height: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #33A2F3;
+  color: #fff;
+  margin-bottom: 2rem;
+
+  transition: all 0.2s;
+}
+
+#addTodoButton:hover {
+  background: #4fb6ff;
+}
+
+#todosTable{
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+#todosTable thead{
+  font-size: 16px;
+
+}
+
+#todosTable thead tr{
+  background-color: #33A2F3;
+  text-align: left;
+  font-weight: bold;
+  color: #fff
+
+}
+
+#todosTable th,
+#todosTable td {
+  padding: 12px 15px;
+}
+
+#todosTable tbody tr {
+  border-bottom: 1px solid #d3d3d3;
+  background-color: #fff;
+}
+
+#todosTable tbody tr:last-of-type {
+  border-bottom: 2px solid #33A2F3;
+}
+
+#todosTable tbody{
+  font-size: 14px;
+}

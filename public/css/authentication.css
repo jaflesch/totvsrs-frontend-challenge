@@ -18,6 +18,8 @@ div#signInCard{
   justify-content: center;
   align-items: center;
   min-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
 }
 
 div#signUpCard h1,
@@ -79,13 +81,13 @@ form#signInForm input[type="submit"]{
   color: #fff;
   margin-bottom: 2rem;
 
+
   transition: all 0.2s;
 
 }
 
 form#signUpForm input[type="submit"]:hover,
 form#signInForm input[type="submit"]:hover {
-  cursor: pointer;
   background: #4fb6ff;
 
 }

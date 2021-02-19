@@ -1,5 +1,5 @@
 window.onload = () => {
-  loadPage('signUp')
+  loadPage('dashboard')
 }
 
 function loadPage(pageName) {
@@ -89,6 +89,7 @@ function handleCreateUser({ userName, userEmail, userPassword }) {
       'authenticatedUser',
       JSON.stringify(authenticatedUser)
     )
+    loadPage('dashboard')
   } else {
     if (users.find(user => user.userEmail === userEmail.value)) {
       alert('Esse email já está registrado')
@@ -106,6 +107,7 @@ function handleCreateUser({ userName, userEmail, userPassword }) {
         'authenticatedUser',
         JSON.stringify(authenticatedUser)
       )
+      loadPage('dashboard')
     }
   }
 }
@@ -123,6 +125,7 @@ function handleLoginUser({ userEmail, userPassword }) {
         JSON.stringify(authenticatedUser)
       )
       alert('Login')
+      loadPage('dashboard')
     } else {
       alert('A senha informada está incorreta')
     }
