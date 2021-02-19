@@ -14,24 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>123456</td>
-            <td>Nome da Tarefa</td>
-            <td>25/02/2020</td>
-            <td>Em andamento</td>
-          </tr>
-          <tr>
-            <td>123456</td>
-            <td>Nome da Tarefa</td>
-            <td>25/02/2020</td>
-            <td>Em andamento</td>
-          </tr>
-          <tr>
-            <td>123456</td>
-            <td>Nome da Tarefa</td>
-            <td>25/02/2020</td>
-            <td>Em andamento</td>
-          </tr>
+
         </tbody>
       </table>
     </div>
@@ -39,20 +22,25 @@
 </div>
 <div id="createTodoModalContainer">
   <div id="createTodoModal">
-    <h2>Criar nova tarefa</h2>
-    <form action="submit" id="createTodoForm">
-      <label for="todoTitle">Título</label>
-      <input type="text" id="todoTitle">
-      <fieldset>
-        <legend>Status</legend>
-        <input type="radio" name="status" id="backlogRadio" value="0">
-        <label for="backlogRadio">Backlog</label><br>
-        <input type="radio" name="status" id="ongoingRadio" value="1">
-        <label for="ongoingRadio">Em andamento</label><br>
-        <input type="radio" name="status" id="finishedRadio" value="2">
-        <label for="finishedRadio">Finalizado</label>
-      </fieldset>
-
-    </form>
+    <div id="createTodoFields">
+      <h2>Criar nova tarefa</h2>
+      <form action="submit" id="createTodoForm">
+        <label for="todoTitle" id="todoTitleLabel">Título</label>
+        <input type="text" id="todoTitle">
+        <fieldset>
+          <legend>Status</legend>
+          <input type="radio" name="createTodoStatus" id="backlogRadio" value="0">
+          <label for="backlogRadio">Backlog</label><br>
+          <input type="radio" name="createTodoStatus" id="ongoingRadio" value="1">
+          <label for="ongoingRadio">Em andamento</label><br>
+          <input type="radio" name="createTodoStatus" id="finishedRadio" value="2">
+          <label for="finishedRadio">Finalizado</label>
+        </fieldset>
+      </form>
+    </div>
+    <div id="buttonsContainer">
+      <button id="cancelCreateButton">Cancelar</button>
+      <input type="submit" value="Criar" form="createTodoForm">
+    </div>
   </div>
 </div>

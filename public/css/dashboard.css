@@ -75,3 +75,104 @@ div#dashboardCard {
 #todosTable tbody{
   font-size: 14px;
 }
+
+#createTodoModalContainer {
+  position:fixed;
+  width:100%;
+  height:100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#createTodoModalContainer.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+#createTodoModal {
+  background: #F4F4F4;
+  width: 40%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#createTodoFields {
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+#createTodoFields h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#todoTitleLabel,
+legend {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  display: block;
+
+}
+
+#createTodoForm input[type="text"]
+{
+  width: 100%;
+  min-height: 40px;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#createTodoForm input[type="radio"]{
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#buttonsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  width: 100%;
+  height: 20%;
+}
+
+#buttonsContainer input[type="submit"],
+#buttonsContainer button#cancelCreateButton
+ {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+}
+
+#buttonsContainer input[type="submit"] {
+  background: #7dd867;
+
+}
+
+#buttonsContainer button#cancelCreateButton
+ {
+  background: #d9db5e;
+
+}
+
+
+
+
