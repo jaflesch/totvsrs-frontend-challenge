@@ -1,70 +1,34 @@
 // Math.random().toString().substr(2, 8);
 
-window.onload = () => {
-  loadPage('signIn')
-  // const todos = [
-  //   {
-  //     id: Math.random().toString().substr(2, 8),
-  //     userId: 1,
-  //     title: 'Teste 01',
-  //     description: 'Lorem ipsum dolor sit amet, consectetur adip',
-  //     date: new Date(),
-  //     status: 1
-  //   },
-  //   {
-  //     id: Math.random().toString().substr(2, 8),
-  //     userId: 2,
-  //     title: 'Teste 02',
-  //     description: 'Lorem ipsum dolor sit amet, consectetur adip',
-  //     date: new Date(),
-  //     status: 1
-  //   },
-  //   {
-  //     id: Math.random().toString().substr(2, 8),
-  //     userId: 1,
-  //     title: 'Teste 03',
-  //     description: 'Lorem ipsum dolor sit amet, consectetur adip',
-  //     date: new Date(),
-  //     status: 1
-  //   },
-  //   {
-  //     id: Math.random().toString().substr(2, 8),
-  //     userId: 1,
-  //     title: 'Teste 04',
-  //     description: 'Lorem ipsum dolor sit amet, consectetur adip',
-  //     date: new Date(),
-  //     status: 0
-  //   }
-  // ]
+// window.onload = () => {
+//   loadPage('signIn')
+// }
 
-  // sessionStorage.setItem('todos', JSON.stringify(todos))
-}
+// function loadPage(pageName) {
+//   const xhr = new XMLHttpRequest()
 
-function loadPage(pageName) {
-  const xhr = new XMLHttpRequest()
+//   const contentContainer = document.getElementById('contentContainer')
 
-  const contentContainer = document.getElementById('contentContainer')
-
-  xhr.onload = function () {
-    if (this.status === 200) {
-      contentContainer.innerHTML = xhr.responseText
-      switch (pageName) {
-        case 'signUp':
-          setupSignUpForm()
-          break
-        case 'signIn':
-          setupSignInForm()
-          break
-        case 'dashboard':
-          setupDashboard()
-      }
-    } else {
-      console.warn('Error loading page content')
-    }
-  }
-  xhr.open('GET', `/${pageName}.html`)
-  xhr.send()
-}
+//   xhr.onload = function () {
+//     if (this.status === 200) {
+//       contentContainer.innerHTML = xhr.responseText
+//       switch (pageName) {
+//         case 'signUp':
+//           setupSignUpForm()
+//           break
+//         case 'signIn':
+//           setupSignInForm()
+//           break
+//         case 'dashboard':
+//           setupDashboard()
+//       }
+//     } else {
+//       console.warn('Error loading page content')
+//     }
+//   }
+//   xhr.open('GET', `/${pageName}.html`)
+//   xhr.send()
+// }
 
 function setupSignUpForm() {
   console.log('Visitando página de Registro')
@@ -76,34 +40,34 @@ function setupSignUpForm() {
     userPassword: document.getElementById('userPasswordInput')
   }
 
-  signUpForm.form.addEventListener('submit', event => {
-    event.preventDefault()
-    handleCreateUser(signUpForm)
-  })
+  // signUpForm.form.addEventListener('submit', event => {
+  //   event.preventDefault()
+  //   handleCreateUser(signUpForm)
+  // })
 
-  document.getElementById('logInPageLink').addEventListener('click', event => {
-    event.preventDefault()
-    loadPage('signIn')
-  })
+  // document.getElementById('logInPageLink').addEventListener('click', event => {
+  //   event.preventDefault()
+  //   loadPage('signIn')
+  // })
 }
 
 function setupSignInForm() {
   console.log('Visitando página de SignIn')
-  const signInForm = {
-    form: document.getElementById('signInForm'),
-    userEmail: document.getElementById('userEmailInput'),
-    userPassword: document.getElementById('userPasswordInput')
-  }
+  // const signInForm = {
+  //   form: document.getElementById('signInForm'),
+  //   userEmail: document.getElementById('userEmailInput'),
+  //   userPassword: document.getElementById('userPasswordInput')
+  // }
 
-  signInForm.form.addEventListener('submit', event => {
-    event.preventDefault()
-    handleLoginUser(signInForm)
-  })
+  // signInForm.form.addEventListener('submit', event => {
+  //   event.preventDefault()
+  //   handleLoginUser(signInForm)
+  // })
 
-  document.getElementById('signUpPageLink').addEventListener('click', event => {
-    event.preventDefault()
-    loadPage('signUp')
-  })
+  // document.getElementById('signUpPageLink').addEventListener('click', event => {
+  //   event.preventDefault()
+  //   loadPage('signUp')
+  // })
 }
 
 function setupDashboard() {
@@ -355,20 +319,34 @@ function handleUpdateTodo(
   //   const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
 }
 
-const UI = {
-  todos: {
-    load() {}
-  },
+class UI {
+  static loadPage(pageName) {
+    const xhr = new XMLHttpRequest()
+    const contentContainer = document.getElementById('contentContainer')
 
-  updateTodoModal: {
-    open() {}
-  },
-  createTodoModal: {
-    open() {}
+    xhr.onload = function () {
+      if (this.status === 200) {
+        contentContainer.innerHTML = xhr.responseText
+        switch (pageName) {
+          case 'signUp':
+            setupSignUpForm()
+            break
+          case 'signIn':
+            setupSignInForm()
+            break
+          case 'dashboard':
+            setupDashboard()
+        }
+      } else {
+        console.warn('Error loading page content')
+      }
+    }
+    xhr.open('GET', `/${pageName}.html`)
+    xhr.send()
   }
-}
 
-UI.createTodoModal.open()
+  static displayTodos() {}
+}
 
 class Todo {
   constructor(userId, title, description, status) {
@@ -379,6 +357,10 @@ class Todo {
     this.date = new Date()
     this.status = status
   }
+}
+
+class User {
+  constructor(name, email) {}
 }
 
 class Store {
@@ -392,11 +374,81 @@ class Store {
     return todos
   }
 
-  static createTodo() {}
-  static deleteTodo() {}
-  static updateTodo() {}
+  static loadUserTodos(userId) {}
+
+  static createTodo(todo) {}
+  static deleteTodo(todoId) {}
+  static updateTodo(todoId) {}
   static createUser() {}
-  static logInUser() {}
+  static logInUser(userEmail, userPassword) {
+    let users
+    if (sessionStorage.getItem('users') === null) {
+      users = []
+    } else {
+      users = JSON.parse(sessionStorage.getItem('users'))
+    }
+    const foundUser = users.find(user => user.userEmail === userEmail.value)
+    let authenticatedUser
+    if (foundUser) {
+      if (foundUser.userPassword === userPassword.value) {
+        authenticatedUser = foundUser
+        sessionStorage.setItem(
+          'authenticatedUser',
+          JSON.stringify(authenticatedUser)
+        )
+        alert('Login')
+      } else {
+        alert('A senha informada está incorreta')
+      }
+    } else {
+      alert('Não foi encontrado um usuário com o e-mail fornecido')
+    }
+
+    return authenticatedUser
+  }
+
+  static logOutUser() {}
 }
 
-Store.loadTodos.
+// Evento Abrir Modal de Edição
+
+// Evento Deletar Tarefa
+
+// Evento Cancelar Edição
+
+// Evento Submeter Edição
+
+// Evento Abrir Modal de Criação
+
+// Evento Submeter Criação
+
+// Evento Cancelar Criação
+
+// Evento Submeter Criação de usuário
+const signUpForm = document
+  .getElementById('signUpForm')
+  .addEventListener('submit', event => {
+    event.preventDefault()
+  })
+
+// Evento Submeter LogIn
+const signInForm = document
+  .getElementById('signInForm')
+  .addEventListener('submit', event => {
+    event.preventDefault()
+    if (Store.logInUser) {
+      UI.loadPage('dashboard')
+    }
+  })
+
+// Evento Navegar para Criação de Usuário
+document.getElementById('signUpPageLink').addEventListener('click', event => {
+  event.preventDefault()
+  UI.loadPage('signUp')
+})
+
+// Evento Navegar para LogIn
+document.getElementById('logInPageLink').addEventListener('click', event => {
+  event.preventDefault()
+  UI.loadPage('signIn')
+})
