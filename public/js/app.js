@@ -117,11 +117,29 @@ function setupDashboard() {
     .getElementById('todosTable')
     .getElementsByTagName('tbody')[0]
 
-  const todoModal = document.getElementById('createTodoModalContainer')
-  const closeModalButton = document.getElementById('cancelCreateButton')
+  const createTodoModal = document.getElementById('createTodoModalContainer')
+  const closeCreateTodoModalButton = document.getElementById(
+    'cancelCreateButton'
+  )
+
+  const updateTodoModal = document.getElementById('updateTodoModalContainer')
+  const closeUpdateTodoModalButton = document.getElementById(
+    'cancelUpdateButton'
+  )
+
+  // const
 
   const { userTodos, allTodos } = loadTodos(authenticatedUser, tableRef)
 
+  let todosTitleArray = document.querySelectorAll('td a')
+  for (let i = 0; i < todosTitleArray.length; i++) {
+    todosTitleArray[i].addEventListener('click', e => {
+      e.preventDefault()
+      updateTodoModal.classList.add('active')
+      const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
+      handleUpdateTodo(updateTodoForm, allTodos, editingTodo)
+    })
+  }
   const createTodoForm = {
     form: document.getElementById('createTodoForm'),
     todoTitle: document.querySelector('#createTodoForm #todoTitle'),
@@ -129,25 +147,40 @@ function setupDashboard() {
     todoStatuses: document.getElementsByName('createTodoStatus')
   }
 
+  const updateTodoForm = {
+    form: document.getElementById('updateTodoForm'),
+    todoTitle: document.querySelector('#updateTodoForm #todoTitle'),
+    todoDescription: document.querySelector('#updateTodoForm #todoDescription'),
+    todoStatuses: document.getElementsByName('updateTodoStatus')
+  }
+
   const addTodoButton = document.getElementById('addTodoButton')
   addTodoButton.addEventListener('click', function openModal() {
-    todoModal.classList.add('active')
+    createTodoModal.classList.add('active')
   })
 
   createTodoForm.form.addEventListener('submit', event => {
     event.preventDefault()
     handleCreateTodo(createTodoForm, authenticatedUser, allTodos)
-    todoModal.classList.remove('active')
+    createTodoModal.classList.remove('active')
     createTodoForm.todoTitle.value = ''
     createTodoForm.todoDescription.value = ''
     for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
       createTodoForm.todoStatuses[i].checked = false
     }
     loadTodos(authenticatedUser, tableRef)
+    todosTitleArray = document.querySelectorAll('td a')
+    for (let i = 0; i < todosTitleArray.length; i++) {
+      todosTitleArray[i].addEventListener('click', e => {
+        e.preventDefault()
+        const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
+        handleUpdateTodo(updateTodoForm, allTodos, editingTodo)
+      })
+    }
   })
 
-  closeModalButton.addEventListener('click', function () {
-    todoModal.classList.remove('active')
+  closeCreateTodoModalButton.addEventListener('click', function () {
+    createTodoModal.classList.remove('active')
     createTodoForm.todoTitle.value = ''
     createTodoForm.todoDescription.value = ''
     for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
@@ -155,6 +188,14 @@ function setupDashboard() {
     }
   })
 
+  closeUpdateTodoModalButton.addEventListener('click', function () {
+    updateTodoModal.classList.remove('active')
+    updateTodoForm.todoTitle.value = ''
+    updateTodoForm.todoDescription.value = ''
+    for (let i = 0; i < updateTodoForm.todoStatuses.length; i++) {
+      updateTodoForm.todoStatuses[i].checked = false
+    }
+  })
   // loadTodos(authenticatedUser, tableRef)
   console.log(allTodos)
 }
@@ -253,8 +294,7 @@ function handleCreateTodo(
 }
 
 function loadTodos(authenticatedUser, table) {
-  let todos = []
-  todos = JSON.parse(sessionStorage.getItem('todos'))
+  let todos = JSON.parse(sessionStorage.getItem('todos'))
   let userTodos = []
   table.innerHTML = ''
 
@@ -282,13 +322,15 @@ function loadTodos(authenticatedUser, table) {
                       </tr>`
       table.innerHTML += todoRow
     }
-    const todosTitleArray = document.querySelectorAll('td a')
-    for (let i = 0; i < todosTitleArray.length; i++) {
-      todosTitleArray[i].addEventListener('click', e => {
-        e.preventDefault()
-        console.log(todos.find(todo => todo.id == e.currentTarget.id))
-      })
-    }
+    // const todosTitleArray = document.querySelectorAll('td a')
+    // for (let i = 0; i < todosTitleArray.length; i++) {
+    //   todosTitleArray[i].addEventListener('click', e => {
+    //     e.preventDefault()
+    //     console.log(todos.find(todo => todo.id == e.currentTarget.id))
+    //   })
+    // }
+  } else {
+    todos = []
   }
 
   return {
@@ -296,3 +338,65 @@ function loadTodos(authenticatedUser, table) {
     allTodos: todos
   }
 }
+
+function handleUpdateTodo(
+  { todoTitle, todoDescription, todoStatuses },
+  allTodos,
+  editingTodo
+) {
+  todoTitle.value = editingTodo.title
+  todoDescription.value = editingTodo.description
+  for (let i = 0; i < todoStatuses.length; i++) {
+    if (todoStatuses[i].value == editingTodo.status) {
+      todoStatuses[i].checked = true
+    }
+  }
+  // console.log(allTodos.findIndex(todo => todo.id === editingTodo.id))
+  //   const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
+}
+
+const UI = {
+  todos: {
+    load() {}
+  },
+
+  updateTodoModal: {
+    open() {}
+  },
+  createTodoModal: {
+    open() {}
+  }
+}
+
+UI.createTodoModal.open()
+
+class Todo {
+  constructor(userId, title, description, status) {
+    this.id = parseInt(Math.random().toString().substr(2, 8))
+    this.userId = userId
+    this.title = title
+    this.description = description
+    this.date = new Date()
+    this.status = status
+  }
+}
+
+class Store {
+  static loadTodos() {
+    let todos
+    if (sessionStorage.getItem('todos') === null) {
+      todos = []
+    } else {
+      todos = JSON.parse(sessionStorage.getItem('todos'))
+    }
+    return todos
+  }
+
+  static createTodo() {}
+  static deleteTodo() {}
+  static updateTodo() {}
+  static createUser() {}
+  static logInUser() {}
+}
+
+Store.loadTodos.
