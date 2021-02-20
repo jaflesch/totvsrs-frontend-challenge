@@ -1,101 +1,29 @@
-// Math.random().toString().substr(2, 8);
-
-// window.onload = () => {
-//   loadPage('signIn')
-// }
-
-// function loadPage(pageName) {
-//   const xhr = new XMLHttpRequest()
-
-//   const contentContainer = document.getElementById('contentContainer')
-
-//   xhr.onload = function () {
-//     if (this.status === 200) {
-//       contentContainer.innerHTML = xhr.responseText
-//       switch (pageName) {
-//         case 'signUp':
-//           setupSignUpForm()
-//           break
-//         case 'signIn':
-//           setupSignInForm()
-//           break
-//         case 'dashboard':
-//           setupDashboard()
-//       }
-//     } else {
-//       console.warn('Error loading page content')
-//     }
-//   }
-//   xhr.open('GET', `/${pageName}.html`)
-//   xhr.send()
-// }
-
-function setupSignUpForm() {
-  console.log('Visitando página de Registro')
-
-  const signUpForm = {
-    form: document.getElementById('signUpForm'),
-    userName: document.getElementById('userNameInput'),
-    userEmail: document.getElementById('userEmailInput'),
-    userPassword: document.getElementById('userPasswordInput')
-  }
-
-  // signUpForm.form.addEventListener('submit', event => {
-  //   event.preventDefault()
-  //   handleCreateUser(signUpForm)
-  // })
-
-  // document.getElementById('logInPageLink').addEventListener('click', event => {
-  //   event.preventDefault()
-  //   loadPage('signIn')
-  // })
-}
-
-function setupSignInForm() {
-  console.log('Visitando página de SignIn')
-  // const signInForm = {
-  //   form: document.getElementById('signInForm'),
-  //   userEmail: document.getElementById('userEmailInput'),
-  //   userPassword: document.getElementById('userPasswordInput')
-  // }
-
-  // signInForm.form.addEventListener('submit', event => {
-  //   event.preventDefault()
-  //   handleLoginUser(signInForm)
-  // })
-
-  // document.getElementById('signUpPageLink').addEventListener('click', event => {
-  //   event.preventDefault()
-  //   loadPage('signUp')
-  // })
-}
-
 function setupDashboard() {
-  console.log('Visitando dashboard')
+  // console.log('Visitando dashboard')
 
-  const authenticatedUser = JSON.parse(
-    sessionStorage.getItem('authenticatedUser')
-  )
+  // const authenticatedUser = JSON.parse(
+  //   sessionStorage.getItem('authenticatedUser')
+  // )
 
-  const tableRef = document
-    .getElementById('todosTable')
-    .getElementsByTagName('tbody')[0]
+  // const tableRef = document
+  //   .getElementById('todosTable')
+  //   .getElementsByTagName('tbody')[0]
 
-  const createTodoModal = document.getElementById('createTodoModalContainer')
-  const closeCreateTodoModalButton = document.getElementById(
-    'cancelCreateButton'
-  )
+  // const createTodoModal = document.getElementById('createTodoModalContainer')
+  // const closeCreateTodoModalButton = document.getElementById(
+  //   'cancelCreateButton'
+  // )
 
-  const updateTodoModal = document.getElementById('updateTodoModalContainer')
-  const closeUpdateTodoModalButton = document.getElementById(
-    'cancelUpdateButton'
-  )
+  // const updateTodoModal = document.getElementById('updateTodoModalContainer')
+  // const closeUpdateTodoModalButton = document.getElementById(
+  //   'cancelUpdateButton'
+  // )
 
   // const
 
-  const { userTodos, allTodos } = loadTodos(authenticatedUser, tableRef)
+  // const { userTodos, allTodos } = loadTodos(authenticatedUser, tableRef)
 
-  let todosTitleArray = document.querySelectorAll('td a')
+  const todosTitleArray = document.querySelectorAll('td a')
   for (let i = 0; i < todosTitleArray.length; i++) {
     todosTitleArray[i].addEventListener('click', e => {
       e.preventDefault()
@@ -111,123 +39,57 @@ function setupDashboard() {
     todoStatuses: document.getElementsByName('createTodoStatus')
   }
 
-  const updateTodoForm = {
-    form: document.getElementById('updateTodoForm'),
-    todoTitle: document.querySelector('#updateTodoForm #todoTitle'),
-    todoDescription: document.querySelector('#updateTodoForm #todoDescription'),
-    todoStatuses: document.getElementsByName('updateTodoStatus')
-  }
+  // const updateTodoForm = {
+  //   form: document.getElementById('updateTodoForm'),
+  //   todoTitle: document.querySelector('#updateTodoForm #todoTitle'),
+  //   todoDescription: document.querySelector('#updateTodoForm #todoDescription'),
+  //   todoStatuses: document.getElementsByName('updateTodoStatus')
+  // }
 
-  const addTodoButton = document.getElementById('addTodoButton')
-  addTodoButton.addEventListener('click', function openModal() {
-    createTodoModal.classList.add('active')
-  })
+  // const addTodoButton = document.getElementById('addTodoButton')
+  // addTodoButton.addEventListener('click', function openModal() {
+  //   createTodoModal.classList.add('active')
+  // })
 
-  createTodoForm.form.addEventListener('submit', event => {
-    event.preventDefault()
-    handleCreateTodo(createTodoForm, authenticatedUser, allTodos)
-    createTodoModal.classList.remove('active')
-    createTodoForm.todoTitle.value = ''
-    createTodoForm.todoDescription.value = ''
-    for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
-      createTodoForm.todoStatuses[i].checked = false
-    }
-    loadTodos(authenticatedUser, tableRef)
-    todosTitleArray = document.querySelectorAll('td a')
-    for (let i = 0; i < todosTitleArray.length; i++) {
-      todosTitleArray[i].addEventListener('click', e => {
-        e.preventDefault()
-        const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
-        handleUpdateTodo(updateTodoForm, allTodos, editingTodo)
-      })
-    }
-  })
+  // createTodoForm.form.addEventListener('submit', event => {
+  //   event.preventDefault()
+  //   handleCreateTodo(createTodoForm, authenticatedUser, allTodos)
+  //   createTodoModal.classList.remove('active')
+  //   createTodoForm.todoTitle.value = ''
+  //   createTodoForm.todoDescription.value = ''
+  //   for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
+  //     createTodoForm.todoStatuses[i].checked = false
+  //   }
+  //   loadTodos(authenticatedUser, tableRef)
+  //   todosTitleArray = document.querySelectorAll('td a')
+  //   for (let i = 0; i < todosTitleArray.length; i++) {
+  //     todosTitleArray[i].addEventListener('click', e => {
+  //       e.preventDefault()
+  //       const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
+  //       handleUpdateTodo(updateTodoForm, allTodos, editingTodo)
+  //     })
+  //   }
+  // })
 
-  closeCreateTodoModalButton.addEventListener('click', function () {
-    createTodoModal.classList.remove('active')
-    createTodoForm.todoTitle.value = ''
-    createTodoForm.todoDescription.value = ''
-    for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
-      createTodoForm.todoStatuses[i].checked = false
-    }
-  })
+  // closeCreateTodoModalButton.addEventListener('click', function () {
+  //   createTodoModal.classList.remove('active')
+  //   createTodoForm.todoTitle.value = ''
+  //   createTodoForm.todoDescription.value = ''
+  //   for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
+  //     createTodoForm.todoStatuses[i].checked = false
+  //   }
+  // })
 
-  closeUpdateTodoModalButton.addEventListener('click', function () {
-    updateTodoModal.classList.remove('active')
-    updateTodoForm.todoTitle.value = ''
-    updateTodoForm.todoDescription.value = ''
-    for (let i = 0; i < updateTodoForm.todoStatuses.length; i++) {
-      updateTodoForm.todoStatuses[i].checked = false
-    }
-  })
+  // closeUpdateTodoModalButton.addEventListener('click', function () {
+  //   updateTodoModal.classList.remove('active')
+  //   updateTodoForm.todoTitle.value = ''
+  //   updateTodoForm.todoDescription.value = ''
+  //   for (let i = 0; i < updateTodoForm.todoStatuses.length; i++) {
+  //     updateTodoForm.todoStatuses[i].checked = false
+  //   }
+  // })
   // loadTodos(authenticatedUser, tableRef)
   console.log(allTodos)
-}
-
-function handleCreateUser({ userName, userEmail, userPassword }) {
-  let users = []
-  users = JSON.parse(sessionStorage.getItem('users'))
-
-  if (!users) {
-    const user = {
-      id: 1,
-      userName: userName.value,
-      userEmail: userEmail.value,
-      userPassword: userPassword.value
-    }
-
-    users = new Array(user)
-
-    sessionStorage.setItem('users', JSON.stringify(users))
-
-    const authenticatedUser = user
-    sessionStorage.setItem(
-      'authenticatedUser',
-      JSON.stringify(authenticatedUser)
-    )
-    loadPage('dashboard')
-  } else {
-    if (users.find(user => user.userEmail === userEmail.value)) {
-      alert('Esse email já está registrado')
-    } else {
-      const user = {
-        id: users.length + 1,
-        userName: userName.value,
-        userEmail: userEmail.value,
-        userPassword: userPassword.value
-      }
-      users.push(user)
-      sessionStorage.setItem('users', JSON.stringify(users))
-      const authenticatedUser = user
-      sessionStorage.setItem(
-        'authenticatedUser',
-        JSON.stringify(authenticatedUser)
-      )
-      loadPage('dashboard')
-    }
-  }
-}
-
-function handleLoginUser({ userEmail, userPassword }) {
-  let users = []
-  users = JSON.parse(sessionStorage.getItem('users'))
-  const foundUser = users.find(user => user.userEmail === userEmail.value)
-
-  if (foundUser) {
-    if (foundUser.userPassword === userPassword.value) {
-      const authenticatedUser = foundUser
-      sessionStorage.setItem(
-        'authenticatedUser',
-        JSON.stringify(authenticatedUser)
-      )
-      alert('Login')
-      loadPage('dashboard')
-    } else {
-      alert('A senha informada está incorreta')
-    }
-  } else {
-    alert('Não foi encontrado um usuário com o e-mail fornecido')
-  }
 }
 
 function handleCreateTodo(
@@ -308,15 +170,105 @@ function handleUpdateTodo(
   allTodos,
   editingTodo
 ) {
-  todoTitle.value = editingTodo.title
-  todoDescription.value = editingTodo.description
-  for (let i = 0; i < todoStatuses.length; i++) {
-    if (todoStatuses[i].value == editingTodo.status) {
-      todoStatuses[i].checked = true
-    }
-  }
+  // todoTitle.value = editingTodo.title
+  // todoDescription.value = editingTodo.description
+  // for (let i = 0; i < todoStatuses.length; i++) {
+  //   if (todoStatuses[i].value == editingTodo.status) {
+  //     todoStatuses[i].checked = true
+  //   }
+  // }
   // console.log(allTodos.findIndex(todo => todo.id === editingTodo.id))
   //   const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
+}
+
+class EventSetter {
+  static setSignUpEvents() {
+    // Evento Submeter Criação de usuário
+    document.getElementById('signUpForm').addEventListener('submit', event => {
+      event.preventDefault()
+
+      const userName = document.getElementById('userNameInput').value
+      const userEmail = document.getElementById('userEmailInput').value
+      const userPassword = document.getElementById('userPasswordInput').value
+      console.log(userName, userEmail)
+      const authenticatedUser = Store.createUser(
+        userName,
+        userEmail,
+        userPassword
+      )
+      if (authenticatedUser) {
+        console.log(authenticatedUser)
+      }
+    })
+
+    // Evento Navegar para LogIn
+    document
+      .getElementById('logInPageLink')
+      .addEventListener('click', event => {
+        event.preventDefault()
+        UI.loadPage('signIn')
+      })
+  }
+
+  static setSignInEvents() {
+    // Evento efetuar LogIn
+    document.getElementById('signInForm').addEventListener('submit', event => {
+      event.preventDefault()
+
+      const userEmail = document.getElementById('userEmailInput').value
+      const userPassword = document.getElementById('userPasswordInput').value
+      const authenticatedUser = Store.logInUser(userEmail, userPassword)
+      if (authenticatedUser) {
+        console.log(authenticatedUser)
+      }
+    })
+
+    // Evento Navegar para Criação de Usuário
+
+    document
+      .getElementById('signUpPageLink')
+      .addEventListener('click', event => {
+        event.preventDefault()
+        UI.loadPage('signUp')
+      })
+  }
+
+  static setDashBoardEvents() {
+    // Evento Abrir Modal de Edição
+
+    // Evento Deletar Tarefa
+    // Evento Cancelar Edição
+    document
+      .getElementById('cancelUpdateButton')
+      .addEventListener('click', function () {
+        // Limpar o formulário de Criação (UI)
+        // Fechar Modal (UI)
+      })
+    // Evento Submeter Edição
+    // Evento Abrir Modal de Criação
+    document
+      .getElementById('addTodoButton')
+      .addEventListener('click', event => {})
+    // Evento Submeter Criação
+    document
+      .getElementById('createTodoForm')
+      .addEventListener('submit', event => {
+        event.preventDefault()
+        // Criar o Todo (Storage)
+        // Atualizar lista de todos (UI)
+        // Limpar o formulário de Criação (UI)
+        // Fechar o Modal (UI)
+      })
+    // Evento Cancelar Criação
+    document
+      .getElementById('cancelCreateButton')
+      .addEventListener('click', event => {
+        event.preventDefault()
+        //
+        // Limpar o formulário de Criação (UI)
+        // Fechar o Modal (UI)
+      })
+  }
 }
 
 class UI {
@@ -327,15 +279,16 @@ class UI {
     xhr.onload = function () {
       if (this.status === 200) {
         contentContainer.innerHTML = xhr.responseText
+        console.log(`Visitando página:${pageName} `)
+
         switch (pageName) {
           case 'signUp':
-            setupSignUpForm()
+            EventSetter.setSignUpEvents()
             break
           case 'signIn':
-            setupSignInForm()
+            EventSetter.setSignInEvents()
             break
           case 'dashboard':
-            setupDashboard()
         }
       } else {
         console.warn('Error loading page content')
@@ -345,7 +298,59 @@ class UI {
     xhr.send()
   }
 
-  static displayTodos() {}
+  static displayTodos() {
+    Store.loadUserTodos()
+
+    const todosTable = document
+      .getElementById('todosTable')
+      .getElementsByTagName('tbody')[0]
+  }
+
+  static loadUpdateTodoFields() {
+    document.querySelector('#updateTodoForm #todoTitle').value = 0
+    document.querySelector('#updateTodoForm #todoDescription').value = 0
+    document.getElementsByName('updateTodoStatus').value = 0
+
+    for (let i = 0; i < todoStatuses.length; i++) {
+      if (todoStatuses[i].value == editingTodo.status) {
+        todoStatuses[i].checked = true
+      }
+    }
+  }
+
+  static clearUpdateTodoFields() {}
+
+  static openCreateTodoModal() {
+    document.getElementById('createTodoModalContainer').classList.add('active')
+  }
+
+  static closeCreateTodoModal() {
+    document
+      .getElementById('createTodoModalContainer')
+      .classList.remove('active')
+    document.querySelector('#createTodoForm #todoTitle').value = ''
+    document.querySelector('#createTodoForm #todoDescription').value = ''
+    const todoStatuses = document.getElementsByName('createTodoStatus')
+    for (let i = 0; i < todoStatuses.length; i++) {
+      todoStatuses[i].checked = false
+    }
+  }
+
+  static openUpdateTodoModal() {
+    document.getElementById('updateTodoModalContainer').classList.add('active')
+  }
+
+  static closeUpdateTodoModal() {
+    document
+      .getElementById('updateTodoModalContainer')
+      .classList.remove('active')
+    document.querySelector('updateTodoForm #todoTitle').value = ''
+    document.querySelector('#updateTodoForm #todoDescription').value = ''
+    const todoStatuses = document.getElementsByName('createTodoStatus')
+    for (let i = 0; i < todoStatuses.length; i++) {
+      todoStatuses[i].checked = false
+    }
+  }
 }
 
 class Todo {
@@ -360,7 +365,12 @@ class Todo {
 }
 
 class User {
-  constructor(name, email) {}
+  constructor(id, name, email, password) {
+    this.id = id
+    this.name = name
+    this.email = email
+    this.password = password
+  }
 }
 
 class Store {
@@ -379,18 +389,59 @@ class Store {
   static createTodo(todo) {}
   static deleteTodo(todoId) {}
   static updateTodo(todoId) {}
-  static createUser() {}
+  static createUser(userName, userEmail, userPassword) {
+    let users
+    let authenticatedUser
+    if (sessionStorage.getItem('users') === null) {
+      users = []
+      const user = new User(1, userName, userEmail, userPassword)
+
+      users.push(user)
+      authenticatedUser = user
+
+      sessionStorage.setItem('users', JSON.stringify(users))
+      sessionStorage.setItem(
+        'authenticatedUser',
+        JSON.stringify(authenticatedUser)
+      )
+
+      return authenticatedUser
+    } else {
+      users = JSON.parse(sessionStorage.getItem('users'))
+      if (users.find(user => user.userEmail === userEmail)) {
+        alert('Esse email já está registrado')
+      } else {
+        const user = new User(
+          users.length + 1,
+          userName,
+          userEmail,
+          userPassword
+        )
+
+        users.push(user)
+        authenticatedUser = user
+
+        sessionStorage.setItem('users', JSON.stringify(users))
+        sessionStorage.setItem(
+          'authenticatedUser',
+          JSON.stringify(authenticatedUser)
+        )
+      }
+    }
+  }
+
   static logInUser(userEmail, userPassword) {
     let users
+    let authenticatedUser
     if (sessionStorage.getItem('users') === null) {
       users = []
     } else {
       users = JSON.parse(sessionStorage.getItem('users'))
     }
-    const foundUser = users.find(user => user.userEmail === userEmail.value)
-    let authenticatedUser
+    const foundUser = users.find(user => user.email === userEmail)
+
     if (foundUser) {
-      if (foundUser.userPassword === userPassword.value) {
+      if (foundUser.password === userPassword) {
         authenticatedUser = foundUser
         sessionStorage.setItem(
           'authenticatedUser',
@@ -408,47 +459,16 @@ class Store {
   }
 
   static logOutUser() {}
+
+  static getAuthenticatedUser() {
+    const authenticatedUser = JSON.parse(
+      sessionStorage.getItem('authenticatedUser')
+    )
+
+    return authenticatedUser
+  }
 }
 
-// Evento Abrir Modal de Edição
-
-// Evento Deletar Tarefa
-
-// Evento Cancelar Edição
-
-// Evento Submeter Edição
-
-// Evento Abrir Modal de Criação
-
-// Evento Submeter Criação
-
-// Evento Cancelar Criação
-
-// Evento Submeter Criação de usuário
-const signUpForm = document
-  .getElementById('signUpForm')
-  .addEventListener('submit', event => {
-    event.preventDefault()
-  })
-
-// Evento Submeter LogIn
-const signInForm = document
-  .getElementById('signInForm')
-  .addEventListener('submit', event => {
-    event.preventDefault()
-    if (Store.logInUser) {
-      UI.loadPage('dashboard')
-    }
-  })
-
-// Evento Navegar para Criação de Usuário
-document.getElementById('signUpPageLink').addEventListener('click', event => {
-  event.preventDefault()
+document.addEventListener('DOMContentLoaded', () => {
   UI.loadPage('signUp')
-})
-
-// Evento Navegar para LogIn
-document.getElementById('logInPageLink').addEventListener('click', event => {
-  event.preventDefault()
-  UI.loadPage('signIn')
 })
