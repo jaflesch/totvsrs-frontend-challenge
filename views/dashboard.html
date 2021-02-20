@@ -46,3 +46,30 @@
     </div>
   </div>
 </div>
+<div id="updateTodoModalContainer" >
+  <div id="updateTodoModal">
+    <div id="updateTodoFields">
+      <h2>Atualizar tarefa</h2>
+      <form action="submit" id="updateTodoForm">
+        <label for="todoTitle" id="todoTitleLabel">Título</label>
+        <input type="text" id="todoTitle" required>
+        <label for="todoDescription" id="todoDescriptionLabel">Descrição</label>
+        <textarea name="todoDescription" id="todoDescription" rows="5" required></textarea>
+        <fieldset required>
+          <legend>Status</legend>
+          <input type="radio" name="updateTodoStatus" id="backlogRadio" value="0" required>
+          <label for="backlogRadio">Backlog</label><br>
+          <input type="radio" name="updateTodoStatus" id="ongoingRadio" value="1">
+          <label for="ongoingRadio">Em andamento</label><br>
+          <input type="radio" name="updateTodoStatus" id="finishedRadio" value="2">
+          <label for="finishedRadio">Finalizado</label>
+        </fieldset>
+      </form>
+    </div>
+    <div id="buttonsContainer">
+      <button id="deleteTodoButton">Excluir</button>
+      <button id="cancelUpdateButton">Cancelar</button>
+      <input type="submit" value="Atualizar" form="updateTodoForm">
+    </div>
+  </div>
+</div>

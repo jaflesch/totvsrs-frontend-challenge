@@ -76,7 +76,8 @@ div#dashboardCard {
   font-size: 14px;
 }
 
-#createTodoModalContainer {
+#createTodoModalContainer,
+#updateTodoModalContainer {
   position:fixed;
   width:100%;
   height:100vh;
@@ -90,13 +91,16 @@ div#dashboardCard {
   opacity: 0;
 }
 
-#createTodoModalContainer.active {
+#createTodoModalContainer.active,
+#updateTodoModalContainer.active {
   visibility: visible;
   opacity: 1;
 }
 
 
-#createTodoModal {
+#createTodoModal,
+#updateTodoModal
+{
   background: #F4F4F4;
   width: 40%;
   height: 60%;
@@ -108,12 +112,16 @@ div#dashboardCard {
   overflow: hidden;
 }
 
-#createTodoFields {
+#createTodoFields,
+#updateTodoFields
+{
   width: 100%;
   padding: 1.5rem;
 }
 
-#createTodoFields h2 {
+#createTodoFields h2,
+#updateTodoFields h2
+{
   font-size: 32px;
   text-align: center;
   margin-bottom: 1rem;
@@ -129,7 +137,8 @@ legend {
 
 }
 
-#createTodoForm input[type="text"]
+#createTodoForm input[type="text"],
+#updateTodoForm input[type="text"]
 {
   width: 100%;
   min-height: 40px;
@@ -138,7 +147,8 @@ legend {
   margin-bottom: 1rem;
 }
 
-#createTodoForm textarea{
+#createTodoForm textarea,
+#updateTodoForm textarea {
   width: 100%;
   min-height: 40px;
   border-radius: 5px;
@@ -148,21 +158,32 @@ legend {
 }
 
 
-#createTodoForm input[type="radio"]{
+#createTodoForm input[type="radio"],
+#updateTodoForm input[type="radio"] {
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-#buttonsContainer {
+#buttonsContainer
+{
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+
   width: 100%;
   height: 10%;
 }
 
+#createTodoModal #buttonsContainer {
+  grid-template-columns: 1fr 1fr;
+}
+#updateTodoModal #buttonsContainer {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 #buttonsContainer input[type="submit"],
-#buttonsContainer button#cancelCreateButton
+#buttonsContainer button#cancelCreateButton,
+#buttonsContainer button#cancelUpdateButton,
+#buttonsContainer button#deleteTodoButton
  {
   color: #fff;
   text-transform: uppercase;
@@ -177,9 +198,13 @@ legend {
 
 }
 
-#buttonsContainer button#cancelCreateButton
- {
+#buttonsContainer button#cancelCreateButton,
+#buttonsContainer button#cancelUpdateButton {
   background: #d9db5e;
+}
+
+#buttonsContainer button#deleteTodoButton {
+  background: #db5e5e;
 
 }
 
