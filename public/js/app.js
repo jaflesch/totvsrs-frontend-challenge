@@ -2,42 +2,42 @@
 
 window.onload = () => {
   loadPage('signIn')
-  const todos = [
-    {
-      id: 42347210,
-      userId: 1,
-      title: 'Teste 01',
-      description: 'Lorem ipsum dolor sit amet, consectetur adip',
-      date: new Date(),
-      status: 1
-    },
-    {
-      id: 42347210,
-      userId: 2,
-      title: 'Teste 02',
-      description: 'Lorem ipsum dolor sit amet, consectetur adip',
-      date: new Date(),
-      status: 1
-    },
-    {
-      id: 42347210,
-      userId: 1,
-      title: 'Teste 03',
-      description: 'Lorem ipsum dolor sit amet, consectetur adip',
-      date: new Date(),
-      status: 1
-    },
-    {
-      id: 42347210,
-      userId: 1,
-      title: 'Teste 03',
-      description: 'Lorem ipsum dolor sit amet, consectetur adip',
-      date: new Date(),
-      status: 0
-    }
-  ]
+  // const todos = [
+  //   {
+  //     id: Math.random().toString().substr(2, 8),
+  //     userId: 1,
+  //     title: 'Teste 01',
+  //     description: 'Lorem ipsum dolor sit amet, consectetur adip',
+  //     date: new Date(),
+  //     status: 1
+  //   },
+  //   {
+  //     id: Math.random().toString().substr(2, 8),
+  //     userId: 2,
+  //     title: 'Teste 02',
+  //     description: 'Lorem ipsum dolor sit amet, consectetur adip',
+  //     date: new Date(),
+  //     status: 1
+  //   },
+  //   {
+  //     id: Math.random().toString().substr(2, 8),
+  //     userId: 1,
+  //     title: 'Teste 03',
+  //     description: 'Lorem ipsum dolor sit amet, consectetur adip',
+  //     date: new Date(),
+  //     status: 1
+  //   },
+  //   {
+  //     id: Math.random().toString().substr(2, 8),
+  //     userId: 1,
+  //     title: 'Teste 04',
+  //     description: 'Lorem ipsum dolor sit amet, consectetur adip',
+  //     date: new Date(),
+  //     status: 0
+  //   }
+  // ]
 
-  sessionStorage.setItem('todos', JSON.stringify(todos))
+  // sessionStorage.setItem('todos', JSON.stringify(todos))
 }
 
 function loadPage(pageName) {
@@ -117,10 +117,46 @@ function setupDashboard() {
     .getElementById('todosTable')
     .getElementsByTagName('tbody')[0]
 
-  const addTodoButton = document.getElementById('addTodoButton')
-  addTodoButton.addEventListener('click', handleCreateTodoModal)
+  const todoModal = document.getElementById('createTodoModalContainer')
+  const closeModalButton = document.getElementById('cancelCreateButton')
 
-  loadTodos(authenticatedUser, tableRef)
+  const { userTodos, allTodos } = loadTodos(authenticatedUser, tableRef)
+
+  const createTodoForm = {
+    form: document.getElementById('createTodoForm'),
+    todoTitle: document.querySelector('#createTodoForm #todoTitle'),
+    todoDescription: document.querySelector('#createTodoForm #todoDescription'),
+    todoStatuses: document.getElementsByName('createTodoStatus')
+  }
+
+  const addTodoButton = document.getElementById('addTodoButton')
+  addTodoButton.addEventListener('click', function openModal() {
+    todoModal.classList.add('active')
+  })
+
+  createTodoForm.form.addEventListener('submit', event => {
+    event.preventDefault()
+    handleCreateTodo(createTodoForm, authenticatedUser, allTodos)
+    todoModal.classList.remove('active')
+    createTodoForm.todoTitle.value = ''
+    createTodoForm.todoDescription.value = ''
+    for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
+      createTodoForm.todoStatuses[i].checked = false
+    }
+    loadTodos(authenticatedUser, tableRef)
+  })
+
+  closeModalButton.addEventListener('click', function () {
+    todoModal.classList.remove('active')
+    createTodoForm.todoTitle.value = ''
+    createTodoForm.todoDescription.value = ''
+    for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
+      createTodoForm.todoStatuses[i].checked = false
+    }
+  })
+
+  // loadTodos(authenticatedUser, tableRef)
+  console.log(allTodos)
 }
 
 function handleCreateUser({ userName, userEmail, userPassword }) {
@@ -189,7 +225,32 @@ function handleLoginUser({ userEmail, userPassword }) {
   }
 }
 
-function handleCreateTodo({ todoTitle, todoStatuses }) {}
+function handleCreateTodo(
+  { todoTitle, todoDescription, todoStatuses },
+  authenticatedUser,
+  allTodos
+) {
+  let todoStatusParsed
+  for (let i = 0; i < todoStatuses.length; i++) {
+    if (todoStatuses[i].checked) {
+      todoStatusParsed = parseInt(todoStatuses[i].value)
+    }
+  }
+
+  const createdTodo = {
+    id: parseInt(Math.random().toString().substr(2, 8)),
+    userId: authenticatedUser.id,
+    title: todoTitle.value,
+    description: todoDescription.value,
+    date: new Date(),
+    status: todoStatusParsed
+  }
+
+  allTodos.push(createdTodo)
+
+  sessionStorage.setItem('todos', JSON.stringify(allTodos))
+  console.log(allTodos)
+}
 
 function loadTodos(authenticatedUser, table) {
   let todos = []
@@ -225,31 +286,13 @@ function loadTodos(authenticatedUser, table) {
     for (let i = 0; i < todosTitleArray.length; i++) {
       todosTitleArray[i].addEventListener('click', e => {
         e.preventDefault()
-        console.log(e.currentTarget.id)
+        console.log(todos.find(todo => todo.id == e.currentTarget.id))
       })
     }
   }
 
-  console.log(userTodos)
-}
-
-function handleCreateTodoModal() {
-  const todoModal = document.getElementById('createTodoModalContainer')
-  const closeModalButton = document.getElementById('cancelCreateButton')
-  todoModal.classList.add('active')
-
-  const createTodoForm = {
-    form: document.getElementById('createTodoForm'),
-    todoTitle: document.querySelector('#createTodoForm #todoTitle'),
-    todoStatuses: document.getElementsByName('createTodoStatus')
+  return {
+    userTodos,
+    allTodos: todos
   }
-
-  createTodoForm.form.addEventListener('submit', event => {
-    event.preventDefault()
-    handleCreateTodo(createTodoForm)
-  })
-
-  closeModalButton.addEventListener('click', function () {
-    todoModal.classList.remove('active')
-  })
 }

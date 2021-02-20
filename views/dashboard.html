@@ -26,10 +26,12 @@
       <h2>Criar nova tarefa</h2>
       <form action="submit" id="createTodoForm">
         <label for="todoTitle" id="todoTitleLabel">Título</label>
-        <input type="text" id="todoTitle">
-        <fieldset>
+        <input type="text" id="todoTitle" required>
+        <label for="todoDescription" id="todoDescriptionLabel">Descrição</label>
+        <textarea name="todoDescription" id="todoDescription" rows="5" required></textarea>
+        <fieldset required>
           <legend>Status</legend>
-          <input type="radio" name="createTodoStatus" id="backlogRadio" value="0">
+          <input type="radio" name="createTodoStatus" id="backlogRadio" value="0" required>
           <label for="backlogRadio">Backlog</label><br>
           <input type="radio" name="createTodoStatus" id="ongoingRadio" value="1">
           <label for="ongoingRadio">Em andamento</label><br>
