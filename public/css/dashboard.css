@@ -76,6 +76,45 @@ div#dashboardCard {
   font-size: 14px;
 }
 
+@media only screen and (max-width: 768px) {
+  div#dashboardCard{
+    padding:5%;
+    margin-top: 5%
+  }
+
+  #todosTable thead{
+    display: none;
+  }
+
+  #todosTable, #todosTable tbody, #todosTable tr, #todosTable td {
+    display:block;
+    width: 100%;
+  }
+
+  #todosTable tr {
+    margin-bottom: 15px;
+  }
+
+  #todosTable td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative
+  }
+
+  #todosTable td::before{
+    content:attr(data-label);
+    position:absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left ;
+  }
+}
+
+/* Modal */
+
 #createTodoModalContainer,
 #updateTodoModalContainer {
   position:fixed;
@@ -89,12 +128,15 @@ div#dashboardCard {
   align-items: center;
   visibility: hidden;
   opacity: 0;
+  transition: all 0.2s;
 }
 
 #createTodoModalContainer.active,
 #updateTodoModalContainer.active {
   visibility: visible;
   opacity: 1;
+  transition: all 0.2s;
+
 }
 
 
@@ -206,6 +248,25 @@ legend {
 #buttonsContainer button#deleteTodoButton {
   background: #db5e5e;
 
+}
+
+@media only screen and (max-width: 768px) {
+  #createTodoModal,
+  #updateTodoModal
+  {
+    width: 90%;
+    height: 80%;
+
+  }
+  #buttonsContainer input[type="submit"],
+  #buttonsContainer button#cancelCreateButton,
+  #buttonsContainer button#cancelUpdateButton,
+  #buttonsContainer button#deleteTodoButton
+  {
+
+    font-size: 18px;
+
+  }
 }
 
 

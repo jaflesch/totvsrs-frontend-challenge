@@ -4,7 +4,13 @@ class Todo {
     this.userId = userId
     this.title = title
     this.description = description
-    this.date = new Date()
+    this.date = new Date().toLocaleString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    })
     this.status = status
   }
 }
@@ -35,6 +41,7 @@ class EventSetter {
       )
       if (authenticatedUser) {
         UI.loadPage('dashboard')
+        UI.showLogOutButton()
       }
     })
 
@@ -58,6 +65,7 @@ class EventSetter {
       if (authenticatedUser) {
         console.log(authenticatedUser)
         UI.loadPage('dashboard')
+        UI.showLogOutButton()
       }
     })
 
@@ -211,10 +219,10 @@ class UI {
       }
 
       const todoRow = `<tr>
-                          <td>${userTodos[i].id}</td>
-                          <td><a href="" id="${userTodos[i].id}">${userTodos[i].title}</a></td>
-                          <td>${userTodos[i].date}</td>
-                          <td>${parsedStatus}</td>
+                          <td data-label="ID">${userTodos[i].id}</td>
+                          <td data-label="Título"><a href="" id="${userTodos[i].id}">${userTodos[i].title}</a></td>
+                          <td data-label="Data">${userTodos[i].date}</td>
+                          <td data-label="Status">${parsedStatus}</td>
                         </tr>`
       todosTable.innerHTML += todoRow
     }
@@ -266,6 +274,14 @@ class UI {
     for (let i = 0; i < todoStatuses.length; i++) {
       todoStatuses[i].checked = false
     }
+  }
+
+  static showLogOutButton() {
+    document.getElementById('logOutButton').classList.add('active')
+  }
+
+  static hideLogOutButton() {
+    document.getElementById('logOutButton').classList.remove('active')
   }
 }
 
@@ -405,7 +421,11 @@ class Store {
     return authenticatedUser
   }
 
-  static logOutUser() {}
+  static logOutUser() {
+    sessionStorage.removeItem('authenticatedUser')
+    UI.loadPage('signIn')
+    UI.hideLogOutButton()
+  }
 
   static getAuthenticatedUser() {
     const authenticatedUser = JSON.parse(
@@ -432,4 +452,9 @@ class Store {
 
 document.addEventListener('DOMContentLoaded', () => {
   UI.loadPage('signIn')
+})
+
+document.getElementById('logOutButton').addEventListener('click', event => {
+  event.preventDefault()
+  Store.logOutUser()
 })
