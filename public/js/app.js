@@ -1,3 +1,23 @@
+class Todo {
+  constructor(userId, title, description, status) {
+    this.id = parseInt(Math.random().toString().substr(2, 8))
+    this.userId = userId
+    this.title = title
+    this.description = description
+    this.date = new Date()
+    this.status = status
+  }
+}
+
+class User {
+  constructor(id, name, email, password) {
+    this.id = id
+    this.name = name
+    this.email = email
+    this.password = password
+  }
+}
+
 class EventSetter {
   static setSignUpEvents() {
     // Evento Submeter Criação de usuário
@@ -52,16 +72,32 @@ class EventSetter {
   }
 
   static setDashBoardEvents() {
-    // Evento Abrir Modal de Edição
-
     // Evento Deletar Tarefa
     // Evento Cancelar Edição
     document
       .getElementById('cancelUpdateButton')
       .addEventListener('click', function () {
+        Store.clearEditingTodo()
         UI.closeUpdateTodoModal()
       })
     // Evento Submeter Edição
+    document
+      .getElementById('updateTodoForm')
+      .addEventListener('submit', event => {
+        event.preventDefault()
+        const editingTodo = Store.getEditingTodo()
+        const todoTitle = document.querySelector('#updateTodoForm #todoTitle')
+          .value
+        const todoDescription = document.querySelector(
+          '#updateTodoForm #todoDescription'
+        ).value
+
+        const todoStatuses = document.getElementsByName('updateTodoStatus')
+
+        Store.updateTodo(editingTodo, todoTitle, todoDescription, todoStatuses)
+        UI.closeUpdateTodoModal()
+        UI.displayTodos()
+      })
     // Evento Abrir Modal de Criação
     document
       .getElementById('addTodoButton')
@@ -95,6 +131,8 @@ class EventSetter {
   }
 
   static setClickableTitles() {
+    // Evento abrir modal de edição
+
     const todosTitleArray = document.querySelectorAll('td a')
     for (let i = 0; i < todosTitleArray.length; i++) {
       todosTitleArray[i].addEventListener('click', event => {
@@ -102,6 +140,8 @@ class EventSetter {
         const editingTodo = Store.loadTodos().find(
           todo => todo.id == event.currentTarget.id
         )
+        console.log(Store.loadTodos())
+        Store.setEditingTodo(editingTodo)
         UI.loadUpdateTodoFields(editingTodo)
         UI.openUpdateTodoModal()
       })
@@ -211,32 +251,12 @@ class UI {
     document
       .getElementById('updateTodoModalContainer')
       .classList.remove('active')
-    document.querySelector('updateTodoForm #todoTitle').value = ''
+    document.querySelector('#updateTodoForm #todoTitle').value = ''
     document.querySelector('#updateTodoForm #todoDescription').value = ''
     const todoStatuses = document.getElementsByName('createTodoStatus')
     for (let i = 0; i < todoStatuses.length; i++) {
       todoStatuses[i].checked = false
     }
-  }
-}
-
-class Todo {
-  constructor(userId, title, description, status) {
-    this.id = parseInt(Math.random().toString().substr(2, 8))
-    this.userId = userId
-    this.title = title
-    this.description = description
-    this.date = new Date()
-    this.status = status
-  }
-}
-
-class User {
-  constructor(id, name, email, password) {
-    this.id = id
-    this.name = name
-    this.email = email
-    this.password = password
   }
 }
 
@@ -253,7 +273,7 @@ class Store {
 
   static loadUserTodos() {
     const authenticatedUser = Store.getAuthenticatedUser()
-    const todos = this.loadTodos()
+    const todos = Store.loadTodos()
     const userTodos = todos.filter(todo => todo.userId === authenticatedUser.id)
     return userTodos
   }
@@ -281,8 +301,32 @@ class Store {
     console.log(todos)
   }
 
-  static deleteTodo(todoId) {}
-  static updateTodo(todoId) {}
+  static deleteTodo(deletingTodo) {
+    const todos = Store.loadTodos()
+
+    const deleteTodoIndex = todos.findIndex(todo => todo.id == deletingTodo.id)
+
+    todos.splice(deleteTodoIndex, 1)
+    console.log(todos)
+  }
+
+  static updateTodo(editingTodo, newTitle, newDescription, newStatuses) {
+    const todos = Store.loadTodos()
+
+    let todoStatusParsed
+    for (let i = 0; i < newStatuses.length; i++) {
+      if (newStatuses[i].checked) {
+        todoStatusParsed = parseInt(newStatuses[i].value)
+      }
+    }
+    const editingTodoIndex = todos.findIndex(todo => todo.id == editingTodo.id)
+    editingTodo.title = newTitle
+    editingTodo.description = newDescription
+    editingTodo.status = todoStatusParsed
+    todos[editingTodoIndex] = editingTodo
+    sessionStorage.setItem('todos', JSON.stringify(todos))
+  }
+
   static createUser(userName, userEmail, userPassword) {
     let users
     let authenticatedUser
@@ -360,6 +404,20 @@ class Store {
     )
 
     return authenticatedUser
+  }
+
+  static setEditingTodo(todo) {
+    const editingTodo = todo
+    sessionStorage.setItem('editingTodo', JSON.stringify(editingTodo))
+  }
+
+  static getEditingTodo() {
+    const editingTodo = JSON.parse(sessionStorage.getItem('editingTodo'))
+    return editingTodo
+  }
+
+  static clearEditingTodo() {
+    sessionStorage.removeItem('editingTodo')
   }
 }
 
