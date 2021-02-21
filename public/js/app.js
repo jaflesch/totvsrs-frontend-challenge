@@ -410,7 +410,6 @@ class Store {
           'authenticatedUser',
           JSON.stringify(authenticatedUser)
         )
-        alert('Login')
       } else {
         alert('A senha informada está incorreta')
       }
