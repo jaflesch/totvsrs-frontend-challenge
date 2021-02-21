@@ -1,186 +1,3 @@
-function setupDashboard() {
-  // console.log('Visitando dashboard')
-
-  // const authenticatedUser = JSON.parse(
-  //   sessionStorage.getItem('authenticatedUser')
-  // )
-
-  // const tableRef = document
-  //   .getElementById('todosTable')
-  //   .getElementsByTagName('tbody')[0]
-
-  // const createTodoModal = document.getElementById('createTodoModalContainer')
-  // const closeCreateTodoModalButton = document.getElementById(
-  //   'cancelCreateButton'
-  // )
-
-  // const updateTodoModal = document.getElementById('updateTodoModalContainer')
-  // const closeUpdateTodoModalButton = document.getElementById(
-  //   'cancelUpdateButton'
-  // )
-
-  // const
-
-  // const { userTodos, allTodos } = loadTodos(authenticatedUser, tableRef)
-
-  const todosTitleArray = document.querySelectorAll('td a')
-  for (let i = 0; i < todosTitleArray.length; i++) {
-    todosTitleArray[i].addEventListener('click', e => {
-      e.preventDefault()
-      updateTodoModal.classList.add('active')
-      const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
-      handleUpdateTodo(updateTodoForm, allTodos, editingTodo)
-    })
-  }
-  const createTodoForm = {
-    form: document.getElementById('createTodoForm'),
-    todoTitle: document.querySelector('#createTodoForm #todoTitle'),
-    todoDescription: document.querySelector('#createTodoForm #todoDescription'),
-    todoStatuses: document.getElementsByName('createTodoStatus')
-  }
-
-  // const updateTodoForm = {
-  //   form: document.getElementById('updateTodoForm'),
-  //   todoTitle: document.querySelector('#updateTodoForm #todoTitle'),
-  //   todoDescription: document.querySelector('#updateTodoForm #todoDescription'),
-  //   todoStatuses: document.getElementsByName('updateTodoStatus')
-  // }
-
-  // const addTodoButton = document.getElementById('addTodoButton')
-  // addTodoButton.addEventListener('click', function openModal() {
-  //   createTodoModal.classList.add('active')
-  // })
-
-  // createTodoForm.form.addEventListener('submit', event => {
-  //   event.preventDefault()
-  //   handleCreateTodo(createTodoForm, authenticatedUser, allTodos)
-  //   createTodoModal.classList.remove('active')
-  //   createTodoForm.todoTitle.value = ''
-  //   createTodoForm.todoDescription.value = ''
-  //   for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
-  //     createTodoForm.todoStatuses[i].checked = false
-  //   }
-  //   loadTodos(authenticatedUser, tableRef)
-  //   todosTitleArray = document.querySelectorAll('td a')
-  //   for (let i = 0; i < todosTitleArray.length; i++) {
-  //     todosTitleArray[i].addEventListener('click', e => {
-  //       e.preventDefault()
-  //       const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
-  //       handleUpdateTodo(updateTodoForm, allTodos, editingTodo)
-  //     })
-  //   }
-  // })
-
-  // closeCreateTodoModalButton.addEventListener('click', function () {
-  //   createTodoModal.classList.remove('active')
-  //   createTodoForm.todoTitle.value = ''
-  //   createTodoForm.todoDescription.value = ''
-  //   for (let i = 0; i < createTodoForm.todoStatuses.length; i++) {
-  //     createTodoForm.todoStatuses[i].checked = false
-  //   }
-  // })
-
-  // closeUpdateTodoModalButton.addEventListener('click', function () {
-  //   updateTodoModal.classList.remove('active')
-  //   updateTodoForm.todoTitle.value = ''
-  //   updateTodoForm.todoDescription.value = ''
-  //   for (let i = 0; i < updateTodoForm.todoStatuses.length; i++) {
-  //     updateTodoForm.todoStatuses[i].checked = false
-  //   }
-  // })
-  // loadTodos(authenticatedUser, tableRef)
-  console.log(allTodos)
-}
-
-function handleCreateTodo(
-  { todoTitle, todoDescription, todoStatuses },
-  authenticatedUser,
-  allTodos
-) {
-  let todoStatusParsed
-  for (let i = 0; i < todoStatuses.length; i++) {
-    if (todoStatuses[i].checked) {
-      todoStatusParsed = parseInt(todoStatuses[i].value)
-    }
-  }
-
-  const createdTodo = {
-    id: parseInt(Math.random().toString().substr(2, 8)),
-    userId: authenticatedUser.id,
-    title: todoTitle.value,
-    description: todoDescription.value,
-    date: new Date(),
-    status: todoStatusParsed
-  }
-
-  allTodos.push(createdTodo)
-
-  sessionStorage.setItem('todos', JSON.stringify(allTodos))
-  console.log(allTodos)
-}
-
-function loadTodos(authenticatedUser, table) {
-  let todos = JSON.parse(sessionStorage.getItem('todos'))
-  let userTodos = []
-  table.innerHTML = ''
-
-  if (todos) {
-    userTodos = todos.filter(todo => todo.userId === authenticatedUser.id)
-    for (let i = 0; i < userTodos.length; i++) {
-      let parsedStatus
-      switch (userTodos[i].status) {
-        case 0:
-          parsedStatus = 'Backlog'
-          break
-        case 1:
-          parsedStatus = 'Em andamento'
-          break
-        case 2:
-          parsedStatus = 'Finalizado'
-          break
-      }
-
-      const todoRow = `<tr>
-                        <td>${userTodos[i].id}</td>
-                        <td><a href="" id="${userTodos[i].id}">${userTodos[i].title}</a></td>
-                        <td>${userTodos[i].date}</td>
-                        <td>${parsedStatus}</td>
-                      </tr>`
-      table.innerHTML += todoRow
-    }
-    // const todosTitleArray = document.querySelectorAll('td a')
-    // for (let i = 0; i < todosTitleArray.length; i++) {
-    //   todosTitleArray[i].addEventListener('click', e => {
-    //     e.preventDefault()
-    //     console.log(todos.find(todo => todo.id == e.currentTarget.id))
-    //   })
-    // }
-  } else {
-    todos = []
-  }
-
-  return {
-    userTodos,
-    allTodos: todos
-  }
-}
-
-function handleUpdateTodo(
-  { todoTitle, todoDescription, todoStatuses },
-  allTodos,
-  editingTodo
-) {
-  // todoTitle.value = editingTodo.title
-  // todoDescription.value = editingTodo.description
-  // for (let i = 0; i < todoStatuses.length; i++) {
-  //   if (todoStatuses[i].value == editingTodo.status) {
-  //     todoStatuses[i].checked = true
-  //   }
-  // }
-  // console.log(allTodos.findIndex(todo => todo.id === editingTodo.id))
-  //   const editingTodo = allTodos.find(todo => todo.id == e.currentTarget.id)
-}
-
 class EventSetter {
   static setSignUpEvents() {
     // Evento Submeter Criação de usuário
@@ -197,7 +14,7 @@ class EventSetter {
         userPassword
       )
       if (authenticatedUser) {
-        console.log(authenticatedUser)
+        UI.loadPage('dashboard')
       }
     })
 
@@ -220,6 +37,7 @@ class EventSetter {
       const authenticatedUser = Store.logInUser(userEmail, userPassword)
       if (authenticatedUser) {
         console.log(authenticatedUser)
+        UI.loadPage('dashboard')
       }
     })
 
@@ -241,33 +59,53 @@ class EventSetter {
     document
       .getElementById('cancelUpdateButton')
       .addEventListener('click', function () {
-        // Limpar o formulário de Criação (UI)
-        // Fechar Modal (UI)
+        UI.closeUpdateTodoModal()
       })
     // Evento Submeter Edição
     // Evento Abrir Modal de Criação
     document
       .getElementById('addTodoButton')
-      .addEventListener('click', event => {})
+      .addEventListener('click', event => {
+        UI.openCreateTodoModal()
+      })
     // Evento Submeter Criação
     document
       .getElementById('createTodoForm')
       .addEventListener('submit', event => {
         event.preventDefault()
-        // Criar o Todo (Storage)
-        // Atualizar lista de todos (UI)
-        // Limpar o formulário de Criação (UI)
-        // Fechar o Modal (UI)
+        const todoTitle = document.querySelector('#createTodoForm #todoTitle')
+          .value
+        const todoDescription = document.querySelector(
+          '#createTodoForm #todoDescription'
+        ).value
+
+        const todoStatuses = document.getElementsByName('createTodoStatus')
+
+        Store.createTodo(todoTitle, todoDescription, todoStatuses)
+        UI.displayTodos()
+        UI.closeCreateTodoModal()
       })
     // Evento Cancelar Criação
     document
       .getElementById('cancelCreateButton')
       .addEventListener('click', event => {
         event.preventDefault()
-        //
-        // Limpar o formulário de Criação (UI)
-        // Fechar o Modal (UI)
+        UI.closeCreateTodoModal()
       })
+  }
+
+  static setClickableTitles() {
+    const todosTitleArray = document.querySelectorAll('td a')
+    for (let i = 0; i < todosTitleArray.length; i++) {
+      todosTitleArray[i].addEventListener('click', event => {
+        event.preventDefault()
+        const editingTodo = Store.loadTodos().find(
+          todo => todo.id == event.currentTarget.id
+        )
+        UI.loadUpdateTodoFields(editingTodo)
+        UI.openUpdateTodoModal()
+      })
+    }
   }
 }
 
@@ -289,6 +127,9 @@ class UI {
             EventSetter.setSignInEvents()
             break
           case 'dashboard':
+            EventSetter.setDashBoardEvents()
+            UI.displayTodos()
+            break
         }
       } else {
         console.warn('Error loading page content')
@@ -299,26 +140,52 @@ class UI {
   }
 
   static displayTodos() {
-    Store.loadUserTodos()
+    const userTodos = Store.loadUserTodos()
 
     const todosTable = document
       .getElementById('todosTable')
       .getElementsByTagName('tbody')[0]
+
+    todosTable.innerHTML = ''
+    for (let i = 0; i < userTodos.length; i++) {
+      let parsedStatus
+      switch (userTodos[i].status) {
+        case 0:
+          parsedStatus = 'Backlog'
+          break
+        case 1:
+          parsedStatus = 'Em andamento'
+          break
+        case 2:
+          parsedStatus = 'Finalizado'
+          break
+      }
+
+      const todoRow = `<tr>
+                          <td>${userTodos[i].id}</td>
+                          <td><a href="" id="${userTodos[i].id}">${userTodos[i].title}</a></td>
+                          <td>${userTodos[i].date}</td>
+                          <td>${parsedStatus}</td>
+                        </tr>`
+      todosTable.innerHTML += todoRow
+    }
+
+    EventSetter.setClickableTitles()
   }
 
-  static loadUpdateTodoFields() {
-    document.querySelector('#updateTodoForm #todoTitle').value = 0
-    document.querySelector('#updateTodoForm #todoDescription').value = 0
-    document.getElementsByName('updateTodoStatus').value = 0
+  static loadUpdateTodoFields({ title, description, status }) {
+    document.querySelector('#updateTodoForm #todoTitle').value = title
+    document.querySelector(
+      '#updateTodoForm #todoDescription'
+    ).value = description
+    const todoStatuses = document.getElementsByName('updateTodoStatus')
 
     for (let i = 0; i < todoStatuses.length; i++) {
-      if (todoStatuses[i].value == editingTodo.status) {
+      if (todoStatuses[i].value == status) {
         todoStatuses[i].checked = true
       }
     }
   }
-
-  static clearUpdateTodoFields() {}
 
   static openCreateTodoModal() {
     document.getElementById('createTodoModalContainer').classList.add('active')
@@ -384,9 +251,36 @@ class Store {
     return todos
   }
 
-  static loadUserTodos(userId) {}
+  static loadUserTodos() {
+    const authenticatedUser = Store.getAuthenticatedUser()
+    const todos = this.loadTodos()
+    const userTodos = todos.filter(todo => todo.userId === authenticatedUser.id)
+    return userTodos
+  }
 
-  static createTodo(todo) {}
+  static createTodo(title, description, statuses) {
+    const authenticatedUser = Store.getAuthenticatedUser()
+    const todos = Store.loadTodos()
+    let todoStatusParsed
+    for (let i = 0; i < statuses.length; i++) {
+      if (statuses[i].checked) {
+        todoStatusParsed = parseInt(statuses[i].value)
+      }
+    }
+
+    const createdTodo = new Todo(
+      authenticatedUser.id,
+      title,
+      description,
+      todoStatusParsed
+    )
+
+    todos.push(createdTodo)
+
+    sessionStorage.setItem('todos', JSON.stringify(todos))
+    console.log(todos)
+  }
+
   static deleteTodo(todoId) {}
   static updateTodo(todoId) {}
   static createUser(userName, userEmail, userPassword) {
@@ -470,5 +364,5 @@ class Store {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  UI.loadPage('signUp')
+  UI.loadPage('signIn')
 })
