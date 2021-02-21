@@ -73,6 +73,15 @@ class EventSetter {
 
   static setDashBoardEvents() {
     // Evento Deletar Tarefa
+    document
+      .getElementById('deleteTodoButton')
+      .addEventListener('click', event => {
+        event.preventDefault()
+        const deletingTodo = Store.getEditingTodo()
+        Store.deleteTodo(deletingTodo)
+        UI.closeUpdateTodoModal()
+        UI.displayTodos()
+      })
     // Evento Cancelar Edição
     document
       .getElementById('cancelUpdateButton')
@@ -307,7 +316,7 @@ class Store {
     const deleteTodoIndex = todos.findIndex(todo => todo.id == deletingTodo.id)
 
     todos.splice(deleteTodoIndex, 1)
-    console.log(todos)
+    sessionStorage.setItem('todos', JSON.stringify(todos))
   }
 
   static updateTodo(editingTodo, newTitle, newDescription, newStatuses) {
