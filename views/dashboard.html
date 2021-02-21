@@ -1,0 +1,75 @@
+<div id="dashboardContent">
+  <div id="dashboardCard">
+    <div id="addTodoButtonContainer">
+      <button id="addTodoButton">Nova Tarefa</button>
+    </div>
+    <div id="todosTableContainer">
+      <table id="todosTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Data</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div id="createTodoModalContainer">
+  <div id="createTodoModal">
+    <div id="createTodoFields">
+      <h2>Criar nova tarefa</h2>
+      <form action="submit" id="createTodoForm">
+        <label for="todoTitle" id="todoTitleLabel">Título</label>
+        <input type="text" id="todoTitle" required>
+        <label for="todoDescription" id="todoDescriptionLabel">Descrição</label>
+        <textarea name="todoDescription" id="todoDescription" rows="5" required></textarea>
+        <fieldset required>
+          <legend>Status</legend>
+          <input type="radio" name="createTodoStatus" id="backlogRadio" value="0" required>
+          <label for="backlogRadio">Backlog</label><br>
+          <input type="radio" name="createTodoStatus" id="ongoingRadio" value="1">
+          <label for="ongoingRadio">Em andamento</label><br>
+          <input type="radio" name="createTodoStatus" id="finishedRadio" value="2">
+          <label for="finishedRadio">Finalizado</label>
+        </fieldset>
+      </form>
+    </div>
+    <div id="buttonsContainer">
+      <button id="cancelCreateButton">Cancelar</button>
+      <input type="submit" value="Criar" form="createTodoForm">
+    </div>
+  </div>
+</div>
+<div id="updateTodoModalContainer" >
+  <div id="updateTodoModal">
+    <div id="updateTodoFields">
+      <h2>Atualizar tarefa</h2>
+      <form action="submit" id="updateTodoForm">
+        <label for="todoTitle" id="todoTitleLabel">Título</label>
+        <input type="text" id="todoTitle" required>
+        <label for="todoDescription" id="todoDescriptionLabel">Descrição</label>
+        <textarea name="todoDescription" id="todoDescription" rows="5" required></textarea>
+        <fieldset required>
+          <legend>Status</legend>
+          <input type="radio" name="updateTodoStatus" id="backlogRadio" value="0" required>
+          <label for="backlogRadio">Backlog</label><br>
+          <input type="radio" name="updateTodoStatus" id="ongoingRadio" value="1">
+          <label for="ongoingRadio">Em andamento</label><br>
+          <input type="radio" name="updateTodoStatus" id="finishedRadio" value="2">
+          <label for="finishedRadio">Finalizado</label>
+        </fieldset>
+      </form>
+    </div>
+    <div id="buttonsContainer">
+      <button id="deleteTodoButton">Excluir</button>
+      <button id="cancelUpdateButton">Cancelar</button>
+      <input type="submit" value="Atualizar" form="updateTodoForm">
+    </div>
+  </div>
+</div>

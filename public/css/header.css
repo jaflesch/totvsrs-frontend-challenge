@@ -1,0 +1,32 @@
+header {
+  background: #33A2F3;
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+}
+
+header #logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+header #logoContainer img {
+  margin-right: 0.5rem;
+}
+
+header #logoContainer strong {
+  font-size: 32px;
+  font-weight: 400;
+  color: #FFF;
+}
+
+header a {
+  visibility: hidden;
+}
+
+header a.active {
+  visibility: visible;
+}

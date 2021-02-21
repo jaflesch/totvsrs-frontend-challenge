@@ -1,0 +1,118 @@
+div#signUpContent,
+div#signInContent {
+  background: url(../images/todosapp-signin-bg.jpg) no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div#signUpCard,
+div#signInCard{
+  background: #F4F4F4;
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 500px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+}
+
+div#signUpCard h1,
+div#signInCard h1{
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+p#greetingText {
+  font-size: 18px;
+  font-weight: 400;
+  display: inline-block;
+  max-width: 250px;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-align:center;
+}
+
+form#signUpForm,
+form#signInForm{
+  width: 100%;
+}
+
+
+div.labelContainer {
+  display: flex;
+  font-size: 18px;
+  font-weight: 400;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+}
+
+div.labelContainer img {
+  margin-right: 0.5rem;
+}
+
+form#signUpForm
+input[type="text"],
+input[type="password"],
+input[type="email"]{
+  width: 100%;
+  min-height: 40px;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+form#signUpForm input[type="submit"],
+form#signInForm input[type="submit"]{
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #33A2F3;
+  color: #fff;
+  margin-bottom: 2rem;
+
+
+  transition: all 0.2s;
+
+}
+
+form#signUpForm input[type="submit"]:hover,
+form#signInForm input[type="submit"]:hover {
+  background: #4fb6ff;
+
+}
+
+p#logInText {
+  text-align: center;
+}
+
+p#logInText a {
+  color: #33A2F3;
+  text-decoration: none;
+
+  transition: all 0.2s;
+}
+
+p#logInText a:hover {
+  color: #4fb6ff;
+}
+
+
+@media only screen and (max-width: 768px) {
+  div#signUpCard,
+  div#signInCard{
+  min-width: 100%;
+
+}
+}
